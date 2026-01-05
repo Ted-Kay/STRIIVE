@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STRIIVE is an intelligence-led technology and systems design company delivering diagnostics, predictive analytics, and performance assurance across complex business environments.">
+    <meta name="keywords" content="systems design, predictive intelligence, diagnostics, artificial intelligence, engineering, business intelligence">
+    <meta name="author" content="STRIIVE">
+    <title>STRIIVE | Intelligence, Engineering & Predictive Systems Design</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --red: #CC0000;
+            --gray: #333333;
+            --light-gray: #666666;
+            --golden: 1.618;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.618;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.618rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--red);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: calc(5rem * var(--golden)) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* Background Patterns */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 80%;
+            opacity: 0.08;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            color: var(--red);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 750px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--white);
+            background: transparent;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--red);
+            border-color: var(--red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        /* Visual Icons */
+        .section-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+        }
+
+        /* Problem Space */
+        .problem-space {
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+        }
+
+        .problem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(3rem * var(--golden));
+            margin-top: 3rem;
+        }
+
+        .problem-item {
+            padding: 2rem;
+            border-left: 2px solid var(--red);
+            transition: all 0.3s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateX(10px);
+            border-left-width: 4px;
+        }
+
+        .problem-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--red);
+        }
+
+        /* Differentiation */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .diff-item {
+            position: relative;
+            padding-top: 100px;
+        }
+
+        .diff-item h3 {
+            color: var(--red);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Capabilities */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .capability-card {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .capability-card:hover {
+            border-color: var(--red);
+            transform: translateY(-5px);
+        }
+
+        .capability-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .capability-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .capability-number {
+            color: var(--red);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .capability-visual {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            opacity: 0.3;
+        }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--red);
+            transform: scale(1.02);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            color: var(--red);
+            font-weight: 700;
+            opacity: 0.3;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .process-step h3 {
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Executive Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: calc(3rem * var(--golden));
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-image-container {
+            width: 100%;
+            aspect-ratio: 1 / 1.272;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: calc(1.5rem * var(--golden));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, rgba(204, 0, 0, 0.1) 0%, transparent 70%);
+        }
+
+        .team-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .team-image-container img {
+            filter: grayscale(0%);
+        }
+
+        .team-role {
+            color: var(--red);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .team-bio {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .team-credentials {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: var(--light-gray);
+        }
+
+        /* Services */
+        .service-category {
+            margin-bottom: 5rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .service-category:last-child {
+            border-bottom: none;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .service-category h3 {
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .service-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-list li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        /* Global Statement */
+        .global-statement {
+            text-align: center;
+            padding: calc(6rem * var(--golden)) 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            position: relative;
+        }
+
+        .global-statement h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--red);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--red);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: var(--red);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        .divider {
+            width: calc(60px * var(--golden));
+            height: 2px;
+            background: var(--red);
+            margin: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero-visual {
+                opacity: 0.03;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">STRIIVE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Leadership</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#engage">Engage</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+        <svg class="hero-visual" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="500" height="500" fill="url(#grid)"/>
+            <circle cx="250" cy="250" r="150" fill="none" stroke="rgba(204,0,0,0.3)" stroke-width="2"/>
+            <circle cx="250" cy="250" r="100" fill="none" stroke="rgba(204,0,0,0.2)" stroke-width="2"/>
+            <circle cx="250" cy="250" r="50" fill="none" stroke="rgba(204,0,0,0.1)" stroke-width="2"/>
+        </svg>
+        <div class="container">
+            <div class="hero-content">
+                <div class="tagline">Intelligence. Design. Performance.</div>
+                <h1>Engineering System-Level Strategy and Intelligent Solutions for Complex Business Challenges</h1>
+                <p class="hero-description">
+                    STRIIVE delivers diagnostics-first, intelligence-led systems design across engineering, artificial intelligence, and strategic performance assurance. We help organizations navigate complexity, scale transformation, and sustain operational excellence through predictive intelligence and root-cause precision.
+                </p>
+                <div class="cta-group">
+                    <a href="#capabilities" class="btn btn-primary">Explore Our Capabilities</a>
+                    <a href="#engage" class="btn">Engage STRIIVE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Space -->
+    <section class="problem-space section">
+        <div class="bg-pattern">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="problemPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M 0 50 L 50 0 L 100 50 L 50 100 Z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#problemPattern)"/>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>The Challenge Landscape</h2>
+            <div class="divider"></div>
+            <div class="problem-list">
+                <div class="problem-item">
+                    <svg class="section-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="30" cy="30" r="3" fill="#CC0000"/>
+                        <circle cx="70" cy="40" r="3" fill="#CC0000"/>
+                        <circle cx="50" cy="70" r="3" fill="#CC0000"/>
+                        <path d="M 30 30 Q 50 20 70 40 M 70 40 Q 60 55 50 70 M 50 70 Q 40 55 30 30" stroke="#CC0000" stroke-width="1" fill="none"/>
+                    </svg>
+                    <h3>Hidden Complexity</h3>
+                    <p>Organizations operate within systems where cause and effect are obscured, risks cascade unpredictably, and traditional planning fails under uncertainty.</p>
+                </div>
+                <div class="problem-item">
+                    <svg class="section-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 80 L 35 60 L 45 70 L 60 40 L 75 50 L 90 20" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="90" cy="20" r="4" fill="#CC0000"/>
+                        <path d="M 85 15 L 95 10 L 90 20 L 100 15" stroke="#CC0000" stroke-width="2" fill="none"/>
+                    </svg>
+                    <h3>Poor Foresight</h3>
+                    <p>Decisions are made without predictive intelligence, resulting in reactive strategies, missed opportunities, and expensive corrections downstream.</p>
+                </div>
+                <div class="problem-item">
+                    <svg class="section-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="60" width="15" height="30" fill="#CC0000" opacity="0.3"/>
+                        <rect x="42.5" y="45" width="15" height="45" fill="#CC0000" opacity="0.5"/>
+                        <rect x="65" y="30" width="15" height="60" fill="#CC0000" opacity="0.7"/>
+                        <path d="M 27.5 60 L 50 45 L 72.5 30" stroke="#CC0000" stroke-width="2" stroke-dasharray="3,3" fill="none"/>
+                    </svg>
+                    <h3>Performance Drift</h3>
+                    <p>Systems degrade over time. Without continuous assurance and root-cause diagnostics, performance erodes silently until failure becomes visible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiation -->
+    <section class="section">
+        <div class="container">
+            <h2>The STRIIVE Approach</h2>
+            <div class="divider"></div>
+            <div class="diff-grid">
+                <div class="diff-item">
+                    <svg class="section-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0;">
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="25" fill="none" stroke="#CC0000" stroke-width="1" opacity="0.5"/>
+                        <line x1="50" y1="15" x2="50" y2="35" stroke="#CC0000" stroke-width="2"/>
+                        <line x1="50" y1="65" x2="50" y2="85" stroke="#CC0000" stroke-width="2"/>
+                        <line x1="15" y1="50" x2="35" y2="50" stroke="#CC0000" stroke-width="2"/>
+                        <line x1="65" y1="50" x2="85" y2="50" stroke="#CC0000" stroke-width="2"/>
+                    </svg>
+                    <h3>Diagnostics-First</h3>
+                    <p>We begin with root-cause analysis, not assumptions. Every engagement starts with intelligent interrogation of system behavior, failure modes, and performance constraints before design or implementation.</p>
+                </div>
+                <div class="diff-item">
+                    <svg class="section-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0;">
+                        <path d="M 20 80 Q 30 30 50 50 T 80 20" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="20" cy="80" r="3" fill="#CC0000"/>
+                        <circle cx="50" cy="50" r="3" fill="#CC0000"/>
+                        <circle cx="80" cy="20" r="3" fill="#CC0000"/>
+                        <rect x="75" y="15" width="20" height="20" fill="none" stroke="#CC0000" stroke-width="1" stroke-dasharray="2,2"/>
+                    </svg>
+                    <h3>Predictive Intelligence</h3>
+                    <p>Using stochastic modeling, probabilistic reasoning, and machine learning, we transform historical and real-time data into foresight, enabling proactive decision-making under uncertainty.</p>
+                </div>
+                <div class="diff-item">
+                    <svg class="section-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0;">
+                        <rect x="25" y="25" width="50" height="50" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <path d="M 35 50 L 45 60 L 65 40" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="#CC0000" stroke-width="1" opacity="0.3"/>
+                    </svg>
+                    <h3>Systems & Performance Assurance</h3>
+                    <p>We design for durability and sustained performance. Our solutions integrate engineering rigor, continuous monitoring, and capability transfer to ensure long-term resilience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section id="capabilities" class="section">
+        <div class="bg-pattern">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="capPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                        <circle cx="40" cy="40" r="1" fill="rgba(204,0,0,0.3)"/>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#capPattern)"/>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>Core Capabilities</h2>
+            <div class="divider"></div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <svg class="capability-visual" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="40" width="20" height="40" fill="#CC0000" opacity="0.7"/>
+                        <rect x="45" y="25" width="20" height="55" fill="#CC0000" opacity="0.7"/>
+                        <rect x="70" y="35" width="20" height="45" fill="#CC0000" opacity="0.7"/>
+                        <path d="M 30 40 L 55 25 L 80 35" stroke="#FFF" stroke-width="1" fill="none"/>
+                    </svg>
+                    <div class="capability-number">01</div>
+                    <h3>Project Management & Delivery Excellence</h3>
+                    <p>End-to-end project delivery with precision execution, stakeholder alignment, and risk-informed control. From inception through handover, we ensure outcomes meet strategic intent.</p>
+                </div>
+                <div class="capability-card">
+                    <svg class="capability-visual" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <path d="M 30 50 L 50 30 L 70 50 L 50 70 Z" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="5" fill="#CC0000"/>
+                    </svg>
+                    <div class="capability-number">02</div>
+                    <h3>New Product Design & Development</h3>
+                    <p>Intelligence-led product development across engineering and construction domains. We transform requirements into deployable solutions through systems thinking and iterative design validation.</p>
+                </div>
+                <div class="capability-card">
+                    <svg class="capability-visual" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="50" r="8" fill="#CC0000" opacity="0.7"/>
+                        <circle cx="50" cy="30" r="8" fill="#CC0000" opacity="0.7"/>
+                        <circle cx="70" cy="50" r="8" fill="#CC0000" opacity="0.7"/>
+                        <circle cx="50" cy="70" r="8" fill="#CC0000" opacity="0.7"/>
+                        <path d="M 30 50 L 50 30 L 70 50 L 50 70 Z" fill="none" stroke="#FFF" stroke-width="1"/>
+                    </svg>
+                    <div class="capability-number">03</div>
+                    <h3>Artificial Intelligence & Intelligent Systems</h3>
+                    <p>Machine learning, predictive analytics, business intelligence, and process automation. We deploy AI that integrates with operational reality and delivers measurable performance gains.</p>
+                </div>
+                <div class="capability-card">
+                    <svg class="capability-visual" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="30" width="50" height="40" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <line x1="35" y1="40" x2="65" y2="40" stroke="#CC0000" stroke-width="1"/>
+                        <line x1="35" y1="50" x2="65" y2="50" stroke="#CC0000" stroke-width="1"/>
+                        <line x1="35" y1="60" x2="65" y2="60" stroke="#CC0000" stroke-width="1"/>
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="#CC0000" stroke-width="1" opacity="0.3"/>
+                    </svg>
+                    <div class="capability-number">04</div>
+                    <h3>Engineering & Industrial Automation</h3>
+                    <p>SCADA systems, PLC architectures, Industry 4.0 integration, and control system design. We engineer intelligent automation that enhances productivity, safety, and system visibility.</p>
+                </div>
+                <div class="capability-card">
+                    <svg class="capability-visual" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 70 L 30 55 L 40 60 L 50 40 L 60 50 L 70 30 L 80 35" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="80" cy="35" r="4" fill="#CC0000"/>
+                        <rect x="15" y="75" width="70" height="10" fill="none" stroke="#CC0000" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                    <div class="capability-number">05</div>
+                    <h3>Strategic Business Development</h3>
+                    <p>Feasibility analysis, business case development, market intelligence, and growth strategy. We provide the analytical foundation for high-confidence investment and expansion decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section">
+        <div class="container">
+            <h2>How We Work</h2>
+            <div class="divider"></div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Diagnose</h3>
+                    <p>Root-cause analysis, system mapping, failure mode identification, and constraint discovery. We define the problem before solving it.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Model & Predict</h3>
+                    <p>Stochastic modeling, scenario analysis, predictive simulation. We quantify uncertainty and forecast system behavior under varying conditions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Design & Implement</h3>
+                    <p>Solution architecture, integration, deployment, and validation. We build systems that perform as intended and integrate seamlessly with existing operations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Assure & Transfer Capability</h3>
+                    <p>Performance monitoring, knowledge transfer, and continuous improvement frameworks. We ensure sustained outcomes and organizational capability growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About STRIIVE</h2>
+            <div class="divider"></div>
+            <p style="font-size: 1.1rem; max-width: 800px;">
+                STRIIVE is an intelligence-led technology and systems design company operating at the intersection of engineering, artificial intelligence, analytics, and strategic design. Established in 2022 and registered in Ghana, we serve organizations facing complexity, transformation, and the need for predictive clarity.
+            </p>
+            <p style="max-width: 800px; margin-top: 2rem;">
+                Our philosophy is diagnostics-first. We do not begin with solutions. We begin with intelligent interrogation of system behavior, constraints, and failure modes. This approach ensures that every strategy, model, or design we deliver addresses root causes rather than symptoms.
+            </p>
+            <p style="max-width: 800px; margin-top: 2rem;">
+                We integrate engineering rigor, machine learning, stochastic reasoning, and strategic foresight to deliver solutions that perform under uncertainty, scale with operational demands, and sustain long-term value. STRIIVE is a strategic partner, not a service vendor. We work alongside leadership to build capability, not dependency.
+            </p>
+        </div>
+    </section>
+
+    <!-- Executive Team -->
+    <section id="team" class="section">
+        <div class="bg-pattern">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="teamPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(204,0,0,0.5)" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#teamPattern)"/>
+            </svg>
+        </div>
+        <div class="container">
+            <h2>Executive Leadership</h2>
+            <div class="divider"></div>
+            <p style="max-width: 800px; margin-bottom: 3rem;">
+                STRIIVE is led by professionals with deep expertise across engineering, artificial intelligence, systems design, and strategic consulting. Our leadership team brings decades of combined experience solving complex challenges for organizations navigating transformation.
+            </p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-image-container">
+                        <div class="team-image-placeholder">
+                            <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="35" r="15" fill="rgba(204,0,0,0.3)"/>
+                                <path d="M 25 75 Q 25 55 50 55 Q 75 55 75 75" fill="rgba(204,0,0,0.3)"/>
+                            </svg>
+                        </div>
+                        <!-- Replace with: <img src="path/to/executive-photo.jpg" alt="Executive Name"> -->
+                    </div>
+                    <div class="team-role">Founder & Chief Executive Officer</div>
+                    <h3 class="team-name">[Executive Name]</h3>
+                    <p class="team-bio">
+                        [Executive Name] founded STRIIVE with a vision to integrate intelligence-led diagnostics with systems engineering and predictive analytics. With [X] years of experience in [domain expertise], [he/she/they] has led complex transformation initiatives across [industries/sectors], specializing in root-cause analysis, strategic design, and performance assurance under uncertainty.
+                    </p>
+                    <div class="team-credentials">
+                        [Degree], [University] | [Certification] | [Previous Role at Organization]
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-container">
+                        <div class="team-image-placeholder">
+                            <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="35" r="15" fill="rgba(204,0,0,0.3)"/>
+                                <path d="M 25 75 Q 25 55 50 55 Q 75 55 75 75" fill="rgba(204,0,0,0.3)"/>
+                            </svg>
+                        </div>
+                        <!-- Replace with: <img src="path/to/executive-photo.jpg" alt="Executive Name"> -->
+                    </div>
+                    <div class="team-role">Chief Technology Officer</div>
+                    <h3 class="team-name">[Executive Name]</h3>
+                    <p class="team-bio">
+                        [Executive Name] leads STRIIVE's technology strategy and AI implementation practice. An expert in machine learning, intelligent systems, and industrial automation, [he/she/they] has architected solutions across SCADA, PLC systems, and Industry 4.0 integration. [His/Her/Their] work focuses on deploying predictive intelligence that integrates with operational reality.
+                    </p>
+                    <div class="team-credentials">
+                        [Degree], [University] | [Certification] | [Previous Role at Organization]
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-container">
+                        <div class="team-image-placeholder">
+                            <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="35" r="15" fill="rgba(204,0,0,0.3)"/>
+                                <path d="M 25 75 Q 25 55 50 55 Q 75 55 75 75" fill="rgba(204,0,0,0.3)"/>
+                            </svg>
+                        </div>
+                        <!-- Replace with: <img src="path/to/executive-photo.jpg" alt="Executive Name"> -->
+                    </div>
+                    <div class="team-role">Head of Engineering & Project Delivery</div>
+                    <h3 class="team-name">[Executive Name]</h3>
+                    <p class="team-bio">
+                        [Executive Name] oversees engineering projects, infrastructure development, and delivery excellence. With expertise in construction management, systems integration, and risk-informed execution, [he/she/they] ensures that every project meets strategic intent through precision planning and continuous performance monitoring.
+                    </p>
+                    <div class="team-credentials">
+                        [Degree], [University] | [Certification] | [Previous Role at Organization]
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-container">
+                        <div class="team-image-placeholder">
+                            <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="35" r="15" fill="rgba(204,0,0,0.3)"/>
+                                <path d="M 25 75 Q 25 55 50 55 Q 75 55 75 75" fill="rgba(204,0,0,0.3)"/>
+                            </svg>
+                        </div>
+                        <!-- Replace with: <img src="path/to/executive-photo.jpg" alt="Executive Name"> -->
+                    </div>
+                    <div class="team-role">Director of Analytics & Predictive Intelligence</div>
+                    <h3 class="team-name">[Executive Name]</h3>
+                    <p class="team-bio">
+                        [Executive Name] leads STRIIVE's diagnostic and predictive modeling practice. Specializing in stochastic analysis, probabilistic reasoning, and advanced analytics, [he/she/they] transforms complex data into strategic foresight, enabling organizations to make proactive decisions under uncertainty.
+                    </p>
+                    <div class="team-credentials">
+                        [Degree], [University] | [Certification] | [Previous Role at Organization]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="divider"></div>
+
+            <div class="service-category">
+                <div class="service-header">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="30" width="60" height="50" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <line x1="30" y1="40" x2="70" y2="40" stroke="#CC0000" stroke-width="1"/>
+                        <line x1="30" y1="50" x2="70" y2="50" stroke="#CC0000" stroke-width="1"/>
+                        <line x1="30" y1="60" x2="50" y2="60" stroke="#CC0000" stroke-width="1"/>
+                        <circle cx="65" cy="60" r="3" fill="#CC0000"/>
+                    </svg>
+                    <div>
+                        <h3>Project Management & Delivery Excellence</h3>
+                        <p>Precision execution of complex initiatives with risk-informed control, stakeholder coordination, and performance assurance.</p>
+                    </div>
+                </div>
+                <p><strong>Why it matters:</strong> Projects fail due to poor planning, hidden risks, and execution drift. We deliver outcomes that align with strategic intent.</p>
+                <p><strong>What makes STRIIVE different:</strong> Diagnostics-led planning, probabilistic risk modeling, and continuous performance tracking ensure delivery confidence.</p>
+            </div>
+
+            <div class="service-category">
+                <div class="service-header">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 80 L 50 20 L 80 80 Z" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <rect x="35" y="55" width="30" height="25" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <line x1="50" y1="20" x2="50" y2="55" stroke="#CC0000" stroke-width="1" stroke-dasharray="2,2"/>
+                    </svg>
+                    <div>
+                        <h3>New Product Design & Development</h3>
+                        <p>Intelligence-led product development across engineering, construction, and infrastructure domains.</p>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Engineering Projects</li>
+                    <li>Construction & Infrastructure</li>
+                </ul>
+                <p><strong>Why it matters:</strong> Product failure is expensive. Design must anticipate operational reality, user behavior, and system constraints.</p>
+                <p><strong>What makes STRIIVE different:</strong> We validate design through predictive modeling and iterative testing, reducing deployment risk and time-to-value.</p>
+            </div>
+
+            <div class="service-category">
+                <div class="service-header">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="30" cy="40" r="5" fill="#CC0000"/>
+                        <circle cx="70" cy="40" r="5" fill="#CC0000"/>
+                        <circle cx="50" cy="65" r="5" fill="#CC0000"/>
+                        <path d="M 30 40 L 70 40 L 50 65 Z" fill="none" stroke="#CC0000" stroke-width="1"/>
+                    </svg>
+                    <div>
+                        <h3>Technology Services – Artificial Intelligence & Intelligent Systems</h3>
+                    </div>
+                </div>
+                <ul class="service-list">
+                    <li>Software Development</li>
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Intelligent Systems</li>
+                    <li>Business Intelligence & Advanced Analytics</li>
+                    <li>Business Process Automation (BPA)</li>
+                </ul>
+                <p><strong>Why it matters:</strong> AI and automation promise efficiency but often fail due to poor integration, data quality issues, and lack of operational alignment.</p>
+                <p><strong>What makes STRIIVE different:</strong> We deploy intelligent systems that integrate with operational workflows, leverage existing data infrastructure, and deliver measurable ROI.</p>
+            </div>
+
+            <div class="service-category">
+                <div class="service-header">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 70 Q 35 30 50 50 T 80 30" fill="none" stroke="#CC0000" stroke-width="2"/>
+                        <circle cx="20" cy="70" r="3" fill="#CC0000"/>
+                        <circle cx
