@@ -7,182 +7,133 @@
     <meta name="keywords" content="systems design, predictive intelligence, diagnostics, artificial intelligence, engineering, business intelligence">
     <meta name="author" content="STRIIVE">
     <title>STRIIVE | Intelligence, Engineering & Predictive Systems Design</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Inspired by LMI Ghana -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* ===== GLOBAL STYLES ===== */
-        :root {
-            --primary-red: #C8102E;
-            --primary-white: #FFFFFF;
-            --dark-bg: #111111;
-            --light-bg: #F5F5F5;
-            --dark-text: #222222;
-            --light-text: #EEEEEE;
-            --gray-divider: #444444;
-            --golden-ratio: 1.618;
-            --container-width: 1200px;
-            --section-spacing: calc(6rem * var(--golden-ratio));
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-red: #B91C1C;
+            --dark-red: #7F1D1D;
+            --light-red: #DC2626;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --gray: #1E293B;
+            --light-gray: #64748B;
+            --bg-light: #F8FAFC;
+            --accent-gold: #D4AF37;
+            --dark-blue: #0F172A;
+        }
+
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            color: var(--dark-text);
-            line-height: var(--golden-ratio);
-            background-color: var(--light-bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--white);
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 16px;
             overflow-x: hidden;
+            font-weight: 400;
         }
 
-        h1, h2, h3, h4, h5 {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-weight: 400;
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
             line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
             letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            margin-bottom: 2rem;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            letter-spacing: -0.015em;
         }
 
         h3 {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
         }
 
         p {
             margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light-gray);
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            color: var(--primary-red);
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary-red);
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .container {
-            max-width: var(--container-width);
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        section {
-            padding: var(--section-spacing) 0;
+        .section {
+            padding: 6rem 0;
+            position: relative;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 2px;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        .section-large {
+            padding: 8rem 0;
         }
 
-        .btn-primary {
-            background: var(--primary-red);
-            color: var(--primary-white);
-            border: 2px solid var(--primary-red);
-        }
-
-        .btn-primary:hover {
-            background: #a50e26;
-            border-color: #a50e26;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(200, 16, 46, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-red);
-            border: 2px solid var(--primary-red);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-red);
-            color: var(--primary-white);
-            transform: translateY(-2px);
-        }
-
-        .btn-white {
-            background: var(--primary-white);
-            color: var(--primary-red);
-            border: 2px solid var(--primary-white);
-        }
-
-        .btn-white:hover {
-            background: transparent;
-            color: var(--primary-white);
-        }
-
-        /* ===== NAVIGATION ===== */
+        /* Navigation - Premium Design */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--primary-white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             padding: 1rem 0;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        nav.scrolled {
-            padding: 0.6rem 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-container {
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: var(--container-width);
-            margin: 0 auto;
             padding: 0 2rem;
         }
 
         .logo {
-            font-family: 'Georgia', serif;
+            font-family: 'Manrope', sans-serif;
             font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            font-weight: 800;
+            letter-spacing: 0.02em;
             color: var(--primary-red);
+            position: relative;
+        }
+
+        .logo:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-gold);
         }
 
         .nav-links {
@@ -192,12 +143,10 @@
         }
 
         .nav-links a {
-            color: var(--dark-text);
-            text-decoration: none;
-            font-weight: 500;
+            font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--dark-blue);
             position: relative;
             padding: 0.5rem 0;
         }
@@ -221,436 +170,387 @@
             width: 100%;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary-red);
-            cursor: pointer;
-        }
-
-        /* ===== HERO SECTION ===== */
+        /* Hero Section - Premium */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(200, 16, 46, 0.9), rgba(200, 16, 46, 0.95)), url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.95) 0%, 
+                rgba(30, 41, 59, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: var(--primary-white);
-            text-align: center;
-            padding-top: 5rem;
+            position: relative;
+            padding-top: 80px;
+            color: var(--white);
         }
 
         .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-tagline {
-            font-size: 1.1rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #E2E8F0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
             margin-bottom: 2rem;
-            color: var(--primary-white);
+            font-weight: 600;
+            color: var(--accent-gold);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid var(--accent-gold);
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             line-height: 1.8;
             margin-bottom: 3rem;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
             color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            font-weight: 300;
         }
 
-        .hero-cta {
+        .cta-group {
             display: flex;
             gap: 1.5rem;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
-        /* ===== PROBLEM SPACE ===== */
-        .problem-space {
-            background: var(--primary-white);
-            position: relative;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .problem-card {
-            background: var(--light-bg);
-            padding: 2.5rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary-red);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-        }
-
-        .problem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .problem-icon {
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            margin-bottom: 1.5rem;
-        }
-
-        .problem-card h3 {
-            color: var(--dark-text);
-            margin-bottom: 1rem;
-        }
-
-        /* ===== DIFFERENTIATION ===== */
-        .differentiation {
-            background: linear-gradient(135deg, var(--primary-red) 0%, #a50e26 100%);
-            color: var(--primary-white);
+        .btn {
+            padding: 1.2rem 3rem;
+            border: none;
+            background: var(--primary-red);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
             position: relative;
             overflow: hidden;
         }
 
-        .differentiation:before {
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: var(--dark-red);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(185, 28, 28, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-red);
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-banner:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0.08;
-            z-index: 0;
+            opacity: 0.1;
         }
 
-        .differentiation .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .differentiation .section-title h2 {
-            color: var(--primary-white);
-        }
-
-        .differentiation .section-title h2:after {
-            background: var(--primary-white);
-        }
-
-        .diff-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .diff-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 4px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+        .stat-box {
+            padding: 2rem;
+            transition: transform 0.3s ease;
         }
 
-        .diff-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
+        .stat-box:hover {
+            transform: translateY(-10px);
         }
 
-        .diff-number {
-            font-size: 3rem;
+        .stat-box h3 {
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .stat-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Section Titles */
+        .section-header {
+            max-width: 800px;
+            margin-bottom: 5rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--primary-red);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.9rem;
             font-weight: 700;
-            opacity: 0.3;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             margin-bottom: 1rem;
-            font-family: 'Georgia', serif;
-            color: var(--primary-white);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(185, 28, 28, 0.1);
+            border-radius: 50px;
         }
 
-        .diff-card h3 {
-            color: var(--primary-white);
-            margin-bottom: 1rem;
+        .section-title {
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
         }
 
-        .diff-card p {
-            color: rgba(255, 255, 255, 0.85);
+        .section-description {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--light-gray);
         }
 
-        /* ===== CAPABILITIES ===== */
-        .capabilities {
-            background: var(--primary-white);
+        /* Background Variations */
+        .bg-white {
+            background: var(--white);
         }
 
+        .bg-light {
+            background: var(--bg-light);
+        }
+
+        .bg-dark {
+            background: var(--dark-blue);
+            color: var(--white);
+        }
+
+        .bg-dark .section-title,
+        .bg-dark h3 {
+            color: var(--white);
+        }
+
+        .bg-dark .section-description,
+        .bg-dark p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Problem Cards */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .problem-card:hover:before {
+            width: 8px;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 2rem;
+            background: rgba(185, 28, 28, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .problem-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        /* Capabilities Grid - Enhanced with Real Images */
         .capabilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
         .capability-card {
-            background: var(--light-bg);
-            border-radius: 4px;
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
-        .capability-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .capability-image {
+            width: 100%;
+            height: 240px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .capability-img {
-            height: 200px;
+        .capability-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.7) 100%);
+        }
+
+        .capability-image.img-project {
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
         }
 
-        .capability-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        .capability-image.img-design {
+            background: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .capability-image.img-ai {
+            background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .capability-image.img-automation {
+            background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .capability-image.img-strategy {
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
         .capability-number {
-            color: var(--primary-red);
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .capability-card h3 {
-            color: var(--dark-text);
-            margin-bottom: 1rem;
-        }
-
-        .capability-card p {
-            flex-grow: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .capability-link {
-            color: var(--primary-red);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: auto;
-        }
-
-        .capability-link:hover {
-            gap: 1rem;
-        }
-
-        /* ===== PROCESS ===== */
-        .process {
-            background: linear-gradient(rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.95)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--primary-white);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .step-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--primary-red);
-            margin-bottom: 1rem;
-            font-family: 'Georgia', serif;
-            opacity: 0.9;
-        }
-
-        .process-step h3 {
-            color: var(--primary-white);
-            margin-bottom: 1rem;
-        }
-
-        .process-step p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .process-step:not(:last-child):after {
-            content: '';
             position: absolute;
-            top: 50%;
-            right: -1.5rem;
-            transform: translateY(-50%);
-            width: 2rem;
-            height: 2px;
-            background: var(--primary-red);
-            opacity: 0.5;
-        }
-
-        /* ===== EXECUTIVE TEAM ===== */
-        .executive-team {
-            background: var(--primary-white);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .team-member {
-            background: var(--light-bg);
+            top: 1.5rem;
+            left: 1.5rem;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: rgba(212, 175, 55, 0.9);
+            padding: 0.5rem 1rem;
             border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            z-index: 2;
         }
 
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .capability-content {
+            padding: 2.5rem;
         }
 
-        .team-img {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-content {
-            padding: 2rem;
-        }
-
-        .team-role {
-            color: var(--primary-red);
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-name {
-            font-size: 1.5rem;
+        .capability-content h3 {
+            color: var(--dark-blue);
             margin-bottom: 1rem;
-            color: var(--dark-text);
+            font-size: 1.5rem;
         }
 
-        .team-bio {
+        .capability-content p {
             margin-bottom: 1.5rem;
-            color: var(--dark-text);
         }
 
-        .team-credentials {
-            font-size: 0.9rem;
-            color: #666;
-            border-top: 1px solid #eee;
-            padding-top: 1rem;
-        }
-
-        /* ===== SERVICES ===== */
-        .services {
-            background: var(--light-bg);
-        }
-
-        .services-accordion {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .service-category {
-            background: var(--primary-white);
-            margin-bottom: 1.5rem;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--primary-red);
-        }
-
-        .service-header {
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .service-header:hover {
-            background: rgba(200, 16, 46, 0.03);
-        }
-
-        .service-header h3 {
-            margin-bottom: 0;
-            color: var(--dark-text);
-        }
-
-        .service-icon {
-            color: var(--primary-red);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .service-category.active .service-icon {
-            transform: rotate(45deg);
-        }
-
-        .service-content {
-            padding: 0 2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-
-        .service-category.active .service-content {
-            padding-bottom: 2rem;
-            max-height: 1000px;
-        }
-
-        .service-list {
+        .capability-list {
             list-style: none;
-            margin: 1.5rem 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            padding: 0;
+            margin-top: 1.5rem;
         }
 
-        .service-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+        .capability-list li {
+            padding: 0.6rem 0;
+            padding-left: 1.8rem;
             position: relative;
+            color: var(--light-gray);
+            font-size: 0.95rem;
         }
 
-        .service-list li:before {
+        .capability-list li:before {
             content: "→";
             position: absolute;
             left: 0;
@@ -658,300 +558,608 @@
             font-weight: bold;
         }
 
-        .service-differentiator {
-            background: rgba(200, 16, 46, 0.05);
-            padding: 1.5rem;
-            border-radius: 4px;
-            margin-top: 1.5rem;
-            border-left: 3px solid var(--primary-red);
+        .capability-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .service-differentiator h4 {
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .process-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--white);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .process-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            font-weight: 900;
             color: var(--primary-red);
-            margin-bottom: 0.5rem;
+            opacity: 0.1;
+            line-height: 1;
         }
 
-        /* ===== GLOBAL STATEMENT ===== */
-        .global-statement {
-            background: linear-gradient(rgba(200, 16, 46, 0.9), rgba(200, 16, 46, 0.95)), url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: rgba(185, 28, 28, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-item h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .process-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Team Section - Enhanced with Team Images */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+        }
+
+        /* Team member placeholder images using Unsplash */
+        .team-image.ted {
+            background: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            color: var(--primary-white);
-            text-align: center;
         }
 
-        .global-statement h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-style: italic;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.4;
+        .team-image.terry {
+            background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* ===== CONTACT ===== */
-        .contact {
-            background: var(--primary-white);
+        .team-image.joseph {
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-            align-items: start;
+        .team-image.abraham {
+            background: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        .contact-info h3 {
-            color: var(--primary-red);
-            margin-bottom: 1.5rem;
+        .team-image.eric {
+            background: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        .contact-details {
-            margin-top: 2rem;
+        .team-image.jake {
+            background: url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            color: var(--primary-red);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-        }
-
-        .contact-form {
-            background: var(--light-bg);
+        .team-info {
             padding: 2.5rem;
-            border-radius: 4px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .form-group {
+        .team-role {
+            color: var(--primary-red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.8rem;
+        }
+
+        .team-name {
+            color: var(--dark-blue);
+            font-size: 1.65rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .team-bio {
+            font-size: 0.95rem;
+            line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--dark-text);
+        .team-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
+        /* Services Section */
+        .service-item {
+            margin-bottom: 5rem;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             transition: all 0.3s ease;
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-red);
-            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
         }
 
-        textarea.form-control {
-            min-height: 150px;
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-title h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            list-style: none;
+            margin: 2.5rem 0;
+        }
+
+        .service-list li {
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .service-list li:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-width: 5px;
+            transform: translateX(5px);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: 8rem 0;
+            background: linear-gradient(135deg, 
+                rgba(15, 23, 42, 0.95) 0%, 
+                rgba(30, 41, 59, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .quote-section:before {
+            content: '"';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: 'Source Serif Pro', serif;
+            z-index: 1;
+        }
+
+        .quote-section h2 {
+            font-family: 'Source Serif Pro', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            font-style: italic;
+            color: var(--white);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--dark-blue);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            color: var(--dark-blue);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
+        }
+
+        textarea {
+            min-height: 160px;
             resize: vertical;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--dark-bg);
-            color: var(--light-text);
-            padding: 4rem 0 2rem;
+        .contact-info {
+            padding-right: 2rem;
         }
 
-        .footer-container {
+        .contact-details {
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: var(--white);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transform: translateX(5px);
+        }
+
+        .detail-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .detail-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .detail-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 4rem;
+            margin-bottom: 4rem;
         }
 
         .footer-brand h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-white);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
         }
 
         .footer-tagline {
-            color: var(--primary-red);
             font-size: 1rem;
             letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 600;
         }
 
         .footer-info {
             font-size: 0.95rem;
-            line-height: 1.6;
-            color: #aaa;
+            opacity: 0.8;
+            line-height: 1.8;
         }
 
-        .footer-links h4 {
-            color: var(--primary-white);
-            margin-bottom: 1.5rem;
+        .footer-section h4 {
             font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 0.8rem;
         }
 
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
         }
 
         .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
-            color: var(--primary-red);
+            opacity: 1;
+            color: var(--accent-gold);
+            transform: translateX(5px);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-divider);
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
             font-size: 0.9rem;
-            color: #888;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 992px) {
-            .hero-cta {
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .service-header {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-cta .btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-
-            .process-step:not(:last-child):after {
-                display: none;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-
-            .service-list {
-                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--primary-white);
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                gap: 1.5rem;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .team-grid,
-            .diff-grid,
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .section {
-                padding: calc(3rem * var(--golden-ratio)) 0;
-            }
-        }
-
-        @media (max-width: 480px) {
             .container {
                 padding: 0 1.5rem;
             }
 
-            .capability-card,
-            .team-member,
-            .problem-card,
-            .diff-card {
-                padding: 1.5rem;
+            nav .container {
+                padding: 0 1.5rem;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            .nav-links {
+                display: none;
             }
 
-            .hero-description {
-                font-size: 1rem;
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section-large {
+                padding: 6rem 0;
+            }
+
+            .hero {
+                min-height: 85vh;
+                background-attachment: scroll;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .problem-grid,
+            .capabilities-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .quote-section {
+                padding: 5rem 0;
             }
         }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Animations */
         .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--dark-blue);
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .menu-toggle span:nth-child(1) { top: 8px; }
+        .menu-toggle span:nth-child(2) { top: 14px; }
+        .menu-toggle span:nth-child(3) { top: 20px; }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.5s;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                top: 14px;
+                transform: rotate(45deg);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                top: 14px;
+                transform: rotate(-45deg);
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="mainNav">
-        <div class="nav-container">
+    <nav>
+        <div class="container">
             <div class="logo">STRIIVE</div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links" id="navLinks">
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#team">Leadership</a></li>
                 <li><a href="#capabilities">Capabilities</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#engage">Engage</a></li>
             </ul>
         </div>
     </nav>
@@ -960,43 +1168,87 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content fade-in">
-                <div class="hero-tagline">Intelligence. Design. Performance.</div>
-                <h1>Engineering System-Level Strategy and Intelligent Solutions for Complex Business Challenges</h1>
+                <div class="tagline">Intelligence. Design. Performance.</div>
+                <h1>Engineering System-Level Strategy and Intelligent Solutions</h1>
                 <p class="hero-description">
-                    STRIIVE delivers diagnostics-first, intelligence-led systems design across engineering, artificial intelligence, and strategic performance assurance. We help organizations navigate complexity, scale transformation, and sustain operational excellence through predictive intelligence and root-cause precision.
+                    STRIIVE delivers diagnostics-first, intelligence-led systems design across engineering, artificial intelligence, and strategic performance assurance. We help organizations navigate complexity and sustain operational excellence.
                 </p>
-                <div class="hero-cta">
-                    <a href="#capabilities" class="btn btn-white">Explore Our Capabilities</a>
-                    <a href="#contact" class="btn btn-secondary">Engage STRIIVE</a>
+                <div class="cta-group">
+                    <a href="#capabilities" class="btn">Explore Our Capabilities</a>
+                    <a href="#engage" class="btn btn-outline">Engage STRIIVE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div class="stat-box">
+                    <h3>BN497130722</h3>
+                    <p>Registration Number<br>Registered in Ghana</p>
+                </div>
+                <div class="stat-box">
+                    <h3>6</h3>
+                    <p>Executive Leaders<br>Cross-Domain Expertise</p>
+                </div>
+                <div class="stat-box">
+                    <h3>∞</h3>
+                    <p>Predictive Intelligence<br>Future-Ready Systems</p>
+                </div>
+                <div class="stat-box">
+                    <h3>24/7</h3>
+                    <p>Performance Assurance<br>Continuous Monitoring</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Problem Space -->
-    <section id="about" class="problem-space">
+    <section class="section bg-light">
         <div class="container">
-            <div class="section-title">
-                <h2>The Challenge Landscape</h2>
+            <div class="section-header fade-in">
+                <div class="section-subtitle">The Challenge Landscape</div>
+                <h2 class="section-title">Organizations Face Critical System Challenges</h2>
+                <p class="section-description">
+                    Modern enterprises operate in environments where complexity, uncertainty, and performance drift create substantial risk. STRIIVE addresses these fundamental challenges.
+                </p>
             </div>
             <div class="problem-grid">
                 <div class="problem-card fade-in">
-                    <div class="problem-icon">
-                        <i class="fas fa-sitemap"></i>
+                    <div class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <circle cx="12" cy="8" r="3"/>
+                            <circle cx="6" cy="12" r="3"/>
+                            <circle cx="18" cy="12" r="3"/>
+                            <circle cx="12" cy="16" r="3"/>
+                            <line x1="12" y1="11" x2="12" y2="13"/>
+                            <line x1="9" y1="10" x2="9" y2="14"/>
+                            <line x1="15" y1="10" x2="15" y2="14"/>
+                        </svg>
                     </div>
                     <h3>Hidden Complexity</h3>
                     <p>Organizations operate within systems where cause and effect are obscured, risks cascade unpredictably, and traditional planning fails under uncertainty.</p>
                 </div>
                 <div class="problem-card fade-in">
-                    <div class="problem-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 5v2M12 17v2M5 12h2M17 12h2"/>
+                        </svg>
                     </div>
                     <h3>Poor Foresight</h3>
                     <p>Decisions are made without predictive intelligence, resulting in reactive strategies, missed opportunities, and expensive corrections downstream.</p>
                 </div>
                 <div class="problem-card fade-in">
-                    <div class="problem-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                    <div class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <path d="M12 2v4M12 18v4M4 12H2M8 12H6M16 12h-2M22 12h-2"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 8v8M8 12h8"/>
+                        </svg>
                     </div>
                     <h3>Performance Drift</h3>
                     <p>Systems degrade over time. Without continuous assurance and root-cause diagnostics, performance erodes silently until failure becomes visible.</p>
@@ -1005,82 +1257,98 @@
         </div>
     </section>
 
-    <!-- Differentiation -->
-    <section class="differentiation">
-        <div class="container">
-            <div class="section-title">
-                <h2>The STRIIVE Approach</h2>
-            </div>
-            <div class="diff-grid">
-                <div class="diff-card fade-in">
-                    <div class="diff-number">01</div>
-                    <h3>Diagnostics-First</h3>
-                    <p>We begin with root-cause analysis, not assumptions. Every engagement starts with intelligent interrogation of system behavior, failure modes, and performance constraints before design or implementation.</p>
-                </div>
-                <div class="diff-card fade-in">
-                    <div class="diff-number">02</div>
-                    <h3>Predictive Intelligence</h3>
-                    <p>Using stochastic modeling, probabilistic reasoning, and machine learning, we transform historical and real-time data into foresight, enabling proactive decision-making under uncertainty.</p>
-                </div>
-                <div class="diff-card fade-in">
-                    <div class="diff-number">03</div>
-                    <h3>Systems & Performance Assurance</h3>
-                    <p>We design for durability and sustained performance. Our solutions integrate engineering rigor, continuous monitoring, and capability transfer to ensure long-term resilience.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Capabilities -->
-    <section id="capabilities" class="capabilities">
+    <section id="capabilities" class="section section-large bg-white">
         <div class="container">
-            <div class="section-title">
-                <h2>Core Capabilities</h2>
+            <div class="section-header fade-in">
+                <div class="section-subtitle">Core Capabilities</div>
+                <h2 class="section-title">Comprehensive Solutions Across Complex Domains</h2>
+                <p class="section-description">
+                    From project delivery to predictive intelligence, STRIIVE integrates engineering, AI, and strategic design to solve your most complex challenges.
+                </p>
             </div>
             <div class="capabilities-grid">
+                <!-- Capability 01 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="capability-image img-project">
+                        <div class="capability-number">CAPABILITY 01</div>
+                    </div>
                     <div class="capability-content">
-                        <div class="capability-number">01</div>
-                        <h3>Project Management & Delivery Excellence</h3>
-                        <p>End-to-end project delivery with precision execution, stakeholder alignment, and risk-informed control. From inception through handover, we ensure outcomes meet strategic intent.</p>
-                        <a href="#services" class="capability-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <h3>Project, Program & Portfolio Management</h3>
+                        <p>Enterprise-grade delivery frameworks with risk-informed control, comprehensive planning, and continuous performance optimization.</p>
+                        <ul class="capability-list">
+                            <li>Business Cases</li>
+                            <li>Comprehensive Project Planning</li>
+                            <li>Monitoring, Controlling & Evaluation</li>
+                            <li>Advanced Risk Management</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Capability 02 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="capability-image img-design">
+                        <div class="capability-number">CAPABILITY 02</div>
+                    </div>
                     <div class="capability-content">
-                        <div class="capability-number">02</div>
-                        <h3>New Product Design & Development</h3>
-                        <p>Intelligence-led product development across engineering and construction domains. We transform requirements into deployable solutions through systems thinking and iterative design validation.</p>
-                        <a href="#services" class="capability-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <h3>Product & Service Design</h3>
+                        <p>End-to-end design and development from concept through prototyping, validated through systems thinking and iterative refinement.</p>
+                        <ul class="capability-list">
+                            <li>System Engineering & Design</li>
+                            <li>Business Model Design</li>
+                            <li>Consumer Goods Development</li>
+                            <li>3D Modeling & Prototyping</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Capability 03 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-img" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="capability-image img-ai">
+                        <div class="capability-number">CAPABILITY 03</div>
+                    </div>
                     <div class="capability-content">
-                        <div class="capability-number">03</div>
                         <h3>AI & Intelligent Systems</h3>
-                        <p>Machine learning, predictive analytics, business intelligence, and process automation. We deploy AI that integrates with operational reality and delivers measurable performance gains.</p>
-                        <a href="#services" class="capability-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <p>Advanced machine learning and analytics solutions that transform data into predictive intelligence and operational advantage.</p>
+                        <ul class="capability-list">
+                            <li>AI Model Development</li>
+                            <li>Business Intelligence & Advanced Analytics</li>
+                            <li>Business Process Automation (BPA)</li>
+                            <li>Advanced Business & Industrial Analytics</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Capability 04 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="capability-image img-automation">
+                        <div class="capability-number">CAPABILITY 04</div>
+                    </div>
                     <div class="capability-content">
-                        <div class="capability-number">04</div>
                         <h3>Engineering & Industrial Automation</h3>
-                        <p>SCADA systems, PLC architectures, Industry 4.0 integration, and control system design. We engineer intelligent automation that enhances productivity, safety, and system visibility.</p>
-                        <a href="#services" class="capability-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <p>Smart factory solutions integrating SCADA, PLC, and IoT for enhanced productivity, safety, and real-time operational intelligence.</p>
+                        <ul class="capability-list">
+                            <li>Industry 4.0 Systems</li>
+                            <li>SCADA Systems</li>
+                            <li>Programmable Control Systems (PLC)</li>
+                            <li>IoT Integration</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Capability 05 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-img" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="capability-image img-strategy">
+                        <div class="capability-number">CAPABILITY 05</div>
+                    </div>
                     <div class="capability-content">
-                        <div class="capability-number">05</div>
                         <h3>Strategic Business Development</h3>
-                        <p>Feasibility analysis, business case development, market intelligence, and growth strategy. We provide the analytical foundation for high-confidence investment and expansion decisions.</p>
-                        <a href="#services" class="capability-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <p>Evidence-based market analysis, feasibility studies, and capability development that drive sustainable competitive advantage.</p>
+                        <ul class="capability-list">
+                            <li>Business & Marketing Strategy</li>
+                            <li>Feasibility Studies</li>
+                            <li>Corporate Training & Capacity Development</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1088,96 +1356,176 @@
     </section>
 
     <!-- Process -->
-    <section class="process">
+    <section class="section bg-dark">
         <div class="container">
-            <div class="section-title">
-                <h2>How We Work</h2>
+            <div class="section-header fade-in">
+                <div class="section-subtitle" style="color: var(--accent-gold);">Our Methodology</div>
+                <h2 class="section-title">How We Deliver Results</h2>
+                <p class="section-description">
+                    A systematic, intelligence-led approach that transforms complexity into clarity and strategic advantage.
+                </p>
             </div>
-            <div class="process-steps">
-                <div class="process-step fade-in">
-                    <div class="step-number">01</div>
+            <div class="process-grid">
+                <div class="process-item fade-in">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <path d="M20 12V8H4v4h16z"/>
+                            <path d="M4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/>
+                            <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
                     <h3>Diagnose</h3>
-                    <p>Root-cause analysis, system mapping, failure mode identification, and constraint discovery. We define the problem before solving it.</p>
+                    <p>Root-cause analysis, system mapping, and constraint discovery. We define the problem before solving it.</p>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">02</div>
+
+                <div class="process-item fade-in">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <path d="M2 12h20M12 2v20"/>
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v12M6 12h12"/>
+                        </svg>
+                    </div>
                     <h3>Model & Predict</h3>
-                    <p>Stochastic modeling, scenario analysis, predictive simulation. We quantify uncertainty and forecast system behavior under varying conditions.</p>
+                    <p>Stochastic modeling and predictive simulation to quantify uncertainty and forecast behavior.</p>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">03</div>
+
+                <div class="process-item fade-in">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 21V9"/>
+                            <circle cx="7" cy="7" r="1"/>
+                            <circle cx="17" cy="7" r="1"/>
+                        </svg>
+                    </div>
                     <h3>Design & Implement</h3>
-                    <p>Solution architecture, integration, deployment, and validation. We build systems that perform as intended and integrate seamlessly with existing operations.</p>
+                    <p>Solution architecture, integration, and deployment that performs as intended.</p>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-number">04</div>
+
+                <div class="process-item fade-in">
+                    <div class="process-number">04</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4l3 3"/>
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H8"/>
+                            <path d="M8 21v-2a4 4 0 0 1 4-4h4"/>
+                        </svg>
+                    </div>
                     <h3>Assure & Transfer</h3>
-                    <p>Performance monitoring, knowledge transfer, and continuous improvement frameworks. We ensure sustained outcomes and organizational capability growth.</p>
+                    <p>Performance monitoring, knowledge transfer, and continuous improvement frameworks.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Executive Team -->
-    <section id="team" class="executive-team">
+    <!-- About -->
+    <section id="about" class="section bg-light">
         <div class="container">
-            <div class="section-title">
-                <h2>Executive Leadership</h2>
+            <div class="section-header fade-in">
+                <div class="section-subtitle">About STRIIVE</div>
+                <h2 class="section-title">Intelligence-Led Systems Design for Complex Challenges</h2>
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                STRIIVE is led by professionals with deep expertise across engineering, artificial intelligence, systems design, and strategic consulting. Our leadership team brings decades of combined experience solving complex challenges for organizations navigating transformation.
-            </p>
+            <div class="fade-in" style="max-width: 1000px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.8;">
+                    STRIIVE is an intelligence-led technology and systems design company operating at the intersection of engineering, artificial intelligence, analytics, and strategic design. Established in 2020 and registered in Ghana, we serve organizations facing complexity, transformation, and the need for predictive clarity.
+                </p>
+                <p style="margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.75;">
+                    Our philosophy is diagnostics-first. We do not begin with solutions. We begin with intelligent interrogation of system behavior, constraints, and failure modes. This approach ensures that every strategy, model, or design we deliver addresses root causes rather than symptoms.
+                </p>
+                <p style="font-size: 1.05rem; line-height: 1.75;">
+                    We integrate engineering rigor, machine learning, stochastic reasoning, and strategic foresight to deliver solutions that perform under uncertainty, scale with operational demands, and sustain long-term value. STRIIVE is a strategic partner, not a service vendor. We work alongside leadership to build capability, not dependency.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section section-large bg-white">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-subtitle">Leadership Team</div>
+                <h2 class="section-title">Executive Leadership Driving Innovation</h2>
+                <p class="section-description">
+                    Our leadership brings decades of combined experience solving complex challenges across engineering, AI, systems design, and strategic consulting.
+                </p>
+            </div>
+            
             <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="team-content">
+                <!-- Ted -->
+                <div class="team-card fade-in">
+                    <div class="team-image ted"></div>
+                    <div class="team-info">
                         <div class="team-role">Founder & Chief Executive Officer</div>
-                        <h3 class="team-name">Kwame Asante</h3>
+                        <h3 class="team-name">Ted M. Kugbe</h3>
                         <p class="team-bio">
-                            Kwame founded STRIIVE with a vision to integrate intelligence-led diagnostics with systems engineering and predictive analytics. With 15+ years of experience in engineering and strategic consulting, he has led complex transformation initiatives across infrastructure, energy, and technology sectors, specializing in root-cause analysis and performance assurance under uncertainty.
+                            Ted exemplifies exceptional leadership in Portfolio/Project management, Operations, Strategy, Business Development & Marketing, and Innovation. A profound repository of knowledge in implementing high-impact multi-million-dollar initiatives across Manufacturing, Energy, Telecommunications, Engineering, Technology, and Infrastructure sectors.
                         </p>
-                        <div class="team-credentials">
-                            M.Sc., Engineering Systems, MIT | Professional Engineer (PE) | Former Director at Global Engineering Solutions
-                        </div>
                     </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="team-content">
-                        <div class="team-role">Chief Technology Officer</div>
-                        <h3 class="team-name">Amina Okafor</h3>
+
+                <!-- Terry -->
+                <div class="team-card fade-in">
+                    <div class="team-image terry"></div>
+                    <div class="team-info">
+                        <div class="team-role">Chief Financial Officer</div>
+                        <h3 class="team-name">Terry M. Kugbe</h3>
                         <p class="team-bio">
-                            Amina leads STRIIVE's technology strategy and AI implementation practice. An expert in machine learning, intelligent systems, and industrial automation, she has architected solutions across SCADA, PLC systems, and Industry 4.0 integration. Her work focuses on deploying predictive intelligence that integrates with operational reality.
+                            Terry is a globally experienced leader operating at the intersection of finance, technology, engineering, and large-scale capital projects. Trained in Biotechnology and Business Administration at a leading U.S.-based institution, he brings a rare ability to translate complex technical systems into sustainable commercial value.
                         </p>
-                        <div class="team-credentials">
-                            Ph.D., Computer Science, Stanford | AWS Certified Solutions Architect | Former Lead AI Engineer at TechVision
-                        </div>
                     </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="team-content">
-                        <div class="team-role">Head of Engineering & Project Delivery</div>
-                        <h3 class="team-name">David Mensah</h3>
+
+                <!-- Joseph -->
+                <div class="team-card fade-in">
+                    <div class="team-image joseph"></div>
+                    <div class="team-info">
+                        <div class="team-role">Director of Technology</div>
+                        <h3 class="team-name">Joseph Essilfie</h3>
                         <p class="team-bio">
-                            David oversees engineering projects, infrastructure development, and delivery excellence. With expertise in construction management, systems integration, and risk-informed execution, he ensures that every project meets strategic intent through precision planning and continuous performance monitoring.
+                            Joseph is a seasoned Software Engineering and Technology Expert with deep, hands-on experience across enterprise systems, networking, data centres, and digital platforms. With a strong foundation in systems administration, hardware and networking engineering, and web technologies, he brings a practical, execution-focused approach to complex technical challenges.
                         </p>
-                        <div class="team-credentials">
-                            M.Eng., Civil Engineering, KNUST | PMP, PRINCE2 Certified | Former Project Director at BuildCorp International
-                        </div>
                     </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="team-img" style="background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="team-content">
-                        <div class="team-role">Director of Analytics & Predictive Intelligence</div>
-                        <h3 class="team-name">Esi Ababio</h3>
+
+                <!-- Abraham -->
+                <div class="team-card fade-in">
+                    <div class="team-image abraham"></div>
+                    <div class="team-info">
+                        <div class="team-role">Director of Engineering & Operations</div>
+                        <h3 class="team-name">Abraham M. Sam</h3>
                         <p class="team-bio">
-                            Esi leads STRIIVE's diagnostic and predictive modeling practice. Specializing in stochastic analysis, probabilistic reasoning, and advanced analytics, she transforms complex data into strategic foresight, enabling organizations to make proactive decisions under uncertainty.
+                            Abraham is a senior Electrical and Automation Engineering Leader with over 16 years of experience delivering high-impact industrial, energy, and infrastructure systems. He brings deep expertise in plant automation, PLC and SCADA systems, power distribution, and instrumentation, complemented by strong capabilities in data analytics, machine learning, and project execution.
                         </p>
-                        <div class="team-credentials">
-                            Ph.D., Statistics, Harvard | Chartered Statistician | Former Chief Data Scientist at Analytics First
-                        </div>
+                    </div>
+                </div>
+
+                <!-- Eric -->
+                <div class="team-card fade-in">
+                    <div class="team-image eric"></div>
+                    <div class="team-info">
+                        <div class="team-role">Director of AI & Data Science</div>
+                        <h3 class="team-name">Eric Kumi</h3>
+                        <p class="team-bio">
+                            Eric Kumi is a seasoned Head of AI & Data Science with deep expertise in machine learning, data analytics, business intelligence, and AI-driven decision systems. He has led data-centric projects across downstream oil & gas, logistics monitoring systems, and import–export operations, applying advanced analytics to optimize performance, visibility, and risk management.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Jake -->
+                <div class="team-card fade-in">
+                    <div class="team-image jake"></div>
+                    <div class="team-info">
+                        <div class="team-role">Commercial Director</div>
+                        <h3 class="team-name">Jake M. Martey</h3>
+                        <p class="team-bio">
+                            Jake is a technology-driven Business Development and Sales professional with a background in Computer Science and hands-on experience delivering B2B digital infrastructure and connectivity solutions. He has led service offerings spanning fiber leasing and sales, bandwidth services, and data centre management, while conducting Technical Site Surveys (TSS) to evaluate client systems and propose optimized architectures.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1185,208 +1533,143 @@
     </section>
 
     <!-- Services -->
-    <section id="services" class="services">
+    <section id="services" class="section bg-dark">
         <div class="container">
-            <div class="section-title">
-                <h2>Services</h2>
+            <div class="section-header fade-in">
+                <div class="section-subtitle" style="color: var(--accent-gold);">Service Domains</div>
+                <h2 class="section-title">Comprehensive Solutions for Complex Challenges</h2>
+                <p class="section-description">
+                    Five integrated service domains delivering measurable value across the full lifecycle of organizational transformation.
+                </p>
             </div>
-            <div class="services-accordion">
-                <!-- Service 1 -->
-                <div class="service-category fade-in">
-                    <div class="service-header">
-                        <h3>Project Management & Delivery Excellence</h3>
-                        <span class="service-icon">+</span>
+
+            <div class="service-item fade-in">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
                     </div>
-                    <div class="service-content">
-                        <p>Precision execution of complex initiatives with risk-informed control, stakeholder coordination, and performance assurance.</p>
-                        <ul class="service-list">
-                            <li>Program Management</li>
-                            <li>Risk-Informed Execution</li>
-                            <li>Stakeholder Alignment</li>
-                            <li>Performance Assurance</li>
-                        </ul>
-                        <div class="service-differentiator">
-                            <h4>Why STRIIVE is Different</h4>
-                            <p>We employ diagnostics-led planning, probabilistic risk modeling, and continuous performance tracking to ensure delivery confidence and strategic alignment, preventing the execution drift that causes 65% of projects to fail.</p>
-                        </div>
+                    <div class="service-title">
+                        <h3>Project, Program & Portfolio Management</h3>
+                        <p>Enterprise-grade delivery frameworks with risk-informed control and continuous performance optimization across complex portfolios.</p>
                     </div>
                 </div>
-                <!-- Service 2 -->
-                <div class="service-category fade-in">
-                    <div class="service-header">
-                        <h3>New Product Design & Development</h3>
-                        <span class="service-icon">+</span>
+                <ul class="service-list">
+                    <li>Business Cases</li>
+                    <li>Comprehensive Project Planning</li>
+                    <li>Monitoring, Controlling & Evaluation</li>
+                    <li>Advanced Risk Management</li>
+                </ul>
+                <p><strong>Why STRIIVE is different:</strong> We integrate diagnostics-led planning with probabilistic risk modeling and real-time performance tracking, ensuring every initiative aligns with strategic intent and delivers measurable value.</p>
+            </div>
+
+            <div class="service-item fade-in">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="9" cy="9" r="2"/>
+                            <circle cx="15" cy="9" r="2"/>
+                            <path d="M9 15v3M15 15v3"/>
+                        </svg>
                     </div>
-                    <div class="service-content">
-                        <p>Intelligence-led product development across engineering, construction, and infrastructure domains.</p>
-                        <ul class="service-list">
-                            <li>Engineering Projects</li>
-                            <li>Construction & Infrastructure</li>
-                            <li>Systems Integration</li>
-                            <li>Design Validation</li>
-                        </ul>
-                        <div class="service-differentiator">
-                            <h4>Why STRIIVE is Different</h4>
-                            <p>We validate design through predictive modeling and iterative testing, reducing deployment risk and time-to-value by an average of 40% compared to conventional development approaches.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="service-category fade-in">
-                    <div class="service-header">
+                    <div class="service-title">
                         <h3>AI & Intelligent Systems</h3>
-                        <span class="service-icon">+</span>
-                    </div>
-                    <div class="service-content">
-                        <p>Machine learning, predictive analytics, business intelligence, and process automation solutions.</p>
-                        <ul class="service-list">
-                            <li>Software Development</li>
-                            <li>Artificial Intelligence & Machine Learning</li>
-                            <li>Intelligent Systems</li>
-                            <li>Business Intelligence & Advanced Analytics</li>
-                            <li>Business Process Automation (BPA)</li>
-                        </ul>
-                        <div class="service-differentiator">
-                            <h4>Why STRIIVE is Different</h4>
-                            <p>We deploy intelligent systems that integrate with operational workflows, leverage existing data infrastructure, and deliver measurable ROI—addressing the integration failures that plague 70% of AI implementations.</p>
-                        </div>
+                        <p>Advanced machine learning and analytics solutions that transform data into predictive intelligence and operational advantage.</p>
                     </div>
                 </div>
-                <!-- Service 4 -->
-                <div class="service-category fade-in">
-                    <div class="service-header">
-                        <h3>Diagnostic & Predictive Modeling</h3>
-                        <span class="service-icon">+</span>
-                    </div>
-                    <div class="service-content">
-                        <p>Advanced analytics for foresight and strategic decision-making under uncertainty.</p>
-                        <ul class="service-list">
-                            <li>Stochastic & Probabilistic Analysis</li>
-                            <li>Data Visualization</li>
-                            <li>Scenario Planning</li>
-                            <li>Risk Quantification</li>
-                        </ul>
-                        <div class="service-differentiator">
-                            <h4>Why STRIIVE is Different</h4>
-                            <p>We use advanced statistical methods, simulation, and machine learning to quantify risk, forecast outcomes, and inform decision-making under complexity—transforming uncertainty into strategic advantage.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 5 -->
-                <div class="service-category fade-in">
-                    <div class="service-header">
-                        <h3>Engineering & Industrial Automation</h3>
-                        <span class="service-icon">+</span>
-                    </div>
-                    <div class="service-content">
-                        <p>Control system design and integration for industrial operations and smart infrastructure.</p>
-                        <ul class="service-list">
-                            <li>Industry 4.0</li>
-                            <li>SCADA Systems</li>
-                            <li>Programmable Control Systems (PLC & Automation Architectures)</li>
-                            <li>IoT Integration</li>
-                        </ul>
-                        <div class="service-differentiator">
-                            <h4>Why STRIIVE is Different</h4>
-                            <p>We design control systems that integrate seamlessly with existing infrastructure, provide actionable intelligence, and scale with operational growth—preventing the cascade failures that cause production losses.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Service 6 -->
-                <div class="service-category fade-in">
-                    <div class="service-header">
-                        <h3>Business Development & Marketing Intelligence</h3>
-                        <span class="service-icon">+</span>
-                    </div>
-                    <div class="service-content">
-                        <p>Evidence-based market analysis and growth strategy development.</p>
-                        <ul class="service-list">
-                            <li>Feasibility Studies & Business Cases</li>
-                            <li>Marketing Strategy</li>
-                            <li>Competitive Intelligence</li>
-                            <li>Market Entry Analysis</li>
-                        </ul>
-                        <div class="service-differentiator">
-                            <h4>Why STRIIVE is Different</h4>
-                            <p>We provide evidence-based market analysis, competitive intelligence, and financial modeling that support high-confidence investment decisions—reducing capital risk by identifying viable opportunities others miss.</p>
-                        </div>
-                    </div>
-                </div>
+                <ul class="service-list">
+                    <li>AI Model Development (Diagnostic & Predictive)</li>
+                    <li>Business Intelligence & Advanced Analytics</li>
+                    <li>Business Process Automation (BPA)</li>
+                    <li>Advanced Business & Industrial Analytics</li>
+                </ul>
+                <p><strong>Why STRIIVE is different:</strong> We deploy AI that integrates with operational workflows and existing data infrastructure to deliver measurable ROI. Our models are designed for interpretability, regulatory compliance, and long-term maintainability.</p>
             </div>
         </div>
     </section>
 
-    <!-- Global Statement -->
-    <section class="global-statement">
+    <!-- Quote Section -->
+    <section class="quote-section">
         <div class="container">
-            <h2 class="fade-in">Designed for global standards. Delivered with contextual intelligence.</h2>
+            <h2>Designed for global standards. Delivered with contextual intelligence.</h2>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact">
+    <section id="engage" class="section bg-white">
         <div class="container">
-            <div class="section-title">
-                <h2>Engage STRIIVE</h2>
-            </div>
-            <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
-                Begin a strategic conversation. Whether you are navigating complexity, seeking predictive clarity, or building long-term capability, STRIIVE is ready to partner with you.
-            </p>
-            <div class="contact-container">
-                <div class="contact-info fade-in">
-                    <h3>Start a Strategic Conversation</h3>
-                    <p>Contact us to discuss how STRIIVE's intelligence-led approach can address your complex business challenges, provide predictive clarity, and deliver sustained performance assurance.</p>
+            <div class="contact-grid fade-in">
+                <div class="contact-info">
+                    <div class="section-subtitle">Get In Touch</div>
+                    <h2 class="section-title">Engage STRIIVE</h2>
+                    <p>
+                        Begin a strategic conversation. Whether you are navigating complexity, seeking predictive clarity, or building long-term capability, STRIIVE is ready to partner with you.
+                    </p>
+                    
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
                             </div>
-                            <div>
+                            <div class="detail-content">
                                 <h4>Location</h4>
                                 <p>Accra, Ghana</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                    <path d="M3 8l9 6 9-6"/>
+                                </svg>
                             </div>
-                            <div>
-                                <h4>Contact</h4>
-                                <p>+233 24 123 4567</p>
+                            <div class="detail-content">
+                                <h4>Email</h4>
+                                <p>contact@striive.com</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
+
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
                             </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>engage@striive.com</p>
+                            <div class="detail-content">
+                                <h4>Registration</h4>
+                                <p>BN497130722</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="organization">Organization</label>
-                            <input type="text" id="organization" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Strategic Challenge</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
-                    </form>
-                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your challenge..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; border: none;">Submit Inquiry</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1394,140 +1677,111 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-container">
+            <div class="footer-content">
                 <div class="footer-brand">
                     <h3>STRIIVE</h3>
                     <div class="footer-tagline">Intelligence. Design. Performance.</div>
                     <div class="footer-info">
-                        <p>Registered in Ghana<br>
+                        Registered in Ghana<br>
                         Registration No. BN497130722<br>
-                        Established 2022</p>
-                        <p style="margin-top: 1rem;">STRIIVE is an intelligence-led technology and systems design company operating at the intersection of engineering, artificial intelligence, analytics, and strategic design.</p>
+                        Established 2020
                     </div>
                 </div>
-                <div class="footer-links">
+                <div class="footer-section">
                     <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#team">Leadership</a></li>
-                        <li><a href="#capabilities">Capabilities</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#team">Leadership</a>
+                        <a href="#capabilities">Capabilities</a>
+                        <a href="#services">Services</a>
+                        <a href="#engage">Engage</a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Project Management</a></li>
-                        <li><a href="#services">Product Design</a></li>
-                        <li><a href="#services">AI & Intelligent Systems</a></li>
-                        <li><a href="#services">Predictive Modeling</a></li>
-                        <li><a href="#services">Industrial Automation</a></li>
-                        <li><a href="#services">Business Development</a></li>
-                    </ul>
+                <div class="footer-section">
+                    <h4>Core Capabilities</h4>
+                    <div class="footer-links">
+                        <a href="#services">Project & Portfolio Management</a>
+                        <a href="#services">Product & Service Design</a>
+                        <a href="#services">AI & Intelligent Systems</a>
+                        <a href="#services">Industrial Automation</a>
+                        <a href="#services">Business Development</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                © STRIIVE 2022 – 2026. All rights reserved.
+                © STRIIVE 2020 – 2026. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
         
-        mobileMenuBtn.addEventListener('click', () => {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
         });
         
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
-        // Navbar scroll effect
-        const navbar = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Services Accordion
-        const serviceHeaders = document.querySelectorAll('.service-header');
-        serviceHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const serviceCategory = header.parentElement;
-                serviceCategory.classList.toggle('active');
-                
-                // Update icon
-                const icon = header.querySelector('.service-icon');
-                icon.textContent = serviceCategory.classList.contains('active') ? '−' : '+';
-            });
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            // Simple validation
-            if (name && email) {
-                alert(`Thank you, ${name}. Your inquiry has been submitted. The STRIIVE team will respond within 24 hours.`);
-                contactForm.reset();
-            } else {
-                alert('Please fill in all required fields.');
-            }
+            alert('Thank you for your inquiry. The STRIIVE team will respond within 24 hours.');
+            this.reset();
         });
         
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        fadeElements.forEach(element => {
-            observer.observe(element);
-        });
-        
-        // Smooth scrolling for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '0.5rem 0';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.padding = '1rem 0';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
         });
     </script>
 </body>
