@@ -8,72 +8,103 @@
     <meta name="author" content="STRIIVE">
     <title>STRIIVE | Intelligence, Engineering & Predictive Systems Design</title>
     
-    <!-- Google Fonts - Inspired by LMI Ghana -->
+    <!-- Google Fonts - Professional Combination -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* ===== GLOBAL STYLES & VARIABLES ===== */
+        :root {
+            /* Primary Colors - Inspired by LMI Ghana */
+            --primary-blue: #0A2463;
+            --primary-red: #C41E3A;
+            --accent-gold: #FFD700;
+            --accent-teal: #20B2AA;
+            
+            /* Neutral Colors */
+            --dark-blue: #001233;
+            --navy-blue: #023E8A;
+            --light-blue: #90E0EF;
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --light-gray: #E9ECEF;
+            --medium-gray: #ADB5BD;
+            --dark-gray: #495057;
+            --black: #212529;
+            
+            /* Backgrounds */
+            --bg-light: #F8FAFF;
+            --bg-gradient: linear-gradient(135deg, #0A2463 0%, #023E8A 100%);
+            
+            /* Golden Ratio Proportions */
+            --ratio: 1.618;
+            --spacing-unit: 1rem;
+            --spacing-xs: calc(var(--spacing-unit) / var(--ratio) / var(--ratio));
+            --spacing-sm: calc(var(--spacing-unit) / var(--ratio));
+            --spacing-md: var(--spacing-unit);
+            --spacing-lg: calc(var(--spacing-unit) * var(--ratio));
+            --spacing-xl: calc(var(--spacing-unit) * var(--ratio) * var(--ratio));
+            --spacing-xxl: calc(var(--spacing-unit) * var(--ratio) * var(--ratio) * var(--ratio));
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-red: #B91C1C;
-            --dark-red: #7F1D1D;
-            --light-red: #DC2626;
-            --white: #FFFFFF;
-            --off-white: #FAFAFA;
-            --gray: #1E293B;
-            --light-gray: #64748B;
-            --bg-light: #F8FAFC;
-            --accent-gold: #D4AF37;
-            --dark-blue: #0F172A;
-        }
-
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: var(--white);
-            color: var(--gray);
-            line-height: 1.7;
-            font-size: 16px;
+            color: var(--dark-gray);
+            line-height: 1.6;
             overflow-x: hidden;
-            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4 {
             font-family: 'Manrope', sans-serif;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
             color: var(--dark-blue);
         }
 
         h1 {
-            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            font-size: clamp(2.8rem, 5vw, 4rem);
             letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-lg);
         }
 
         h2 {
-            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-size: clamp(2.2rem, 3.5vw, 3rem);
             letter-spacing: -0.015em;
+            margin-bottom: var(--spacing-md);
         }
 
         h3 {
             font-size: clamp(1.5rem, 2.5vw, 2rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
         }
 
         p {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--spacing-md);
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--light-gray);
+            color: var(--dark-gray);
         }
 
         a {
@@ -82,22 +113,27 @@
             transition: all 0.3s ease;
         }
 
+        /* ===== LAYOUT UTILITIES ===== */
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 var(--spacing-lg);
         }
 
         .section {
-            padding: 6rem 0;
+            padding: var(--spacing-xxl) 0;
             position: relative;
         }
 
         .section-large {
-            padding: 8rem 0;
+            padding: calc(var(--spacing-xxl) * 1.5) 0;
         }
 
-        /* Navigation - Premium Design */
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
@@ -105,28 +141,34 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: var(--spacing-sm) 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
 
         .logo {
             font-family: 'Manrope', sans-serif;
             font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: 0.02em;
-            color: var(--primary-red);
+            color: var(--primary-blue);
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .logo:after {
+        .logo::after {
             content: '';
             position: absolute;
             bottom: -4px;
@@ -134,24 +176,30 @@
             width: 40px;
             height: 3px;
             background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 60px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: var(--spacing-lg);
             list-style: none;
         }
 
         .nav-links a {
-            font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--dark-blue);
             position: relative;
             padding: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .nav-links a:after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -166,913 +214,9 @@
             color: var(--primary-red);
         }
 
-        .nav-links a:hover:after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
-        }
-
-        /* Hero Section - Premium */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, 
-                rgba(15, 23, 42, 0.95) 0%, 
-                rgba(30, 41, 59, 0.9) 100%),
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-            padding-top: 80px;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 850px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, #E2E8F0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .tagline {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            color: var(--accent-gold);
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 3px solid var(--accent-gold);
-        }
-
-        .hero-description {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            font-weight: 300;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.2rem 3rem;
-            border: none;
-            background: var(--primary-red);
-            color: var(--white);
-            cursor: pointer;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: all 0.35s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn:hover:before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            background: var(--dark-red);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(185, 28, 28, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--white);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary-red);
-        }
-
-        /* Stats Banner */
-        .stats-banner {
-            background: var(--dark-blue);
-            color: var(--white);
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats-banner:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-box {
-            padding: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-box h3 {
-            font-size: 3.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-        }
-
-        .stat-box p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            font-weight: 300;
-        }
-
-        /* Section Titles */
-        .section-header {
-            max-width: 800px;
-            margin-bottom: 5rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            color: var(--primary-red);
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(185, 28, 28, 0.1);
-            border-radius: 50px;
-        }
-
-        .section-title {
-            margin-bottom: 1.5rem;
-            color: var(--dark-blue);
-        }
-
-        .section-description {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--light-gray);
-        }
-
-        /* Background Variations */
-        .bg-white {
-            background: var(--white);
-        }
-
-        .bg-light {
-            background: var(--bg-light);
-        }
-
-        .bg-dark {
-            background: var(--dark-blue);
-            color: var(--white);
-        }
-
-        .bg-dark .section-title,
-        .bg-dark h3 {
-            color: var(--white);
-        }
-
-        .bg-dark .section-description,
-        .bg-dark p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Problem Cards */
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .problem-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--primary-red);
-            transition: width 0.3s ease;
-        }
-
-        .problem-card:hover:before {
-            width: 8px;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-icon {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 2rem;
-            background: rgba(185, 28, 28, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .problem-card h3 {
-            color: var(--dark-blue);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-        }
-
-        /* Capabilities Grid - Enhanced with Real Images */
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .capability-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .capability-image {
-            width: 100%;
-            height: 240px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .capability-image:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.7) 100%);
-        }
-
-        .capability-image.img-project {
-            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .capability-image.img-design {
-            background: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .capability-image.img-ai {
-            background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .capability-image.img-automation {
-            background: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .capability-image.img-strategy {
-            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .capability-number {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            color: var(--white);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            background: rgba(212, 175, 55, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            z-index: 2;
-        }
-
-        .capability-content {
-            padding: 2.5rem;
-        }
-
-        .capability-content h3 {
-            color: var(--dark-blue);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .capability-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .capability-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
-        }
-
-        .capability-list li {
-            padding: 0.6rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-            color: var(--light-gray);
-            font-size: 0.95rem;
-        }
-
-        .capability-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--primary-red);
-            font-weight: bold;
-        }
-
-        .capability-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Process Section */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .process-item {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--white);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .process-number {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--primary-red);
-            opacity: 0.1;
-            line-height: 1;
-        }
-
-        .process-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-            background: rgba(185, 28, 28, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .process-item h3 {
-            color: var(--dark-blue);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .process-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Team Section - Enhanced with Team Images */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 3rem;
-        }
-
-        .team-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .team-image {
-            width: 100%;
-            height: 320px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-image:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
-        }
-
-        /* Team member placeholder images using Unsplash */
-        .team-image.ted {
-            background: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-image.terry {
-            background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-image.joseph {
-            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-image.abraham {
-            background: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-image.eric {
-            background: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-image.jake {
-            background: url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-info {
-            padding: 2.5rem;
-        }
-
-        .team-role {
-            color: var(--primary-red);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.8rem;
-        }
-
-        .team-name {
-            color: var(--dark-blue);
-            font-size: 1.65rem;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-
-        .team-bio {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .team-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Services Section */
-        .service-item {
-            margin-bottom: 5rem;
-            padding: 4rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .service-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
-        }
-
-        .service-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 3rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            flex-shrink: 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-title h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .service-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            list-style: none;
-            margin: 2.5rem 0;
-        }
-
-        .service-list li {
-            padding: 1.2rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-left: 3px solid var(--accent-gold);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .service-list li:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-left-width: 5px;
-            transform: translateX(5px);
-        }
-
-        /* Quote Section */
-        .quote-section {
-            text-align: center;
-            padding: 8rem 0;
-            background: linear-gradient(135deg, 
-                rgba(15, 23, 42, 0.95) 0%, 
-                rgba(30, 41, 59, 0.9) 100%),
-                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .quote-section:before {
-            content: '"';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 30rem;
-            color: rgba(255, 255, 255, 0.05);
-            font-family: 'Source Serif Pro', serif;
-            z-index: 1;
-        }
-
-        .quote-section h2 {
-            font-family: 'Source Serif Pro', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 500;
-            font-style: italic;
-            color: var(--white);
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .contact-form {
-            background: var(--white);
-            padding: 3.5rem;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--dark-blue);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 1.2rem;
-            background: var(--bg-light);
-            border: 2px solid transparent;
-            color: var(--dark-blue);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary-red);
-            background: var(--white);
-            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
-        }
-
-        textarea {
-            min-height: 160px;
-            resize: vertical;
-        }
-
-        .contact-info {
-            padding-right: 2rem;
-        }
-
-        .contact-details {
-            margin-top: 3rem;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background: var(--bg-light);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .detail-item:hover {
-            background: var(--white);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transform: translateX(5px);
-        }
-
-        .detail-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--primary-red);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .detail-icon svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .detail-content h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-blue);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-blue);
-            color: var(--white);
-            padding: 5rem 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .footer-tagline {
-            font-size: 1rem;
-            letter-spacing: 0.1em;
-            margin-bottom: 1.5rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .footer-info {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            line-height: 1.8;
-        }
-
-        .footer-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-
-        .footer-section h4:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent-gold);
-        }
-
-        .footer-links a {
-            display: block;
-            margin-bottom: 1rem;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--accent-gold);
-            transform: translateX(5px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .service-header {
-                flex-direction: column;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            nav .container {
-                padding: 0 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section {
-                padding: 4rem 0;
-            }
-
-            .section-large {
-                padding: 6rem 0;
-            }
-
-            .hero {
-                min-height: 85vh;
-                background-attachment: scroll;
-            }
-
-            .cta-group {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .problem-grid,
-            .capabilities-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-item {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .quote-section {
-                padding: 5rem 0;
-            }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Mobile Menu Toggle */
@@ -1098,7 +242,721 @@
         .menu-toggle span:nth-child(2) { top: 14px; }
         .menu-toggle span:nth-child(3) { top: 20px; }
 
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.9) 0%, 
+                rgba(2, 62, 138, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            background: linear-gradient(135deg, #fff 0%, var(--light-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 600;
+            color: var(--accent-gold);
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xl);
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            background: var(--primary-red);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: #A4161A;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xxl);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--primary-red);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(196, 30, 58, 0.1);
+            border-radius: 50px;
+        }
+
+        .section-title {
+            margin-bottom: var(--spacing-lg);
+            color: var(--dark-blue);
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        /* ===== STATS BANNER ===== */
+        .stats-banner {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: var(--spacing-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-box {
+            padding: var(--spacing-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-box h3 {
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 800;
+        }
+
+        .stat-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* ===== CAPABILITIES SECTION ===== */
+        .capabilities-section {
+            background: var(--bg-light);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .capability-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-gray);
+            position: relative;
+            height: 100%;
+        }
+
+        .capability-image {
+            width: 100%;
+            height: 200px;
+            background: var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capability-content {
+            padding: var(--spacing-lg);
+        }
+
+        .capability-number {
+            color: var(--primary-red);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+
+        .capability-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .capability-content p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .capability-list {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--spacing-md);
+        }
+
+        .capability-list li {
+            padding: var(--spacing-sm) 0;
+            padding-left: var(--spacing-lg);
+            position: relative;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .capability-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent-teal);
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects-section {
+            background: var(--white);
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--light-gray);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--dark-gray);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-red);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-gray);
+            height: 100%;
+        }
+
+        .project-header {
+            padding: var(--spacing-lg);
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .project-industry {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .project-content {
+            padding: var(--spacing-lg);
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            padding: var(--spacing-sm) 0;
+            padding-left: var(--spacing-lg);
+            position: relative;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .project-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-weight: bold;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-blue);
+        }
+
+        .view-all-btn {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            background: var(--bg-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-gray);
+            height: 100%;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--navy-blue), var(--primary-blue));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 5rem;
+        }
+
+        .team-info {
+            padding: var(--spacing-lg);
+        }
+
+        .team-role {
+            color: var(--primary-red);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .team-name {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-bio {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-blue);
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process-section {
+            background: var(--bg-gradient);
+            color: var(--white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .process-card {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .process-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.1);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1;
+        }
+
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 2rem;
+        }
+
+        .process-card h3 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .process-card p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: start;
+        }
+
+        .contact-form {
+            background: var(--off-white);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--dark-blue);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            color: var(--dark-gray);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(10, 36, 99, 0.1);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            padding-right: var(--spacing-lg);
+        }
+
+        .contact-details {
+            margin-top: var(--spacing-xl);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: var(--off-white);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .detail-item:hover {
+            background: var(--white);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transform: translateX(5px);
+        }
+
+        .detail-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .detail-content h4 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--dark-blue);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: var(--spacing-xxl) 0 var(--spacing-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-lg);
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .footer-info {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--white);
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links a {
+            display: block;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+
             .menu-toggle {
                 display: block;
             }
@@ -1140,26 +998,105 @@
                 top: 14px;
                 transform: rotate(-45deg);
             }
+
+            .section {
+                padding: var(--spacing-xl) 0;
+            }
+
+            .section-large {
+                padding: calc(var(--spacing-xl) * 1.5) 0;
+            }
+
+            .hero {
+                min-height: 85vh;
+                background-attachment: scroll;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .project-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PAGE TRANSITIONS ===== */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-blue);
+            z-index: 9999;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .page-transition.active {
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+
     <!-- Navigation -->
-    <nav>
+    <nav id="mainNav">
         <div class="container">
-            <div class="logo">STRIIVE</div>
+            <a href="#home" class="logo">STRIIVE</a>
             <div class="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Leadership</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#capabilities">Capabilities</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#engage">Engage</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Leadership</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Engage</a></li>
             </ul>
         </div>
     </nav>
@@ -1173,9 +1110,9 @@
                 <p class="hero-description">
                     STRIIVE delivers diagnostics-first, intelligence-led systems design across engineering, artificial intelligence, and strategic performance assurance. We help organizations navigate complexity and sustain operational excellence.
                 </p>
-                <div class="cta-group">
+                <div class="btn-group">
                     <a href="#capabilities" class="btn">Explore Our Capabilities</a>
-                    <a href="#engage" class="btn btn-outline">Engage STRIIVE</a>
+                    <a href="#contact" class="btn btn-outline">Engage STRIIVE</a>
                 </div>
             </div>
         </div>
@@ -1186,16 +1123,16 @@
         <div class="container">
             <div class="stats-grid fade-in">
                 <div class="stat-box">
-                    <h3>BN497130722</h3>
-                    <p>Registration Number<br>Registered in Ghana</p>
+                    <h3>2020</h3>
+                    <p>Established<br>Years of Excellence</p>
                 </div>
                 <div class="stat-box">
-                    <h3>6</h3>
-                    <p>Executive Leaders<br>Cross-Domain Expertise</p>
+                    <h3>50+</h3>
+                    <p>Projects Completed<br>Across Industries</p>
                 </div>
                 <div class="stat-box">
-                    <h3>∞</h3>
-                    <p>Predictive Intelligence<br>Future-Ready Systems</p>
+                    <h3>100%</h3>
+                    <p>Client Satisfaction<br>Diagnostics-First Approach</p>
                 </div>
                 <div class="stat-box">
                     <h3>24/7</h3>
@@ -1205,149 +1142,67 @@
         </div>
     </section>
 
-    <!-- Problem Space -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-subtitle">The Challenge Landscape</div>
-                <h2 class="section-title">Organizations Face Critical System Challenges</h2>
-                <p class="section-description">
-                    Modern enterprises operate in environments where complexity, uncertainty, and performance drift create substantial risk. STRIIVE addresses these fundamental challenges.
-                </p>
-            </div>
-            <div class="problem-grid">
-                <div class="problem-card fade-in">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <circle cx="12" cy="8" r="3"/>
-                            <circle cx="6" cy="12" r="3"/>
-                            <circle cx="18" cy="12" r="3"/>
-                            <circle cx="12" cy="16" r="3"/>
-                            <line x1="12" y1="11" x2="12" y2="13"/>
-                            <line x1="9" y1="10" x2="9" y2="14"/>
-                            <line x1="15" y1="10" x2="15" y2="14"/>
-                        </svg>
-                    </div>
-                    <h3>Hidden Complexity</h3>
-                    <p>Organizations operate within systems where cause and effect are obscured, risks cascade unpredictably, and traditional planning fails under uncertainty.</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 5v2M12 17v2M5 12h2M17 12h2"/>
-                        </svg>
-                    </div>
-                    <h3>Poor Foresight</h3>
-                    <p>Decisions are made without predictive intelligence, resulting in reactive strategies, missed opportunities, and expensive corrections downstream.</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <path d="M12 2v4M12 18v4M4 12H2M8 12H6M16 12h-2M22 12h-2"/>
-                            <circle cx="12" cy="12" r="4"/>
-                            <path d="M12 8v8M8 12h8"/>
-                        </svg>
-                    </div>
-                    <h3>Performance Drift</h3>
-                    <p>Systems degrade over time. Without continuous assurance and root-cause diagnostics, performance erodes silently until failure becomes visible.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Capabilities -->
-    <section id="capabilities" class="section section-large bg-white">
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="section capabilities-section">
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-subtitle">Core Capabilities</div>
-                <h2 class="section-title">Comprehensive Solutions Across Complex Domains</h2>
+                <h2 class="section-title">Integrated Solutions Across Complex Domains</h2>
                 <p class="section-description">
-                    From project delivery to predictive intelligence, STRIIVE integrates engineering, AI, and strategic design to solve your most complex challenges.
+                    STRIIVE combines engineering rigor, AI intelligence, and strategic design to deliver comprehensive solutions for your most complex challenges.
                 </p>
             </div>
             <div class="capabilities-grid">
-                <!-- Capability 01 -->
+                <!-- Capability 1 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-image img-project">
-                        <div class="capability-number">CAPABILITY 01</div>
+                    <div class="capability-image">
+                        <div style="color: white; font-size: 3rem;">📊</div>
                     </div>
                     <div class="capability-content">
-                        <h3>Project, Program & Portfolio Management</h3>
-                        <p>Enterprise-grade delivery frameworks with risk-informed control, comprehensive planning, and continuous performance optimization.</p>
+                        <div class="capability-number">CAPABILITY 01</div>
+                        <h3>Project & Portfolio Management</h3>
+                        <p>End-to-end project delivery with risk-informed control and performance optimization frameworks.</p>
                         <ul class="capability-list">
-                            <li>Business Cases</li>
+                            <li>Business Case Development</li>
                             <li>Comprehensive Project Planning</li>
-                            <li>Monitoring, Controlling & Evaluation</li>
+                            <li>Monitoring & Evaluation</li>
                             <li>Advanced Risk Management</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Capability 02 -->
+                <!-- Capability 2 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-image img-design">
+                    <div class="capability-image">
+                        <div style="color: white; font-size: 3rem;">⚙️</div>
+                    </div>
+                    <div class="capability-content">
                         <div class="capability-number">CAPABILITY 02</div>
-                    </div>
-                    <div class="capability-content">
-                        <h3>Product & Service Design</h3>
-                        <p>End-to-end design and development from concept through prototyping, validated through systems thinking and iterative refinement.</p>
-                        <ul class="capability-list">
-                            <li>System Engineering & Design</li>
-                            <li>Business Model Design</li>
-                            <li>Consumer Goods Development</li>
-                            <li>3D Modeling & Prototyping</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Capability 03 -->
-                <div class="capability-card fade-in">
-                    <div class="capability-image img-ai">
-                        <div class="capability-number">CAPABILITY 03</div>
-                    </div>
-                    <div class="capability-content">
-                        <h3>AI & Intelligent Systems</h3>
-                        <p>Advanced machine learning and analytics solutions that transform data into predictive intelligence and operational advantage.</p>
-                        <ul class="capability-list">
-                            <li>AI Model Development</li>
-                            <li>Business Intelligence & Advanced Analytics</li>
-                            <li>Business Process Automation (BPA)</li>
-                            <li>Advanced Business & Industrial Analytics</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Capability 04 -->
-                <div class="capability-card fade-in">
-                    <div class="capability-image img-automation">
-                        <div class="capability-number">CAPABILITY 04</div>
-                    </div>
-                    <div class="capability-content">
                         <h3>Engineering & Industrial Automation</h3>
-                        <p>Smart factory solutions integrating SCADA, PLC, and IoT for enhanced productivity, safety, and real-time operational intelligence.</p>
+                        <p>Smart factory solutions integrating SCADA, PLC, and IoT for operational intelligence.</p>
                         <ul class="capability-list">
                             <li>Industry 4.0 Systems</li>
-                            <li>SCADA Systems</li>
-                            <li>Programmable Control Systems (PLC)</li>
-                            <li>IoT Integration</li>
+                            <li>SCADA Systems Integration</li>
+                            <li>PLC Programming</li>
+                            <li>IoT Implementation</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Capability 05 -->
+                <!-- Capability 3 -->
                 <div class="capability-card fade-in">
-                    <div class="capability-image img-strategy">
-                        <div class="capability-number">CAPABILITY 05</div>
+                    <div class="capability-image">
+                        <div style="color: white; font-size: 3rem;">🤖</div>
                     </div>
                     <div class="capability-content">
-                        <h3>Strategic Business Development</h3>
-                        <p>Evidence-based market analysis, feasibility studies, and capability development that drive sustainable competitive advantage.</p>
+                        <div class="capability-number">CAPABILITY 03</div>
+                        <h3>AI & Intelligent Systems</h3>
+                        <p>Advanced machine learning and analytics solutions transforming data into predictive intelligence.</p>
                         <ul class="capability-list">
-                            <li>Business & Marketing Strategy</li>
-                            <li>Feasibility Studies</li>
-                            <li>Corporate Training & Capacity Development</li>
+                            <li>AI Model Development</li>
+                            <li>Business Intelligence</li>
+                            <li>Process Automation</li>
+                            <li>Predictive Analytics</li>
                         </ul>
                     </div>
                 </div>
@@ -1355,98 +1210,102 @@
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="section bg-dark">
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
         <div class="container">
             <div class="section-header fade-in">
-                <div class="section-subtitle" style="color: var(--accent-gold);">Our Methodology</div>
-                <h2 class="section-title">How We Deliver Results</h2>
+                <div class="section-subtitle">Our Portfolio</div>
+                <h2 class="section-title">Recent Projects & Success Stories</h2>
                 <p class="section-description">
-                    A systematic, intelligence-led approach that transforms complexity into clarity and strategic advantage.
+                    Explore our diverse portfolio of completed projects across multiple industries, showcasing our expertise and capability.
                 </p>
             </div>
-            <div class="process-grid">
-                <div class="process-item fade-in">
-                    <div class="process-number">01</div>
-                    <div class="process-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <path d="M20 12V8H4v4h16z"/>
-                            <path d="M4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/>
-                            <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
-                            <circle cx="12" cy="12" r="2"/>
-                        </svg>
+
+            <!-- Project Filters -->
+            <div class="project-filters fade-in">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="oil-gas">Oil & Gas</button>
+                <button class="filter-btn" data-filter="engineering">Engineering & Technology</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+                <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1: Oil & Gas -->
+                <div class="project-card fade-in" data-category="oil-gas">
+                    <div class="project-header">
+                        <div class="project-industry">Oil & Gas</div>
+                        <h3 class="project-title">Corrosion Control Systems</h3>
                     </div>
-                    <h3>Diagnose</h3>
-                    <p>Root-cause analysis, system mapping, and constraint discovery. We define the problem before solving it.</p>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Blasting & Coating of Oil Drilling Equipment</li>
+                            <li>Processing Equipment Protection Systems</li>
+                            <li>Fabrication & Coating of Subsea Pipe Spools</li>
+                            <li>Advanced Corrosion Monitoring Solutions</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="process-item fade-in">
-                    <div class="process-number">02</div>
-                    <div class="process-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <path d="M2 12h20M12 2v20"/>
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v12M6 12h12"/>
-                        </svg>
+                <!-- Project 2: Engineering & Technology -->
+                <div class="project-card fade-in" data-category="engineering">
+                    <div class="project-header">
+                        <div class="project-industry">Engineering & Technology</div>
+                        <h3 class="project-title">Digital Transformation</h3>
                     </div>
-                    <h3>Model & Predict</h3>
-                    <p>Stochastic modeling and predictive simulation to quantify uncertainty and forecast behavior.</p>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Fibre Network Deployment</li>
+                            <li>Solar Power Installation Projects</li>
+                            <li>Factory Expansion Phase I & II</li>
+                            <li>DIO Management Software Development</li>
+                            <li>Quality & Warehouse Management Systems</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="process-item fade-in">
-                    <div class="process-number">03</div>
-                    <div class="process-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M3 9h18M9 21V9"/>
-                            <circle cx="7" cy="7" r="1"/>
-                            <circle cx="17" cy="7" r="1"/>
-                        </svg>
+                <!-- Project 3: Manufacturing -->
+                <div class="project-card fade-in" data-category="manufacturing">
+                    <div class="project-header">
+                        <div class="project-industry">Manufacturing</div>
+                        <h3 class="project-title">Factory Automation</h3>
                     </div>
-                    <h3>Design & Implement</h3>
-                    <p>Solution architecture, integration, and deployment that performs as intended.</p>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Industrial Water Treatment Plants</li>
+                            <li>Automated Pallet Transfer Systems</li>
+                            <li>Factory & Process Upgrade Projects</li>
+                            <li>Packaging Line Automation</li>
+                            <li>Process Optimization Initiatives</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <div class="process-item fade-in">
-                    <div class="process-number">04</div>
-                    <div class="process-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B91C1C" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 8v4l3 3"/>
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H8"/>
-                            <path d="M8 21v-2a4 4 0 0 1 4-4h4"/>
-                        </svg>
-                    </div>
-                    <h3>Assure & Transfer</h3>
-                    <p>Performance monitoring, knowledge transfer, and continuous improvement frameworks.</p>
-                </div>
+            <!-- View All Button -->
+            <div class="view-all-btn fade-in">
+                <a href="#all-projects" class="btn">View All Projects</a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section bg-light">
+    <!-- All Projects Page (Hidden until clicked) -->
+    <section id="all-projects" class="section" style="display: none;">
         <div class="container">
-            <div class="section-header fade-in">
-                <div class="section-subtitle">About STRIIVE</div>
-                <h2 class="section-title">Intelligence-Led Systems Design for Complex Challenges</h2>
+            <div class="section-header">
+                <div class="section-subtitle">Complete Portfolio</div>
+                <h2 class="section-title">All Projects by Industry</h2>
             </div>
-            <div class="fade-in" style="max-width: 1000px; margin: 0 auto;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.8;">
-                    STRIIVE is an intelligence-led technology and systems design company operating at the intersection of engineering, artificial intelligence, analytics, and strategic design. Established in 2020 and registered in Ghana, we serve organizations facing complexity, transformation, and the need for predictive clarity.
-                </p>
-                <p style="margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.75;">
-                    Our philosophy is diagnostics-first. We do not begin with solutions. We begin with intelligent interrogation of system behavior, constraints, and failure modes. This approach ensures that every strategy, model, or design we deliver addresses root causes rather than symptoms.
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.75;">
-                    We integrate engineering rigor, machine learning, stochastic reasoning, and strategic foresight to deliver solutions that perform under uncertainty, scale with operational demands, and sustain long-term value. STRIIVE is a strategic partner, not a service vendor. We work alongside leadership to build capability, not dependency.
-                </p>
+            <!-- All projects would be listed here -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#projects" class="btn btn-outline" style="color: var(--primary-blue); border-color: var(--primary-blue);">Back to Main Page</a>
             </div>
         </div>
     </section>
 
-    <!-- Team -->
-    <section id="team" class="section section-large bg-white">
+    <!-- Team Section -->
+    <section id="team" class="section team-section">
         <div class="container">
             <div class="section-header fade-in">
                 <div class="section-subtitle">Leadership Team</div>
@@ -1457,74 +1316,44 @@
             </div>
             
             <div class="team-grid">
-                <!-- Ted -->
+                <!-- CEO -->
                 <div class="team-card fade-in">
-                    <div class="team-image ted"></div>
+                    <div class="team-image">
+                        <div>T</div>
+                    </div>
                     <div class="team-info">
-                        <div class="team-role">Founder & Chief Executive Officer</div>
+                        <div class="team-role">Founder & CEO</div>
                         <h3 class="team-name">Ted M. Kugbe</h3>
                         <p class="team-bio">
-                            Ted exemplifies exceptional leadership in Portfolio/Project management, Operations, Strategy, Business Development & Marketing, and Innovation. A profound repository of knowledge in implementing high-impact multi-million-dollar initiatives across Manufacturing, Energy, Telecommunications, Engineering, Technology, and Infrastructure sectors.
+                            Expert in portfolio/project management, operations, strategy, and business development with multi-million dollar project experience across multiple sectors.
                         </p>
                     </div>
                 </div>
 
-                <!-- Terry -->
+                <!-- CFO -->
                 <div class="team-card fade-in">
-                    <div class="team-image terry"></div>
+                    <div class="team-image">
+                        <div>T</div>
+                    </div>
                     <div class="team-info">
                         <div class="team-role">Chief Financial Officer</div>
                         <h3 class="team-name">Terry M. Kugbe</h3>
                         <p class="team-bio">
-                            Terry is a globally experienced leader operating at the intersection of finance, technology, engineering, and large-scale capital projects. Trained in Biotechnology and Business Administration at a leading U.S.-based institution, he brings a rare ability to translate complex technical systems into sustainable commercial value.
+                            Global leader in finance, technology, and large-scale capital projects with expertise in translating technical systems into commercial value.
                         </p>
                     </div>
                 </div>
 
-                <!-- Joseph -->
+                <!-- Director of Technology -->
                 <div class="team-card fade-in">
-                    <div class="team-image joseph"></div>
+                    <div class="team-image">
+                        <div>J</div>
+                    </div>
                     <div class="team-info">
                         <div class="team-role">Director of Technology</div>
                         <h3 class="team-name">Joseph Essilfie</h3>
                         <p class="team-bio">
-                            Joseph is a seasoned Software Engineering and Technology Expert with deep, hands-on experience across enterprise systems, networking, data centres, and digital platforms. With a strong foundation in systems administration, hardware and networking engineering, and web technologies, he brings a practical, execution-focused approach to complex technical challenges.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Abraham -->
-                <div class="team-card fade-in">
-                    <div class="team-image abraham"></div>
-                    <div class="team-info">
-                        <div class="team-role">Director of Engineering & Operations</div>
-                        <h3 class="team-name">Abraham M. Sam</h3>
-                        <p class="team-bio">
-                            Abraham is a senior Electrical and Automation Engineering Leader with over 16 years of experience delivering high-impact industrial, energy, and infrastructure systems. He brings deep expertise in plant automation, PLC and SCADA systems, power distribution, and instrumentation, complemented by strong capabilities in data analytics, machine learning, and project execution.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Eric -->
-                <div class="team-card fade-in">
-                    <div class="team-image eric"></div>
-                    <div class="team-info">
-                        <div class="team-role">Director of AI & Data Science</div>
-                        <h3 class="team-name">Eric Kumi</h3>
-                        <p class="team-bio">
-                            Eric Kumi is a seasoned Head of AI & Data Science with deep expertise in machine learning, data analytics, business intelligence, and AI-driven decision systems. He has led data-centric projects across downstream oil & gas, logistics monitoring systems, and import–export operations, applying advanced analytics to optimize performance, visibility, and risk management.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Jake -->
-                <div class="team-card fade-in">
-                    <div class="team-image jake"></div>
-                    <div class="team-info">
-                        <div class="team-role">Commercial Director</div>
-                        <h3 class="team-name">Jake M. Martey</h3>
-                        <p class="team-bio">
-                            Jake is a technology-driven Business Development and Sales professional with a background in Computer Science and hands-on experience delivering B2B digital infrastructure and connectivity solutions. He has led service offerings spanning fiber leasing and sales, bandwidth services, and data centre management, while conducting Technical Site Surveys (TSS) to evaluate client systems and propose optimized architectures.
+                            Seasoned software engineering expert with deep experience across enterprise systems, networking, data centers, and digital platforms.
                         </p>
                     </div>
                 </div>
@@ -1532,75 +1361,50 @@
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section bg-dark">
+    <!-- Process Section -->
+    <section id="process" class="section process-section">
         <div class="container">
             <div class="section-header fade-in">
-                <div class="section-subtitle" style="color: var(--accent-gold);">Service Domains</div>
-                <h2 class="section-title">Comprehensive Solutions for Complex Challenges</h2>
-                <p class="section-description">
-                    Five integrated service domains delivering measurable value across the full lifecycle of organizational transformation.
+                <div class="section-subtitle" style="color: var(--accent-gold);">Our Methodology</div>
+                <h2 class="section-title" style="color: white;">How We Deliver Results</h2>
+                <p class="section-description" style="color: rgba(255,255,255,0.9);">
+                    A systematic, intelligence-led approach that transforms complexity into clarity and strategic advantage.
                 </p>
             </div>
-
-            <div class="service-item fade-in">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <line x1="3" y1="9" x2="21" y2="9"/>
-                            <line x1="9" y1="21" x2="9" y2="9"/>
-                        </svg>
-                    </div>
-                    <div class="service-title">
-                        <h3>Project, Program & Portfolio Management</h3>
-                        <p>Enterprise-grade delivery frameworks with risk-informed control and continuous performance optimization across complex portfolios.</p>
-                    </div>
+            <div class="process-grid">
+                <div class="process-card fade-in">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">🔍</div>
+                    <h3>Diagnose</h3>
+                    <p>Root-cause analysis, system mapping, and constraint discovery to define problems before solving them.</p>
                 </div>
-                <ul class="service-list">
-                    <li>Business Cases</li>
-                    <li>Comprehensive Project Planning</li>
-                    <li>Monitoring, Controlling & Evaluation</li>
-                    <li>Advanced Risk Management</li>
-                </ul>
-                <p><strong>Why STRIIVE is different:</strong> We integrate diagnostics-led planning with probabilistic risk modeling and real-time performance tracking, ensuring every initiative aligns with strategic intent and delivers measurable value.</p>
-            </div>
 
-            <div class="service-item fade-in">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <circle cx="9" cy="9" r="2"/>
-                            <circle cx="15" cy="9" r="2"/>
-                            <path d="M9 15v3M15 15v3"/>
-                        </svg>
-                    </div>
-                    <div class="service-title">
-                        <h3>AI & Intelligent Systems</h3>
-                        <p>Advanced machine learning and analytics solutions that transform data into predictive intelligence and operational advantage.</p>
-                    </div>
+                <div class="process-card fade-in">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">📈</div>
+                    <h3>Model & Predict</h3>
+                    <p>Stochastic modeling and predictive simulation to quantify uncertainty and forecast behavior.</p>
                 </div>
-                <ul class="service-list">
-                    <li>AI Model Development (Diagnostic & Predictive)</li>
-                    <li>Business Intelligence & Advanced Analytics</li>
-                    <li>Business Process Automation (BPA)</li>
-                    <li>Advanced Business & Industrial Analytics</li>
-                </ul>
-                <p><strong>Why STRIIVE is different:</strong> We deploy AI that integrates with operational workflows and existing data infrastructure to deliver measurable ROI. Our models are designed for interpretability, regulatory compliance, and long-term maintainability.</p>
+
+                <div class="process-card fade-in">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">⚡</div>
+                    <h3>Design & Implement</h3>
+                    <p>Solution architecture, integration, and deployment that performs as intended under real conditions.</p>
+                </div>
+
+                <div class="process-card fade-in">
+                    <div class="process-number">04</div>
+                    <div class="process-icon">🔄</div>
+                    <h3>Assure & Transfer</h3>
+                    <p>Performance monitoring, knowledge transfer, and continuous improvement frameworks.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <h2>Designed for global standards. Delivered with contextual intelligence.</h2>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="engage" class="section bg-white">
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
         <div class="container">
             <div class="contact-grid fade-in">
                 <div class="contact-info">
@@ -1612,12 +1416,7 @@
                     
                     <div class="contact-details">
                         <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                            </div>
+                            <div class="detail-icon">📍</div>
                             <div class="detail-content">
                                 <h4>Location</h4>
                                 <p>Accra, Ghana</p>
@@ -1625,12 +1424,7 @@
                         </div>
 
                         <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
-                                    <path d="M3 8l9 6 9-6"/>
-                                </svg>
-                            </div>
+                            <div class="detail-icon">✉️</div>
                             <div class="detail-content">
                                 <h4>Email</h4>
                                 <p>contact@striive.com</p>
@@ -1638,14 +1432,11 @@
                         </div>
 
                         <div class="detail-item">
-                            <div class="detail-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                </svg>
-                            </div>
+                            <div class="detail-icon">📞</div>
                             <div class="detail-content">
-                                <h4>Registration</h4>
-                                <p>BN497130722</p>
+                                <h4>Business Hours</h4>
+                                <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                                <p>Sat: 9:00 AM - 1:00 PM</p>
                             </div>
                         </div>
                     </div>
@@ -1653,22 +1444,32 @@
 
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
                     </div>
                     <div class="form-group">
-                        <label for="organization">Organization</label>
-                        <input type="text" id="organization" name="organization" required>
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" required placeholder="Enter your company name">
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your challenge..." required></textarea>
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="project-management">Project Management</option>
+                            <option value="engineering">Engineering & Automation</option>
+                            <option value="ai">AI & Intelligent Systems</option>
+                            <option value="consulting">Strategic Consulting</option>
+                        </select>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%; border: none;">Submit Inquiry</button>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project or challenge..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
                 </form>
             </div>
         </div>
@@ -1682,41 +1483,60 @@
                     <h3>STRIIVE</h3>
                     <div class="footer-tagline">Intelligence. Design. Performance.</div>
                     <div class="footer-info">
-                        Registered in Ghana<br>
-                        Registration No. BN497130722<br>
-                        Established 2020
+                        Established 2020<br>
+                        Accra, Ghana<br>
+                        Transforming Complexity into Clarity
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Navigation</h4>
+                    <h4>Quick Links</h4>
                     <div class="footer-links">
                         <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#team">Leadership</a>
                         <a href="#capabilities">Capabilities</a>
-                        <a href="#services">Services</a>
-                        <a href="#engage">Engage</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#team">Leadership</a>
+                        <a href="#contact">Contact</a>
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Core Capabilities</h4>
+                    <h4>Industries Served</h4>
                     <div class="footer-links">
-                        <a href="#services">Project & Portfolio Management</a>
-                        <a href="#services">Product & Service Design</a>
-                        <a href="#services">AI & Intelligent Systems</a>
-                        <a href="#services">Industrial Automation</a>
-                        <a href="#services">Business Development</a>
+                        <a href="#projects" data-filter="oil-gas">Oil & Gas</a>
+                        <a href="#projects" data-filter="engineering">Engineering</a>
+                        <a href="#projects" data-filter="infrastructure">Infrastructure</a>
+                        <a href="#projects" data-filter="manufacturing">Manufacturing</a>
+                        <a href="#projects" data-filter="telecom">Telecommunications</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-links">
+                        <a href="mailto:contact@striive.com">Email: contact@striive.com</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Request Brochure</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                © STRIIVE 2020 – 2026. All rights reserved.
+                © STRIIVE 2020 – 2026. All rights reserved. | Designed with Excellence
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Page Load Transition
+        window.addEventListener('load', () => {
+            const transition = document.querySelector('.page-transition');
+            setTimeout(() => {
+                transition.classList.remove('active');
+                setTimeout(() => {
+                    transition.style.display = 'none';
+                }, 500);
+            }, 300);
+        });
+
+        // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         
@@ -1732,20 +1552,39 @@
                 navLinks.classList.remove('active');
             });
         });
-        
-        // Form handling
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Form Handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            // In a real implementation, this would send data to a server
             alert('Thank you for your inquiry. The STRIIVE team will respond within 24 hours.');
             this.reset();
         });
-        
-        // Smooth scroll
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    // Check if it's the "View All Projects" button
+                    if (this.getAttribute('href') === '#all-projects') {
+                        document.querySelector('#all-projects').style.display = 'block';
+                        document.querySelector('#projects').style.display = 'none';
+                    }
+                    
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -1753,7 +1592,39 @@
                 }
             });
         });
-        
+
+        // Project Filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const projectCards = document.querySelectorAll('.project-card');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
@@ -1771,17 +1642,26 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Active Navigation Link Highlighting
+        const sections = document.querySelectorAll('section[id]');
         
-        // Add scroll effect to navbar
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = '0.5rem 0';
-                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.padding = '1rem 0';
-                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-            }
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
