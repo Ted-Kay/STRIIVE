@@ -16,26 +16,20 @@
     <style>
         /* ===== GLOBAL STYLES & VARIABLES ===== */
         :root {
-            /* Primary Colors - Inspired by LMI Ghana (Red, Black, White) */
-            --primary-red: #D0343A;
+            /* LMI Ghana Color Scheme */
+            --primary-red: #C8102E; /* LMI Red */
             --primary-black: #000000;
             --primary-white: #FFFFFF;
-            
-            /* Neutral Colors */
-            --dark-gray: #333333;
-            --medium-gray: #666666;
+            --gold-accent: #D4AF37; /* Gold accent from LMI */
+            --dark-gray: #1A1A1A;
+            --medium-gray: #333333;
             --light-gray: #F5F5F5;
-            --off-white: #FAFAFA;
-            
-            /* Accent Colors */
-            --accent-red-light: #E57373;
-            --accent-red-dark: #B71C1C;
             
             /* Backgrounds */
-            --bg-light: var(--off-white);
-            --bg-dark: var(--primary-black);
-            --bg-red: var(--primary-red);
-            --bg-gradient: linear-gradient(135deg, var(--primary-black) 0%, var(--dark-gray) 100%);
+            --bg-light: #FAFAFA;
+            --bg-dark: #000000;
+            --bg-gradient: linear-gradient(135deg, #000000 0%, #2C2C2C 100%);
+            --bg-red-gradient: linear-gradient(135deg, #C8102E 0%, #A00D26 100%);
             
             /* Golden Ratio Proportions */
             --ratio: 1.618;
@@ -67,6 +61,21 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Background Pattern from Document */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0icmdiYSgyMDAsIDIwMCwgMjAwLCAwLjAzKSIvPjxyZWN0IHg9IjQwIiB5PSI0MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJyZ2JhKDIwMCwgMjAwLCAyMDAsIDAuMDMpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
         }
 
         /* ===== TYPOGRAPHY ===== */
@@ -144,11 +153,12 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             padding: var(--spacing-sm) 0;
             transition: all 0.3s ease;
+            border-bottom: 3px solid var(--primary-red);
         }
 
         nav.scrolled {
             padding: 0.5rem 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(200, 16, 46, 0.1);
         }
 
         nav .container {
@@ -233,7 +243,7 @@
             display: block;
             width: 100%;
             height: 2px;
-            background: var(--primary-black);
+            background: var(--primary-red);
             position: absolute;
             transition: 0.3s;
         }
@@ -249,13 +259,25 @@
             align-items: center;
             background: linear-gradient(135deg, 
                 rgba(0, 0, 0, 0.85) 0%, 
-                rgba(51, 51, 51, 0.9) 100%),
+                rgba(44, 44, 44, 0.9) 100%),
                 url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--primary-white);
             padding-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0icmdiYSgyMDAsIDE2LCA0NiwgMC4xKSIvPjxyZWN0IHg9IjQwIiB5PSI0MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJyZ2JhKDIwMCwgMTYsIDQ2LCAwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.2;
         }
 
         .hero-content {
@@ -279,7 +301,7 @@
             color: var(--primary-white);
             display: inline-block;
             padding: var(--spacing-sm) var(--spacing-md);
-            background: rgba(208, 52, 58, 0.2);
+            background: rgba(200, 16, 46, 0.3);
             border-left: 3px solid var(--primary-red);
         }
 
@@ -311,6 +333,7 @@
             overflow: hidden;
             border-radius: 4px;
             font-family: 'Manrope', sans-serif;
+            border: 2px solid transparent;
         }
 
         .btn::before {
@@ -329,9 +352,10 @@
         }
 
         .btn:hover {
-            background: var(--accent-red-dark);
+            background: #A00D26;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(208, 52, 58, 0.3);
+            box-shadow: 0 10px 30px rgba(200, 16, 46, 0.3);
+            border-color: var(--gold-accent);
         }
 
         .btn-outline {
@@ -343,6 +367,7 @@
         .btn-outline:hover {
             background: var(--primary-white);
             color: var(--primary-red);
+            border-color: var(--primary-white);
         }
 
         .btn-group {
@@ -368,13 +393,26 @@
             margin-bottom: var(--spacing-md);
             display: inline-block;
             padding: var(--spacing-sm) var(--spacing-md);
-            background: rgba(208, 52, 58, 0.1);
+            background: rgba(200, 16, 46, 0.1);
             border-radius: 50px;
         }
 
         .section-title {
             margin-bottom: var(--spacing-lg);
             color: var(--primary-black);
+            position: relative;
+            padding-bottom: var(--spacing-md);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-red);
         }
 
         .section-description {
@@ -402,7 +440,7 @@
             background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            opacity: 0.1;
         }
 
         .stats-grid {
@@ -417,6 +455,11 @@
         .stat-box {
             padding: var(--spacing-lg);
             transition: transform 0.3s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-box:last-child {
+            border-right: none;
         }
 
         .stat-box:hover {
@@ -439,6 +482,7 @@
         /* ===== CAPABILITIES SECTION ===== */
         .capabilities-section {
             background: var(--bg-light);
+            position: relative;
         }
 
         .capabilities-grid {
@@ -466,21 +510,27 @@
             overflow: hidden;
         }
 
-        /* Real-life images for capabilities */
-        .capability-image.img-project {
-            background: url('https://unsplash.com/photos/a-persons-hand-on-a-piece-of-paper-next-to-a-bunch-of-colored-Rua207zYcWg');
+        /* Updated capability images from document */
+        .capability-image.img-monitoring {
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
         }
 
         .capability-image.img-engineering {
-            background: url('https://unsplash.com/photos/electronics-technicians-team-working-on-computer-parts-O3kZA6tbzro');
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
         }
 
         .capability-image.img-ai {
-            background: url('https://unsplash.com/photos/a-computer-chip-with-the-letter-a-on-top-of-it-eGGFZ5X2LnA');
+            background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=2065&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .capability-image.img-strategy {
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -558,6 +608,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--medium-gray);
+            border: 2px solid transparent;
         }
 
         .filter-btn:hover,
@@ -565,6 +616,8 @@
             background: var(--primary-red);
             color: var(--primary-white);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200, 16, 46, 0.2);
+            border-color: var(--gold-accent);
         }
 
         .projects-grid {
@@ -586,7 +639,7 @@
 
         .project-header {
             padding: var(--spacing-lg);
-            background: var(--primary-black);
+            background: var(--primary-red);
             color: var(--primary-white);
         }
 
@@ -594,7 +647,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--primary-red);
+            color: var(--gold-accent);
             margin-bottom: var(--spacing-sm);
             font-weight: 600;
         }
@@ -620,6 +673,11 @@
             position: relative;
             color: var(--medium-gray);
             font-size: 0.95rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .project-list li:last-child {
+            border-bottom: none;
         }
 
         .project-list li::before {
@@ -772,13 +830,14 @@
             width: 80px;
             height: 80px;
             margin: 0 auto var(--spacing-lg);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(200, 16, 46, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-red);
             font-size: 2rem;
+            border: 2px solid var(--primary-red);
         }
 
         .process-card h3 {
@@ -809,11 +868,12 @@
         }
 
         .contact-form {
-            background: var(--off-white);
+            background: var(--bg-light);
             padding: var(--spacing-xl);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--light-gray);
+            border-top: 4px solid var(--primary-red);
         }
 
         .form-group {
@@ -845,7 +905,7 @@
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--primary-red);
-            box-shadow: 0 0 0 3px rgba(208, 52, 58, 0.1);
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
         }
 
         textarea {
@@ -867,7 +927,7 @@
             gap: var(--spacing-md);
             margin-bottom: var(--spacing-lg);
             padding: var(--spacing-lg);
-            background: var(--off-white);
+            background: var(--bg-light);
             border-radius: 12px;
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary-red);
@@ -1110,7 +1170,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--primary-black);
+            background: var(--primary-red);
             z-index: 9999;
             transform: translateY(-100%);
             transition: transform 0.5s ease;
@@ -1197,50 +1257,67 @@
                 </p>
             </div>
             <div class="capabilities-grid">
-                <!-- Capability 1 -->
+                <!-- Capability 01: Monitoring, Controlling & Evaluation -->
                 <div class="capability-card fade-in">
-                    <div class="capability-image img-project"></div>
+                    <div class="capability-image img-monitoring"></div>
                     <div class="capability-content">
                         <div class="capability-number">CAPABILITY 01</div>
-                        <h3>Project & Portfolio Management</h3>
-                        <p>End-to-end project delivery with risk-informed control and performance optimization frameworks.</p>
+                        <h3>Monitoring, Controlling & Evaluation</h3>
+                        <p>Comprehensive project oversight with real-time monitoring and control mechanisms for optimal performance delivery.</p>
                         <ul class="capability-list">
                             <li>Business Case Development</li>
                             <li>Comprehensive Project Planning</li>
-                            <li>Monitoring & Evaluation</li>
+                            <li>Real-time Monitoring & Control</li>
                             <li>Advanced Risk Management</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Capability 2 -->
+                <!-- Capability 02: Engineering & Industrial Automation -->
                 <div class="capability-card fade-in">
                     <div class="capability-image img-engineering"></div>
                     <div class="capability-content">
                         <div class="capability-number">CAPABILITY 02</div>
                         <h3>Engineering & Industrial Automation</h3>
-                        <p>Smart factory solutions integrating SCADA, PLC, and IoT for operational intelligence.</p>
+                        <p>Smart factory solutions integrating SCADA, PLC, and IoT for operational intelligence with advanced prototyping capabilities.</p>
                         <ul class="capability-list">
                             <li>Industry 4.0 Systems</li>
                             <li>SCADA Systems Integration</li>
                             <li>PLC Programming</li>
+                            <li>3D Modelling & Prototyping</li>
                             <li>IoT Implementation</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Capability 3 -->
+                <!-- Capability 03: AI & Intelligent Systems -->
                 <div class="capability-card fade-in">
                     <div class="capability-image img-ai"></div>
                     <div class="capability-content">
                         <div class="capability-number">CAPABILITY 03</div>
                         <h3>AI & Intelligent Systems</h3>
-                        <p>Advanced machine learning and analytics solutions transforming data into predictive intelligence.</p>
+                        <p>Excellent solutions engineering leveraging the concatenation between our uncommon human intelligence and AI/Intelligent systems.</p>
                         <ul class="capability-list">
-                            <li>AI Model Development</li>
-                            <li>Business Intelligence</li>
-                            <li>Process Automation</li>
-                            <li>Predictive Analytics</li>
+                            <li>AI Model Development (Diagnostic & Predictive modelling)</li>
+                            <li>Business Intelligence & Advanced Analytics</li>
+                            <li>Business Process Automation (BPA)</li>
+                            <li>Advanced Business & Industrial Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capability 04: Strategy & Business Development -->
+                <div class="capability-card fade-in">
+                    <div class="capability-image img-strategy"></div>
+                    <div class="capability-content">
+                        <div class="capability-number">CAPABILITY 04</div>
+                        <h3>Strategy & Business Development</h3>
+                        <p>Strategic planning and business growth solutions designed to drive sustainable competitive advantage and market expansion.</p>
+                        <ul class="capability-list">
+                            <li>Business Strategy Development</li>
+                            <li>Marketing Strategy Formulation</li>
+                            <li>Feasibility Studies</li>
+                            <li>Corporate Training and Capacity Development</li>
                         </ul>
                     </div>
                 </div>
@@ -1264,12 +1341,14 @@
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="oil-gas">Oil & Gas</button>
                 <button class="filter-btn" data-filter="engineering">Engineering & Technology</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure & Construction</button>
+                <button class="filter-btn" data-filter="telecom">Telecommunication</button>
                 <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
             </div>
 
             <!-- Projects Grid -->
             <div class="projects-grid">
-                <!-- Project 1: Oil & Gas -->
+                <!-- Project: Oil & Gas -->
                 <div class="project-card fade-in" data-category="oil-gas">
                     <div class="project-header">
                         <div class="project-industry">Oil & Gas</div>
@@ -1277,44 +1356,83 @@
                     </div>
                     <div class="project-content">
                         <ul class="project-list">
-                            <li>Blasting & Coating of Oil Drilling Equipment</li>
-                            <li>Processing Equipment Protection Systems</li>
-                            <li>Fabrication & Coating of Subsea Pipe Spools</li>
-                            <li>Advanced Corrosion Monitoring Solutions</li>
+                            <li>Blasting & Coating (Corrosion Control) of Oil Drilling equipment</li>
+                            <li>Blasting and Coating of Processing Equipment</li>
+                            <li>Fabrication and Coating of Pipe Spools for subsea production equipment</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Project 2: Engineering & Technology -->
+                <!-- Project: Engineering and Technology -->
                 <div class="project-card fade-in" data-category="engineering">
                     <div class="project-header">
-                        <div class="project-industry">Engineering & Technology</div>
-                        <h3 class="project-title">Digital Transformation</h3>
+                        <div class="project-industry">Engineering and Technology</div>
+                        <h3 class="project-title">Technology Infrastructure</h3>
                     </div>
                     <div class="project-content">
                         <ul class="project-list">
-                            <li>Fibre Network Deployment</li>
-                            <li>Solar Power Installation Projects</li>
+                            <li>Fibre Deployment</li>
+                            <li>Solar Installation</li>
                             <li>Factory Expansion Phase I & II</li>
-                            <li>DIO Management Software Development</li>
-                            <li>Quality & Warehouse Management Systems</li>
+                            <li>DIO Management Software</li>
+                            <li>Quality & Warehouse Management System</li>
+                            <li>Industrial Water Treatment Plant</li>
+                            <li>Automated Pallet Transfer System</li>
+                            <li>Factory & Process Upgrade</li>
+                            <li>Packaging Line</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Project 3: Manufacturing -->
+                <!-- Project: Infrastructure & Construction -->
+                <div class="project-card fade-in" data-category="infrastructure">
+                    <div class="project-header">
+                        <div class="project-industry">Infrastructure & Construction</div>
+                        <h3 class="project-title">Construction Projects</h3>
+                    </div>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Warehouse Construction</li>
+                            <li>Culinary Factory Expansion</li>
+                            <li>Construction of Office Complex</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project: Telecommunication -->
+                <div class="project-card fade-in" data-category="telecom">
+                    <div class="project-header">
+                        <div class="project-industry">Telecommunication</div>
+                        <h3 class="project-title">Telecom Infrastructure</h3>
+                    </div>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Fiber Infrastructure Project</li>
+                            <li>Business Development Project</li>
+                            <li>Business Model Redesign</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project: Manufacturing -->
                 <div class="project-card fade-in" data-category="manufacturing">
                     <div class="project-header">
                         <div class="project-industry">Manufacturing</div>
-                        <h3 class="project-title">Factory Automation</h3>
+                        <h3 class="project-title">Manufacturing Expansion</h3>
                     </div>
                     <div class="project-content">
                         <ul class="project-list">
-                            <li>Industrial Water Treatment Plants</li>
-                            <li>Automated Pallet Transfer Systems</li>
-                            <li>Factory & Process Upgrade Projects</li>
-                            <li>Packaging Line Automation</li>
-                            <li>Process Optimization Initiatives</li>
+                            <li>Factory Expansion Phase I</li>
+                            <li>Factory Expansion Phase II</li>
+                            <li>Hydrolization & Extrusion Factory</li>
+                            <li>Coffee Processing Plant</li>
+                            <li>Maturation Factory & Process Upgrade</li>
+                            <li>BoM & Process Optimization</li>
+                            <li>New Product Development</li>
+                            <li>New Product Development (EVAP)</li>
+                            <li>VFFS Bosch Packaging Line</li>
+                            <li>Hydrolization & Extrusion Factory Phase II</li>
+                            <li>Milling & Grain Processing Plants</li>
                         </ul>
                     </div>
                 </div>
@@ -1413,7 +1531,7 @@
     <section id="process" class="section process-section">
         <div class="container">
             <div class="section-header fade-in">
-                <div class="section-subtitle" style="color: var(--primary-red);">Our Methodology</div>
+                <div class="section-subtitle" style="color: var(--primary-red); background: rgba(200, 16, 46, 0.1);">Our Methodology</div>
                 <h2 class="section-title" style="color: white;">How We Deliver Results</h2>
                 <p class="section-description" style="color: rgba(255,255,255,0.9);">
                     A systematic, intelligence-led approach that transforms complexity into clarity and strategic advantage.
@@ -1507,9 +1625,10 @@
                         <label for="service">Service Interest</label>
                         <select id="service" name="service">
                             <option value="">Select a service</option>
-                            <option value="project-management">Project Management</option>
-                            <option value="engineering">Engineering & Automation</option>
+                            <option value="monitoring">Monitoring, Controlling & Evaluation</option>
+                            <option value="engineering">Engineering & Industrial Automation</option>
                             <option value="ai">AI & Intelligent Systems</option>
+                            <option value="strategy">Strategy & Business Development</option>
                             <option value="consulting">Strategic Consulting</option>
                         </select>
                     </div>
@@ -1550,10 +1669,10 @@
                     <h4>Industries Served</h4>
                     <div class="footer-links">
                         <a href="#projects" data-filter="oil-gas">Oil & Gas</a>
-                        <a href="#projects" data-filter="engineering">Engineering</a>
-                        <a href="#projects" data-filter="infrastructure">Infrastructure</a>
+                        <a href="#projects" data-filter="engineering">Engineering & Technology</a>
+                        <a href="#projects" data-filter="infrastructure">Infrastructure & Construction</a>
+                        <a href="#projects" data-filter="telecom">Telecommunication</a>
                         <a href="#projects" data-filter="manufacturing">Manufacturing</a>
-                        <a href="#projects" data-filter="telecom">Telecommunications</a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -1702,6 +1821,26 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
+                }
+            });
+        });
+
+        // Footer link filtering
+        document.querySelectorAll('.footer-links a[data-filter]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const filter = this.getAttribute('data-filter');
+                
+                // Find and click the corresponding filter button
+                const filterBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+                if (filterBtn) {
+                    filterBtn.click();
+                    
+                    // Scroll to projects section
+                    document.querySelector('#projects').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
