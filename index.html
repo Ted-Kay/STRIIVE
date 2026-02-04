@@ -136,30 +136,25 @@
         }
 
         .logo {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary-black);
-            letter-spacing: 0.02em;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
         }
 
         .logo-image {
-            height: 35px;
+            height: 45px;
             width: auto;
-            display: inline-block;
-            vertical-align: middle;
+            display: block;
+            object-fit: contain;
+            transition: all 0.3s ease;
         }
 
-        .logo-text {
-            display: inline-block;
-            font-weight: 800;
-        }
-
-        .logo-text .red {
-            color: var(--primary-red);
+        nav.scrolled .logo-image {
+            height: 38px;
         }
 
         .nav-links {
@@ -403,22 +398,18 @@
         }
 
         .capability-image.img-monitoring {
-            /* CAPABILITY 01 – Project, Programs & Portfolio Management */
             background-image: url('./Monitoring.webp');
         }
 
         .capability-image.img-ai {
-            /* CAPABILITY 02 – AI & Intelligent Systems */
             background-image: url('./AI Image.webp');
         }
 
         .capability-image.img-engineering {
-            /* CAPABILITY 03 – Engineering & Industrial Automation */
             background-image: url('./male-engineer-using-pc-setup-oversee-solar-panel-plant-assembly-lines.jpg');
         }
 
         .capability-image.img-strategy {
-            /* CAPABILITY 04 – Strategy & Business Development */
             background-image: url('./Business Dev2.jpg');
         }
 
@@ -842,6 +833,13 @@
             color: var(--primary-white);
         }
 
+        .footer-logo {
+            height: 55px;
+            width: auto;
+            margin-bottom: var(--spacing-md);
+            object-fit: contain;
+        }
+
         .footer-tagline {
             font-size: 0.95rem;
             letter-spacing: 0.1em;
@@ -961,6 +959,14 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            .logo-image {
+                height: 38px;
+            }
+
+            nav.scrolled .logo-image {
+                height: 32px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -972,6 +978,14 @@
             .capabilities-grid,
             .team-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .logo-image {
+                height: 35px;
+            }
+
+            nav.scrolled .logo-image {
+                height: 30px;
             }
         }
 
@@ -991,7 +1005,7 @@
     <nav id="mainNav">
         <div class="container">
             <a href="#home" class="logo">
-                <span class="logo-text">STR<span class="red">II</span>VETECH</span>
+                <img src="striivetech-logo.png" alt="STRIIVETECH - Intelligence, Engineering & Predictive Systems Design" class="logo-image">
             </a>
             <div class="menu-toggle">
                 <span></span>
@@ -1262,19 +1276,6 @@
 
                 <div class="team-card fade-in">
                     <div class="team-image-placeholder">
-                        <span>Upload Photo: Joseph Essilfie</span>
-                    </div>
-                    <div class="team-info">
-                        <div class="team-role">Head of IT</div>
-                        <h3 class="team-name">Joseph Essilfie</h3>
-                        <p class="team-bio">
-                            Joseph is a seasoned Software Engineering and Technology Expert with deep, hands-on experience across enterprise systems, networking, data centres, and digital platforms. With a strong foundation in systems administration, hardware and networking engineering, and web technologies, he brings a practical, execution-focused approach to complex technical challenges.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="team-card fade-in">
-                    <div class="team-image-placeholder">
                         <span>Upload Photo: Abraham M. Sam</span>
                     </div>
                     <div class="team-info">
@@ -1282,6 +1283,19 @@
                         <h3 class="team-name">Abraham M. Sam</h3>
                         <p class="team-bio">
                             Abraham is a senior Electrical and Automation Engineering Leader with over 16 years of experience delivering high-impact industrial, energy, and infrastructure systems. He brings deep expertise in plant automation, PLC and SCADA systems, power distribution, and instrumentation, complemented by strong capabilities in data analytics, machine learning, and project execution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="team-card fade-in">
+                    <div class="team-image-placeholder">
+                        <span>Upload Photo: Joseph Essilfie</span>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Head of IT</div>
+                        <h3 class="team-name">Joseph Essilfie</h3>
+                        <p class="team-bio">
+                            Joseph is a seasoned Software Engineering and Technology Expert with deep, hands-on experience across enterprise systems, networking, data centres, and digital platforms. With a strong foundation in systems administration, hardware and networking engineering, and web technologies, he brings a practical, execution-focused approach to complex technical challenges.
                         </p>
                     </div>
                 </div>
@@ -1432,7 +1446,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>STRIIVETECH</h3>
+                    <img src="striivetech-logo.png" alt="STRIIVETECH" class="footer-logo">
                     <div class="footer-tagline">Intelligence. Design. Performance.</div>
                     <div class="footer-info">
                         Established 2020<br>
