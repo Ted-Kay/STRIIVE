@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capabilities | STRIIVETECH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #C8102E;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+            --off-white: #FAFAFA;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            background: var(--white);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .logo-accent {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--black);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--red);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 12rem 0 6rem;
+            background: linear-gradient(135deg, var(--white) 0%, #f5f5f5 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(200, 16, 46, 0.02) 40px,
+                rgba(200, 16, 46, 0.02) 80px
+            );
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--red);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Capabilities Grid */
+        .capabilities-section {
+            padding: 6rem 0;
+        }
+
+        .capabilities-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .capability-card {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .capability-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .capability-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(200, 16, 46, 0.05);
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .capability-content {
+            padding: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .capability-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--red) 0%, #a00d26 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.4s ease;
+        }
+
+        .capability-card:hover .capability-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .capability-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .capability-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .capability-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .capability-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .capability-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .capability-list li:last-child {
+            border-bottom: none;
+        }
+
+        .capability-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .capability-list li:hover {
+            padding-left: 2.5rem;
+            color: var(--red);
+        }
+
+        .capability-list li:hover::before {
+            transform: translateX(5px);
+        }
+
+        .capability-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Full width highlight card */
+        .highlight-card {
+            grid-column: 1 / -1;
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(200, 16, 46, 0.1) 100%);
+        }
+
+        .highlight-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .highlight-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--red);
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: var(--red);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--white);
+            color: var(--red);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .highlight-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .hero-container,
+            .capabilities-container,
+            .cta-content {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .capability-content {
+                padding: 2rem;
+            }
+
+            .highlight-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-text">STRIIVE<span class="logo-accent">TECH</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="capabilities.html" class="active">Capabilities</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="process.html">Process</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">Core Capabilities</div>
+            <h1>Integrated Solutions<br>Across Complex Domains</h1>
+            <p class="hero-subtitle">
+                STRIIVETECH combines engineering rigor, AI intelligence, and strategic design to deliver comprehensive solutions for your most complex challenges.
+            </p>
+        </div>
+    </section>
+
+    <section class="capabilities-section">
+        <div class="capabilities-container">
+            <div class="capabilities-grid">
+                <!-- Capability 01 -->
+                <div class="capability-card">
+                    <div class="capability-number">01</div>
+                    <div class="capability-content">
+                        <div class="capability-icon">📊</div>
+                        <div class="capability-label">Capability 01</div>
+                        <h3>Project, Programs & Portfolio Management</h3>
+                        <p class="capability-description">
+                            Comprehensive project oversight with real-time monitoring and control mechanisms for optimal performance delivery.
+                        </p>
+                        <ul class="capability-list">
+                            <li>Business Case Development</li>
+                            <li>Comprehensive Project Planning</li>
+                            <li>Monitoring, Controlling & Evaluation</li>
+                            <li>Real-time Monitoring & Control</li>
+                            <li>Advanced Risk Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capability 02 -->
+                <div class="capability-card">
+                    <div class="capability-number">02</div>
+                    <div class="capability-content">
+                        <div class="capability-icon">🤖</div>
+                        <div class="capability-label">Capability 02</div>
+                        <h3>AI & Intelligent Systems</h3>
+                        <p class="capability-description">
+                            Excellent solutions engineering leveraging the concatenation between our uncommon human intelligence and AI/Intelligent systems.
+                        </p>
+                        <ul class="capability-list">
+                            <li>AI Model Development (Diagnostic & Predictive modelling)</li>
+                            <li>Business Intelligence & Advanced Analytics</li>
+                            <li>Business Process Automation (BPA)</li>
+                            <li>Advanced Business & Industrial Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capability 03 -->
+                <div class="capability-card">
+                    <div class="capability-number">03</div>
+                    <div class="capability-content">
+                        <div class="capability-icon">⚙️</div>
+                        <div class="capability-label">Capability 03</div>
+                        <h3>Engineering & Industrial Automation</h3>
+                        <p class="capability-description">
+                            Smart factory solutions integrating SCADA, PLC, and IoT for operational intelligence with advanced prototyping capabilities.
+                        </p>
+                        <ul class="capability-list">
+                            <li>Industry 4.0 Systems</li>
+                            <li>SCADA Systems Integration</li>
+                            <li>PLC Programming</li>
+                            <li>3D Modelling & Prototyping</li>
+                            <li>IoT Implementation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capability 04 -->
+                <div class="capability-card">
+                    <div class="capability-number">04</div>
+                    <div class="capability-content">
+                        <div class="capability-icon">📈</div>
+                        <div class="capability-label">Capability 04</div>
+                        <h3>Strategy & Business Development</h3>
+                        <p class="capability-description">
+                            Strategic planning and business growth solutions designed to drive sustainable competitive advantage and market expansion.
+                        </p>
+                        <ul class="capability-list">
+                            <li>Business Strategy Development</li>
+                            <li>Marketing Strategy Formulation</li>
+                            <li>Feasibility Studies</li>
+                            <li>Corporate Training and Capacity Development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Highlight Card -->
+                <div class="highlight-card">
+                    <div class="highlight-content">
+                        <h3>Why Choose STRIIVETECH?</h3>
+                        <p>
+                            Our multidisciplinary approach combines deep technical expertise with strategic insight, delivering solutions that don't just solve problems—they transform how organizations operate.
+                        </p>
+                    </div>
+                    <div class="highlight-features">
+                        <div class="feature-item">
+                            <h4>Diagnostics-First</h4>
+                            <p>We diagnose before we design, ensuring solutions address root causes.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Intelligence-Led</h4>
+                            <p>Data and analytics drive every strategic decision we make.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Systems Thinking</h4>
+                            <p>We see the whole picture, connecting processes, people, and technology.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Performance Assured</h4>
+                            <p>Continuous monitoring ensures sustained operational excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Operations?</h2>
+            <p>Let's discuss how STRIIVETECH can help you navigate complexity and achieve strategic clarity.</p>
+            <a href="index.html#engage" class="btn">Start a Conversation</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
