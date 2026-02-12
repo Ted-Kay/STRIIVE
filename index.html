@@ -32,13 +32,24 @@
         /* Hero */
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%); padding: 8rem 2rem 6rem; }
         .hero-content { max-width: 900px; }
-        .hero-badge { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
-        .hero h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-        .hero-subtitle { font-size: 1.25rem; font-weight: 400; line-height: 1.6; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem; }
+        .hero-badge { display: inline-block; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.25rem; font-weight: 400; line-height: 1.6; color: var(--text-dark); max-width: 700px; margin: 0 auto 3rem; }
         .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 4rem auto 3rem; max-width: 800px; }
         .stat { text-align: center; padding: 2rem 1rem; }
         .stat-number { font-size: 3rem; font-weight: 700; color: var(--red); line-height: 1; margin-bottom: 0.5rem; }
         .stat-label { font-size: 0.875rem; color: var(--text-gray); font-weight: 500; }
+        
+        /* Moving Ticker */
+        .ticker-wrap { width: 100%; overflow: hidden; background: var(--red); padding: 1.5rem 0; margin-top: 3rem; position: relative; }
+        .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
+        .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--red), transparent); }
+        .ticker-wrap::after { right: 0; background: linear-gradient(to left, var(--red), transparent); }
+        .ticker { display: flex; animation: scroll 30s linear infinite; }
+        .ticker:hover { animation-play-state: paused; }
+        .ticker-item { flex-shrink: 0; padding: 0 3rem; font-size: 0.875rem; font-weight: 500; color: var(--white); white-space: nowrap; display: flex; align-items: center; }
+        .ticker-item::before { content: '•'; margin-right: 3rem; font-size: 1.5rem; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .btn { padding: 1rem 2.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 980px; transition: all 0.2s; display: inline-block; }
         .btn-primary { background: var(--red); color: var(--white); border: 2px solid var(--red); }
@@ -78,7 +89,7 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="striive_logo_clean.png" alt="STRIIVETECH">
+                <img src="striivetechlogo.png" alt="STRIIVETECH">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -95,7 +106,7 @@
             <div class="hero-badge">Intelligence · Design · Performance</div>
             <h1>Designing System-Level Strategy and Intelligent Solutions</h1>
             <p class="hero-subtitle">
-                STRIIVETECH delivers advanced assurance-based solutions at the intersection of systems, processes and outputs where complexity constrains progressive management strategy and decision-making clarity.
+                STRIIVETECH delivers advanced assurance-based solutions at the intersection of systems and processes where emerging complexities constrains progressive management strategy and decision-making clarity.
             </p>
             
             <div class="hero-stats">
@@ -108,12 +119,34 @@
                     <div class="stat-label">Projects</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">100%</div>
+                    <div class="stat-number">98%</div>
                     <div class="stat-label">Satisfaction</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number">24/7</div>
                     <div class="stat-label">Support</div>
+                </div>
+            </div>
+
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <div class="ticker-item">Fast-changing market ecosystems</div>
+                    <div class="ticker-item">Evolving consumer dynamics</div>
+                    <div class="ticker-item">Disruptive technology transformations</div>
+                    <div class="ticker-item">Regulatory complexity & compliance shifts</div>
+                    <div class="ticker-item">Competitive landscape volatility</div>
+                    <div class="ticker-item">Digital acceleration demands</div>
+                    <div class="ticker-item">Supply chain disruptions</div>
+                    <div class="ticker-item">Intelligence-led adaptive responses required</div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="ticker-item">Fast-changing market ecosystems</div>
+                    <div class="ticker-item">Evolving consumer dynamics</div>
+                    <div class="ticker-item">Disruptive technology transformations</div>
+                    <div class="ticker-item">Regulatory complexity & compliance shifts</div>
+                    <div class="ticker-item">Competitive landscape volatility</div>
+                    <div class="ticker-item">Digital acceleration demands</div>
+                    <div class="ticker-item">Supply chain disruptions</div>
+                    <div class="ticker-item">Intelligence-led adaptive responses required</div>
                 </div>
             </div>
 
