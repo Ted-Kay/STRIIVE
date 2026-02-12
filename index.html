@@ -4,532 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRIIVETECH | Intelligence-Led Systems Design</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Crimson+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --red: #C8102E;
-            --black: #000000;
+            --red: #E31E24;
+            --dark-red: #B91C22;
             --white: #FFFFFF;
-            --gold: #D4AF37;
-            --dark-gray: #1A1A1A;
+            --off-white: #FAFAFA;
+            --light-gray: #F5F5F7;
+            --text-dark: #1D1D1F;
+            --text-gray: #6E6E73;
         }
-
-        body {
-            font-family: 'Crimson Pro', serif;
-            background: var(--black);
-            color: var(--white);
-            overflow-x: hidden;
-        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
         /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1.5rem 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
-            transition: all 0.3s ease;
-        }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--red); text-decoration: none; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-dark); text-decoration: none; transition: opacity 0.2s; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { color: var(--red); }
 
-        nav.scrolled {
-            background: rgba(0,0,0,0.98);
-            border-bottom: 2px solid var(--red);
-            padding: 1rem 0;
-        }
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%); padding: 8rem 2rem 6rem; }
+        .hero-content { max-width: 900px; }
+        .hero-badge { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+        .hero h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.25rem; font-weight: 400; line-height: 1.6; color: var(--text-gray); max-width: 700px; margin: 0 auto 3rem; }
+        .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 4rem auto 3rem; max-width: 800px; }
+        .stat { text-align: center; padding: 2rem 1rem; }
+        .stat-number { font-size: 3rem; font-weight: 700; color: var(--red); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.875rem; color: var(--text-gray); font-weight: 500; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 1rem 2.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 980px; transition: all 0.2s; display: inline-block; }
+        .btn-primary { background: var(--red); color: var(--white); border: 2px solid var(--red); }
+        .btn-primary:hover { background: var(--dark-red); border-color: var(--dark-red); }
+        .btn-secondary { background: transparent; color: var(--red); border: 2px solid var(--red); }
+        .btn-secondary:hover { background: var(--red); color: var(--white); }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* Contact Section */
+        .contact-section { padding: 6rem 2rem; background: var(--white); }
+        .contact-container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-badge { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+        .section-title { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .section-description { font-size: 1.125rem; color: var(--text-gray); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+        .contact-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-card { padding: 2rem; background: var(--light-gray); border-radius: 12px; transition: transform 0.2s; }
+        .contact-card:hover { transform: translateY(-4px); }
+        .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 0.5rem; }
+        .card-content { font-size: 1rem; line-height: 1.6; color: var(--text-dark); }
+        .contact-form { background: var(--light-gray); padding: 3rem; border-radius: 12px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-dark); }
+        input, select, textarea { width: 100%; padding: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; background: var(--white); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; transition: border 0.2s; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--red); }
+        textarea { min-height: 120px; resize: vertical; }
+        .btn-submit { width: 100%; background: var(--red); color: var(--white); border: none; cursor: pointer; }
+        .btn-submit:hover { background: var(--dark-red); }
 
-        .logo-text {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            color: var(--white);
-            text-decoration: none;
-            position: relative;
-        }
-
-        .logo-text::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--red);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--white);
-            text-decoration: none;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--red);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover::before,
-        .nav-links a.active::before {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: 
-                linear-gradient(135deg, rgba(200, 16, 46, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%),
-                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(200, 16, 46, 0.03) 2px,
-                rgba(200, 16, 46, 0.03) 4px
-            );
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: var(--red);
-            color: var(--white);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            position: relative;
-            animation: slideInLeft 0.8s ease;
-        }
-
-        .hero-badge::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -20px;
-            width: 0;
-            height: 0;
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
-            border-left: 20px solid var(--red);
-            transform: translateY(-50%);
-        }
-
-        h1 {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: clamp(3rem, 7vw, 6rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            line-height: 1.8;
-            max-width: 800px;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 3rem 0;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .stat-item {
-            border-left: 3px solid var(--red);
-            padding-left: 1rem;
-        }
-
-        .stat-number {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--red);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
-            animation: fadeInUp 1s ease 0.8s backwards;
-        }
-
-        .btn {
-            padding: 1.2rem 3rem;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 2px solid var(--red);
-            background: var(--red);
-            color: var(--white);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: var(--white);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.5s ease, height 0.5s ease;
-        }
-
-        .btn:hover::before {
-            width: 300%;
-            height: 300%;
-        }
-
-        .btn span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn:hover {
-            color: var(--red);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--black);
-        }
-
-        /* Engage Section */
-        .engage-section {
-            padding: 8rem 0;
-            background: var(--white);
-            color: var(--black);
-            position: relative;
-        }
-
-        .engage-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--red), transparent);
-        }
-
-        .engage-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-subtitle {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            color: var(--black);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-description {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.8;
-            line-height: 1.8;
-        }
-
-        .engage-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .contact-info-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: var(--black);
-            color: var(--white);
-            padding: 2.5rem;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--red);
-        }
-
-        .info-card:hover {
-            transform: translateX(10px);
-        }
-
-        .info-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .info-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 0.8rem;
-        }
-
-        .info-content {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .contact-form {
-            background: #f5f5f5;
-            padding: 3rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        label {
-            display: block;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-            color: var(--black);
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            background: var(--white);
-            font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
-            color: var(--black);
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--red);
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: var(--black);
-            border-color: var(--black);
-        }
-
-        .btn-submit:hover {
-            background: var(--red);
-            border-color: var(--red);
-            color: var(--white);
-        }
-
-        /* Animations */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .engage-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-
-            .hero-container, .engage-container {
-                padding: 0 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+        @media (max-width: 968px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } .contact-grid { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .contact-section { padding-left: 1.5rem; padding-right: 1.5rem; } .hero-stats { grid-template-columns: 1fr; } .contact-form { padding: 2rem; } }
     </style>
 </head>
 <body>
-    <nav id="mainNav">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo-text">STRIIVETECH</a>
+            <a href="index.html" class="logo">STRIIVETECH</a>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="capabilities.html">Capabilities</a></li>
@@ -541,147 +87,113 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-badge">Intelligence. Design. Performance.</div>
-            <h1>Designing System-Level<br>Strategy and Intelligent<br>Solutions</h1>
+        <div class="hero-content">
+            <div class="hero-badge">Intelligence · Design · Performance</div>
+            <h1>Designing System-Level Strategy and Intelligent Solutions</h1>
             <p class="hero-subtitle">
-                STRIIVETECH is a multidisciplinary Intelligence and tech company that designs and executes systems-level solutions across Projects and Business operations by leveraging its multisectorial footprint.
-            </p>
-            <p class="hero-subtitle">
-                We deliver advanced assurance-based solutions at the intersection of systems, processes and outputs where complexities constrains progressive management strategy and decision making clarity.
+                STRIIVETECH delivers advanced assurance-based solutions at the intersection of systems, processes and outputs where complexity constrains progressive management strategy and decision-making clarity.
             </p>
             
             <div class="hero-stats">
-                <div class="stat-item">
+                <div class="stat">
                     <div class="stat-number">2020</div>
                     <div class="stat-label">Established</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat">
                     <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects Delivered</div>
+                    <div class="stat-label">Projects</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Client Satisfaction</div>
+                    <div class="stat-label">Satisfaction</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat">
                     <div class="stat-number">24/7</div>
-                    <div class="stat-label">Performance Assurance</div>
+                    <div class="stat-label">Support</div>
                 </div>
             </div>
 
             <div class="cta-buttons">
-                <a href="capabilities.html" class="btn"><span>Explore Capabilities</span></a>
-                <a href="#engage" class="btn btn-outline"><span>Start Conversation</span></a>
+                <a href="capabilities.html" class="btn btn-primary">Explore Capabilities</a>
+                <a href="#contact" class="btn btn-secondary">Get Started</a>
             </div>
         </div>
     </section>
 
-    <section id="engage" class="engage-section">
-        <div class="engage-container">
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
             <div class="section-header">
-                <div class="section-subtitle">Get In Touch</div>
-                <h2 class="section-title">Engage STRIIVETECH</h2>
+                <div class="section-badge">Get In Touch</div>
+                <h2 class="section-title">Start a Conversation</h2>
                 <p class="section-description">
-                    Begin a strategic conversation. Whether you are navigating complexity, seeking predictive clarity, or building long-term capability, STRIIVETECH is ready to partner with you.
+                    Whether you're navigating complexity or building long-term capability, STRIIVETECH is ready to partner with you.
                 </p>
             </div>
 
-            <div class="engage-grid">
-                <div class="contact-info-cards">
-                    <div class="info-card">
-                        <span class="info-icon">📍</span>
-                        <div class="info-label">Location</div>
-                        <div class="info-content">
-                            Accra, Ghana<br>
-                            West Africa
-                        </div>
+            <div class="contact-grid">
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="card-icon">📍</div>
+                        <div class="card-label">Location</div>
+                        <div class="card-content">Accra, Ghana<br>West Africa</div>
                     </div>
-
-                    <div class="info-card">
-                        <span class="info-icon">✉️</span>
-                        <div class="info-label">Email</div>
-                        <div class="info-content">
-                            contact@striivetech.com<br>
-                            Response within 24 hours
-                        </div>
+                    <div class="contact-card">
+                        <div class="card-icon">✉️</div>
+                        <div class="card-label">Email</div>
+                        <div class="card-content">contact@striivetech.com</div>
                     </div>
-
-                    <div class="info-card">
-                        <span class="info-icon">🕐</span>
-                        <div class="info-label">Business Hours</div>
-                        <div class="info-content">
-                            Mon - Fri: 8:00 AM - 6:00 PM<br>
-                            Sat: 9:00 AM - 1:00 PM
-                        </div>
+                    <div class="contact-card">
+                        <div class="card-icon">🕐</div>
+                        <div class="card-label">Business Hours</div>
+                        <div class="card-content">Mon-Fri: 8AM-6PM<br>Sat: 9AM-1PM</div>
                     </div>
                 </div>
 
                 <form class="contact-form" id="contactForm">
-                    <div class="form-row">
+                    <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="company">Company/Organization</label>
-                        <input type="text" id="company" name="company" required>
+                        <label for="company">Company</label>
+                        <input type="text" id="company" required>
                     </div>
-
                     <div class="form-group">
                         <label for="service">Service Interest</label>
-                        <select id="service" name="service">
+                        <select id="service">
                             <option value="">Select a service</option>
-                            <option value="portfolio">Project, Programs & Portfolio Management</option>
-                            <option value="ai">AI & Intelligent Systems</option>
-                            <option value="engineering">Engineering & Industrial Automation</option>
-                            <option value="strategy">Strategy & Business Development</option>
+                            <option>Project & Portfolio Management</option>
+                            <option>AI & Intelligent Systems</option>
+                            <option>Engineering & Automation</option>
+                            <option>Strategy & Business Development</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" name="message" required placeholder="Tell us about your project or challenge..."></textarea>
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
                     </div>
-
-                    <button type="submit" class="btn btn-submit"><span>Submit Inquiry</span></button>
+                    <button type="submit" class="btn btn-submit">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
     <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', e => {
             e.preventDefault();
-            alert('Thank you for your inquiry. The STRIIVETECH team will respond within 24 hours.');
-            this.reset();
+            alert('Thank you for your inquiry. We will respond within 24 hours.');
+            e.target.reset();
         });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>

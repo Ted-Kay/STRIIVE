@@ -4,428 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leadership | STRIIVETECH</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --red: #E31E24; --dark-red: #B91C22; --white: #FFFFFF; --light-gray: #F5F5F7; --text-dark: #1D1D1F; --text-gray: #6E6E73; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--text-dark); -webkit-font-smoothing: antialiased; }
 
-        :root {
-            --red: #C8102E;
-            --black: #000000;
-            --white: #FFFFFF;
-            --gold: #D4AF37;
-            --cream: #FAF9F6;
-        }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--red); text-decoration: none; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-dark); text-decoration: none; transition: opacity 0.2s; }
+        .nav-links a:hover { opacity: 0.7; }
+        .nav-links a.active { color: var(--red); }
 
-        body {
-            font-family: 'Lora', serif;
-            background: var(--cream);
-            color: var(--black);
-            overflow-x: hidden;
-        }
+        .hero { padding: 8rem 2rem 4rem; text-align: center; background: var(--light-gray); }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.125rem; color: var(--text-gray); max-width: 800px; margin: 0 auto; line-height: 1.6; }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 2rem 0;
-            background: rgba(250, 249, 246, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        .team { padding: 6rem 2rem; background: var(--white); }
+        .team-container { max-width: 1200px; margin: 0 auto; }
+        .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .team-member { background: var(--light-gray); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
+        .team-member:hover { transform: translateY(-4px); }
+        .member-image { height: 280px; background: linear-gradient(135deg, #e0e0e0 0%, #c8c8c8 100%); display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.875rem; text-align: center; padding: 2rem; }
+        .member-content { padding: 2rem; }
+        .member-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
+        .member-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .member-bio { font-size: 0.875rem; line-height: 1.6; color: var(--text-gray); }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .featured { grid-column: 1 / -1; background: var(--red); color: var(--white); }
+        .featured .member-image { background: linear-gradient(135deg, var(--dark-red) 0%, #8A1518 100%); color: rgba(255, 255, 255, 0.4); }
+        .featured .member-role { color: var(--white); }
+        .featured .member-name { color: var(--white); }
+        .featured .member-bio { color: rgba(255, 255, 255, 0.95); }
 
-        .logo-text {
-            font-family: 'Archivo', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: 0.05em;
-            color: var(--black);
-            text-decoration: none;
-        }
+        .values { padding: 6rem 2rem; background: var(--light-gray); }
+        .values-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .values h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 3rem; }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .value { padding: 2rem; }
+        .value-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .value h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .value p { font-size: 0.875rem; color: var(--text-gray); line-height: 1.6; }
 
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: 'Archivo', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--black);
-            text-decoration: none;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--red);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::before,
-        .nav-links a.active::before {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--red);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 12rem 0 6rem;
-            background: var(--white);
-            position: relative;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 5%;
-            width: 90%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--red), transparent);
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-family: 'Archivo', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-        }
-
-        .hero-text h1 span {
-            display: block;
-            font-style: italic;
-            color: var(--red);
-        }
-
-        .hero-text p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            opacity: 0.8;
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 400px;
-        }
-
-        .visual-card {
-            position: absolute;
-            padding: 2rem;
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .visual-card:nth-child(1) {
-            top: 0;
-            left: 0;
-            width: 200px;
-            border-left: 4px solid var(--red);
-        }
-
-        .visual-card:nth-child(2) {
-            bottom: 0;
-            right: 0;
-            width: 250px;
-            border-right: 4px solid var(--gold);
-        }
-
-        .visual-label {
-            font-family: 'Archivo', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-
-        .visual-number {
-            font-family: 'Archivo', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1;
-            color: var(--red);
-        }
-
-        .visual-text {
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            opacity: 0.9;
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 6rem 0;
-            background: var(--cream);
-        }
-
-        .team-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-        }
-
-        .team-member {
-            background: var(--white);
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            overflow: hidden;
-            border-left: 5px solid var(--red);
-            transition: all 0.4s ease;
-        }
-
-        .team-member:hover {
-            transform: translateX(10px);
-            box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .member-image {
-            background: linear-gradient(135deg, #e0e0e0 0%, #c8c8c8 100%);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .member-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(200, 16, 46, 0.03),
-                rgba(200, 16, 46, 0.03) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-        }
-
-        .member-content {
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .member-role {
-            font-family: 'Archivo', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 0.8rem;
-        }
-
-        .member-name {
-            font-family: 'Archivo', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .member-bio {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            opacity: 0.85;
-        }
-
-        /* Featured Member (CEO) */
-        .featured-member {
-            grid-column: 1 / -1;
-            grid-template-columns: 400px 1fr;
-            border-left: 8px solid var(--gold);
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .featured-member .member-image {
-            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-            color: #666;
-        }
-
-        .featured-member .member-role {
-            color: var(--gold);
-        }
-
-        .featured-member .member-name {
-            color: var(--white);
-        }
-
-        .featured-member .member-bio {
-            opacity: 0.9;
-        }
-
-        /* Values Section */
-        .values-section {
-            padding: 6rem 0;
-            background: var(--red);
-            color: var(--white);
-        }
-
-        .values-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .values-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .values-header h2 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .value-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .value-card h3 {
-            font-family: 'Archivo', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .value-card p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .team-member {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-member {
-                grid-template-columns: 1fr;
-            }
-
-            .member-image {
-                min-height: 300px;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-        }
-
-        @media (max-width: 968px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container,
-            .hero-container,
-            .team-container,
-            .values-container {
-                padding: 0 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
+        @media (max-width: 968px) { .team-grid { grid-template-columns: 1fr; } .values-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .team, .values { padding-left: 1.5rem; padding-right: 1.5rem; } }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo-text">STRIIVETECH</a>
+            <a href="index.html" class="logo">STRIIVETECH</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="capabilities.html">Capabilities</a></li>
@@ -437,39 +67,17 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>
-                    The Team Behind<br>
-                    <span>Intelligence-Led Innovation</span>
-                </h1>
-                <p>
-                    Our leadership brings decades of combined experience solving complex challenges across engineering, AI, systems design, and strategic consulting. Each member embodies our commitment to excellence and diagnostics-first thinking.
-                </p>
-            </div>
-            <div class="hero-visual">
-                <div class="visual-card">
-                    <div class="visual-label">Combined Experience</div>
-                    <div class="visual-number">60+</div>
-                    <div class="visual-text">Years of Expertise</div>
-                </div>
-                <div class="visual-card">
-                    <div class="visual-label">Team Strength</div>
-                    <div class="visual-number">6</div>
-                    <div class="visual-text">Executive Leaders</div>
-                </div>
-            </div>
-        </div>
+        <h1>The Team Behind Intelligence-Led Innovation</h1>
+        <p class="hero-subtitle">
+            Our leadership brings decades of combined experience solving complex challenges across engineering, AI, systems design, and strategic consulting.
+        </p>
     </section>
 
-    <section class="team-section">
+    <section class="team">
         <div class="team-container">
             <div class="team-grid">
-                <!-- Featured CEO -->
-                <div class="team-member featured-member">
-                    <div class="member-image">
-                        <span>Professional Photo<br>Ted M. Kugbe</span>
-                    </div>
+                <div class="team-member featured">
+                    <div class="member-image">Professional Photo<br>Ted M. Kugbe</div>
                     <div class="member-content">
                         <div class="member-role">Founder & CEO</div>
                         <h2 class="member-name">Ted M. Kugbe</h2>
@@ -479,11 +87,8 @@
                     </div>
                 </div>
 
-                <!-- CFO -->
                 <div class="team-member">
-                    <div class="member-image">
-                        <span>Professional Photo<br>Terry M. Kugbe</span>
-                    </div>
+                    <div class="member-image">Professional Photo<br>Terry M. Kugbe</div>
                     <div class="member-content">
                         <div class="member-role">Chief Financial Officer</div>
                         <h3 class="member-name">Terry M. Kugbe</h3>
@@ -493,11 +98,8 @@
                     </div>
                 </div>
 
-                <!-- COO -->
                 <div class="team-member">
-                    <div class="member-image">
-                        <span>Professional Photo<br>Abraham M. Sam</span>
-                    </div>
+                    <div class="member-image">Professional Photo<br>Abraham M. Sam</div>
                     <div class="member-content">
                         <div class="member-role">Chief Operating Officer</div>
                         <h3 class="member-name">Abraham M. Sam</h3>
@@ -507,44 +109,35 @@
                     </div>
                 </div>
 
-                <!-- Head of IT -->
                 <div class="team-member">
-                    <div class="member-image">
-                        <span>Professional Photo<br>Joseph Essilfie</span>
-                    </div>
+                    <div class="member-image">Professional Photo<br>Joseph Essilfie</div>
                     <div class="member-content">
                         <div class="member-role">Head of IT</div>
                         <h3 class="member-name">Joseph Essilfie</h3>
                         <p class="member-bio">
-                            Joseph is a seasoned Software Engineering and Technology Expert with deep, hands-on experience across enterprise systems, networking, data centres, and digital platforms. Practical, execution-focused approach to complex technical challenges.
+                            Joseph is a seasoned Software Engineering and Technology Expert with deep, hands-on experience across enterprise systems, networking, data centres, and digital platforms.
                         </p>
                     </div>
                 </div>
 
-                <!-- Head of AI -->
                 <div class="team-member">
-                    <div class="member-image">
-                        <span>Professional Photo<br>Eric Kumi</span>
-                    </div>
+                    <div class="member-image">Professional Photo<br>Eric Kumi</div>
                     <div class="member-content">
                         <div class="member-role">Head of AI & Data Science</div>
                         <h3 class="member-name">Eric Kumi</h3>
                         <p class="member-bio">
-                            Eric is a seasoned Head of AI & Data Science with deep expertise in machine learning, data analytics, business intelligence, and AI-driven decision systems. Led data-centric projects across downstream oil & gas and logistics.
+                            Eric is a seasoned Head of AI & Data Science with deep expertise in machine learning, data analytics, business intelligence, and AI-driven decision systems.
                         </p>
                     </div>
                 </div>
 
-                <!-- Head of Commercial -->
                 <div class="team-member">
-                    <div class="member-image">
-                        <span>Professional Photo<br>Jake M. Martey</span>
-                    </div>
+                    <div class="member-image">Professional Photo<br>Jake M. Martey</div>
                     <div class="member-content">
                         <div class="member-role">Head of Commercial & Business Development</div>
                         <h3 class="member-name">Jake M. Martey</h3>
                         <p class="member-bio">
-                            Jake is a technology-driven Business Development and Sales professional with a background in Computer Science. Experience delivering B2B digital infrastructure and connectivity solutions, fiber leasing, and data centre management.
+                            Jake is a technology-driven Business Development and Sales professional with a background in Computer Science. Experience delivering B2B digital infrastructure solutions.
                         </p>
                     </div>
                 </div>
@@ -552,23 +145,21 @@
         </div>
     </section>
 
-    <section class="values-section">
+    <section class="values">
         <div class="values-container">
-            <div class="values-header">
-                <h2>Our Leadership Principles</h2>
-            </div>
+            <h2>Our Leadership Principles</h2>
             <div class="values-grid">
-                <div class="value-card">
+                <div class="value">
                     <div class="value-icon">🎯</div>
                     <h3>Diagnostics-First</h3>
                     <p>We diagnose before we design, ensuring every solution addresses root causes, not symptoms.</p>
                 </div>
-                <div class="value-card">
+                <div class="value">
                     <div class="value-icon">🧠</div>
                     <h3>Intelligence-Led</h3>
                     <p>Data and analytics drive every strategic decision we make for our clients.</p>
                 </div>
-                <div class="value-card">
+                <div class="value">
                     <div class="value-icon">🔄</div>
                     <h3>Systems Thinking</h3>
                     <p>We see the whole picture, connecting processes, people, and technology.</p>
@@ -576,18 +167,5 @@
             </div>
         </div>
     </section>
-
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
