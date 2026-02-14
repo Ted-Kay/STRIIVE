@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --red: #E31E24; --dark-red: #B91C22; --white: #FFFFFF; --light-gray: #F5F5F7; --text-dark: #1D1D1F; --text-gray: #6E6E73; }
+        :root { --red: #E31E24; --dark-red: #B91C22; --white: #FFFFFF; --light-gray: #F5F5F7; --text-dark: #171717; --text-gray: #393939; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--text-dark); -webkit-font-smoothing: antialiased; }
 
         nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
@@ -23,14 +23,14 @@
         .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--light-gray); padding: 8rem 2rem 4rem; }
         .hero-content { max-width: 800px; }
         .hero-badge { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
         .hero-subtitle { font-size: 1.125rem; color: var(--text-gray); line-height: 1.6; }
 
         .process { padding: 6rem 2rem; background: var(--white); }
         .process-container { max-width: 1000px; margin: 0 auto; }
         .process-intro { text-align: center; margin-bottom: 4rem; }
-        .process-intro h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .process-intro p { font-size: 1.125rem; color: var(--text-gray); line-height: 1.6; }
+        .process-intro h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--text-dark); }
+        .process-intro p { font-size: 1.125rem; color: var(--text-dark); line-height: 1.6; opacity: 0.8; }
 
         .timeline { position: relative; padding-left: 4rem; }
         .timeline::before { content: ''; position: absolute; left: 1.5rem; top: 2rem; bottom: 2rem; width: 2px; background: var(--light-gray); }
@@ -39,18 +39,18 @@
         .timeline-marker { position: absolute; left: -2.5rem; top: 0; width: 3rem; height: 3rem; background: var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--white); }
         .timeline-content { background: var(--light-gray); padding: 2.5rem; border-radius: 12px; transition: transform 0.2s; }
         .timeline-content:hover { transform: translateY(-4px); }
-        .timeline-phase { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
-        .timeline-content h3 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .timeline-description { font-size: 1rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.6; }
+        .timeline-phase { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
+        .timeline-content h3 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.2; color: var(--text-dark); }
+        .timeline-description { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 2rem; line-height: 1.7; opacity: 0.85; }
         .timeline-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .detail { background: var(--white); padding: 1.5rem; border-radius: 8px; }
-        .detail-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
-        .detail-text { font-size: 0.875rem; color: var(--text-gray); line-height: 1.5; }
+        .detail { background: var(--white); padding: 1.25rem; border-radius: 8px; }
+        .detail-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
+        .detail-text { font-size: 0.875rem; color: var(--text-dark); line-height: 1.6; font-weight: 500; }
 
         .cta { padding: 6rem 2rem; background: var(--red); color: var(--white); text-align: center; }
-        .cta h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .cta p { font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.95; }
-        .btn { padding: 1rem 2.5rem; font-size: 0.875rem; font-weight: 600; background: var(--white); color: var(--red); text-decoration: none; border-radius: 980px; display: inline-block; transition: all 0.2s; }
+        .cta h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.2; color: var(--white); }
+        .cta p { font-size: 1.125rem; margin-bottom: 2rem; opacity: 0.95; line-height: 1.6; }
+        .btn { padding: 1rem 2.5rem; font-size: 0.875rem; font-weight: 700; background: var(--white); color: var(--red); text-decoration: none; border-radius: 980px; display: inline-block; transition: all 0.2s; }
         .btn:hover { transform: scale(1.05); }
 
         @media (max-width: 968px) { .timeline-details { grid-template-columns: 1fr; } }
