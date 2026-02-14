@@ -30,33 +30,99 @@
         .nav-links a.active { color: var(--red); }
 
         /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%); padding: 8rem 2rem 2rem; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%); padding: 8rem 2rem 4rem; }
         .hero-content { max-width: 900px; }
         .hero-badge { display: inline-block; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
         .hero-subtitle { font-size: 1.25rem; font-weight: 400; line-height: 1.6; color: var(--text-dark); max-width: 700px; margin: 0 auto 3rem; }
-        .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 4rem auto 0; max-width: 800px; }
+        .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem auto; max-width: 800px; }
         .stat { text-align: center; padding: 2rem 1rem; }
         .stat-number { font-size: 3rem; font-weight: 700; color: var(--red); line-height: 1; margin-bottom: 0.5rem; }
         .stat-label { font-size: 0.875rem; color: var(--text-gray); font-weight: 500; }
         
-        /* Full Width Ticker */
-        .ticker-section { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 4rem; background: var(--red); }
-        .ticker-wrap { width: 100%; overflow: hidden; padding: 1.5rem 0; position: relative; }
-        .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; pointer-events: none; }
-        .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--red) 0%, transparent 100%); }
-        .ticker-wrap::after { right: 0; background: linear-gradient(to left, var(--red) 0%, transparent 100%); }
-        .ticker { display: flex; animation: scroll 35s linear infinite; }
-        .ticker-item { flex-shrink: 0; padding: 0 3rem; font-size: 0.875rem; font-weight: 500; color: var(--white); white-space: nowrap; display: flex; align-items: center; }
-        .ticker-item::before { content: '•'; margin-right: 3rem; font-size: 1.2rem; opacity: 0.5; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        /* Perfectly Centered Elegant Ticker */
+        .ticker-section { 
+            width: 100%; 
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0 0 0; 
+            padding: 0 2rem;
+        }
+        .ticker-container { 
+            background: linear-gradient(135deg, var(--red) 0%, var(--dark-red) 100%);
+            border-radius: 60px;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 8px 32px rgba(227, 30, 36, 0.2);
+            position: relative;
+            overflow: hidden;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .ticker-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        .ticker-wrap { 
+            width: 100%; 
+            overflow: hidden; 
+            padding: 0.5rem 0; 
+            position: relative; 
+        }
+        .ticker-wrap::before, .ticker-wrap::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            width: 60px; 
+            height: 100%; 
+            z-index: 2; 
+            pointer-events: none; 
+        }
+        .ticker-wrap::before { 
+            left: 0; 
+            background: linear-gradient(to right, var(--red) 0%, transparent 100%); 
+        }
+        .ticker-wrap::after { 
+            right: 0; 
+            background: linear-gradient(to left, var(--dark-red) 0%, transparent 100%); 
+        }
+        .ticker { 
+            display: flex; 
+            animation: scroll 40s linear infinite; 
+            will-change: transform;
+        }
+        .ticker-item { 
+            flex-shrink: 0; 
+            padding: 0 2rem; 
+            font-size: 0.8rem; 
+            font-weight: 500; 
+            color: rgba(255, 255, 255, 0.95);
+            white-space: nowrap; 
+            display: flex; 
+            align-items: center;
+            letter-spacing: 0.02em;
+        }
+        .ticker-item::before { 
+            content: '·'; 
+            margin-right: 2rem; 
+            font-size: 1rem; 
+            opacity: 0.5; 
+        }
+        @keyframes scroll { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
         
-        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
-        .btn { padding: 1rem 2.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 980px; transition: all 0.2s; display: inline-block; }
-        .btn-primary { background: var(--red); color: var(--white); border: 2px solid var(--red); }
-        .btn-primary:hover { background: var(--dark-red); border-color: var(--dark-red); transform: translateY(-2px); }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+        .btn { padding: 1rem 2.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 980px; transition: all 0.3s ease; display: inline-block; }
+        .btn-primary { background: var(--red); color: var(--white); border: 2px solid var(--red); box-shadow: 0 2px 8px rgba(227, 30, 36, 0.2); }
+        .btn-primary:hover { background: var(--dark-red); border-color: var(--dark-red); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(227, 30, 36, 0.3); }
         .btn-secondary { background: transparent; color: var(--red); border: 2px solid var(--red); }
-        .btn-secondary:hover { background: var(--red); color: var(--white); transform: translateY(-2px); }
+        .btn-secondary:hover { background: var(--red); color: var(--white); transform: translateY(-2px); box-shadow: 0 2px 8px rgba(227, 30, 36, 0.2); }
 
         /* Contact Section */
         .contact-section { padding: 6rem 2rem; background: var(--white); }
@@ -67,8 +133,8 @@
         .section-description { font-size: 1.125rem; color: var(--text-gray); max-width: 600px; margin: 0 auto; line-height: 1.6; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
         .contact-cards { display: flex; flex-direction: column; gap: 1.5rem; }
-        .contact-card { padding: 2rem; background: var(--light-gray); border-radius: 12px; transition: transform 0.2s; }
-        .contact-card:hover { transform: translateY(-4px); }
+        .contact-card { padding: 2rem; background: var(--light-gray); border-radius: 12px; transition: all 0.3s ease; }
+        .contact-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); }
         .card-icon { font-size: 2rem; margin-bottom: 1rem; }
         .card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 0.5rem; }
         .card-content { font-size: 1rem; line-height: 1.6; color: var(--text-dark); }
@@ -76,14 +142,28 @@
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
         .form-group { margin-bottom: 1.5rem; }
         label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-dark); }
-        input, select, textarea { width: 100%; padding: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; background: var(--white); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; transition: border 0.2s; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--red); }
+        input, select, textarea { width: 100%; padding: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; background: var(--white); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; transition: all 0.2s; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1); }
         textarea { min-height: 120px; resize: vertical; }
-        .btn-submit { width: 100%; background: var(--red); color: var(--white); border: none; cursor: pointer; }
-        .btn-submit:hover { background: var(--dark-red); }
+        .btn-submit { width: 100%; background: var(--red); color: var(--white); border: none; cursor: pointer; box-shadow: 0 2px 8px rgba(227, 30, 36, 0.2); transition: all 0.3s ease; }
+        .btn-submit:hover { background: var(--dark-red); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(227, 30, 36, 0.3); }
 
-        @media (max-width: 968px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } .contact-grid { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .contact-section { padding-left: 1.5rem; padding-right: 1.5rem; } .hero-stats { grid-template-columns: 1fr; } .contact-form { padding: 2rem; } }
+        @media (max-width: 968px) { 
+            .hero-stats { grid-template-columns: repeat(2, 1fr); } 
+            .contact-grid { grid-template-columns: 1fr; } 
+            .form-grid { grid-template-columns: 1fr; } 
+            .ticker-container { max-width: 800px; }
+        }
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .nav-container, .hero, .contact-section { padding-left: 1.5rem; padding-right: 1.5rem; } 
+            .hero-stats { grid-template-columns: 1fr; } 
+            .contact-form { padding: 2rem; } 
+            .ticker-section { padding: 0 1.5rem; margin: 2rem 0 0 0; }
+            .ticker-container { border-radius: 40px; padding: 0.5rem 1.5rem; max-width: 100%; }
+            .ticker-item { font-size: 0.75rem; padding: 0 1.5rem; }
+            .ticker-item::before { margin-right: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -131,25 +211,27 @@
         </div>
 
         <div class="ticker-section">
-            <div class="ticker-wrap">
-                <div class="ticker">
-                    <div class="ticker-item">Fast-changing market ecosystems</div>
-                    <div class="ticker-item">Evolving consumer dynamics</div>
-                    <div class="ticker-item">Disruptive technology transformations</div>
-                    <div class="ticker-item">Regulatory complexity & compliance shifts</div>
-                    <div class="ticker-item">Competitive landscape volatility</div>
-                    <div class="ticker-item">Digital acceleration demands</div>
-                    <div class="ticker-item">Supply chain disruptions</div>
-                    <div class="ticker-item">Intelligence-led adaptive responses required</div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="ticker-item">Fast-changing market ecosystems</div>
-                    <div class="ticker-item">Evolving consumer dynamics</div>
-                    <div class="ticker-item">Disruptive technology transformations</div>
-                    <div class="ticker-item">Regulatory complexity & compliance shifts</div>
-                    <div class="ticker-item">Competitive landscape volatility</div>
-                    <div class="ticker-item">Digital acceleration demands</div>
-                    <div class="ticker-item">Supply chain disruptions</div>
-                    <div class="ticker-item">Intelligence-led adaptive responses required</div>
+            <div class="ticker-container">
+                <div class="ticker-wrap">
+                    <div class="ticker">
+                        <div class="ticker-item">Fast-changing market ecosystems</div>
+                        <div class="ticker-item">Evolving consumer dynamics</div>
+                        <div class="ticker-item">Disruptive technology transformations</div>
+                        <div class="ticker-item">Regulatory complexity & compliance shifts</div>
+                        <div class="ticker-item">Competitive landscape volatility</div>
+                        <div class="ticker-item">Digital acceleration demands</div>
+                        <div class="ticker-item">Supply chain disruptions</div>
+                        <div class="ticker-item">Intelligence-led adaptive responses required</div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="ticker-item">Fast-changing market ecosystems</div>
+                        <div class="ticker-item">Evolving consumer dynamics</div>
+                        <div class="ticker-item">Disruptive technology transformations</div>
+                        <div class="ticker-item">Regulatory complexity & compliance shifts</div>
+                        <div class="ticker-item">Competitive landscape volatility</div>
+                        <div class="ticker-item">Digital acceleration demands</div>
+                        <div class="ticker-item">Supply chain disruptions</div>
+                        <div class="ticker-item">Intelligence-led adaptive responses required</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,7 +264,7 @@
                     <div class="contact-card">
                         <div class="card-icon">✉️</div>
                         <div class="card-label">Email</div>
-                        <div class="card-content">contact@striivetech.com</div>
+                        <div class="card-content"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8be8e4e5ffeae8ffcbf8fff9e2e2fdeeffeee8e3a5e8e4e6">[email&#160;protected]</a></div>
                     </div>
                     <div class="contact-card">
                         <div class="card-icon">🕐</div>
@@ -226,7 +308,7 @@
         </div>
     </section>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.getElementById('contactForm').addEventListener('submit', e => {
             e.preventDefault();
             alert('Thank you for your inquiry. We will respond within 24 hours.');
@@ -235,12 +317,4 @@
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                co
