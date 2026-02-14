@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --red: #E31E24; --dark-red: #B91C22; --white: #FFFFFF; --light-gray: #F5F5F7; --text-dark: #1D1D1F; --text-gray: #6E6E73; }
+        :root { --red: #E31E24; --dark-red: #B91C22; --white: #FFFFFF; --light-gray: #F5F5F7; --text-dark: #171717; --text-gray: #393939; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--text-dark); -webkit-font-smoothing: antialiased; }
 
         nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
@@ -22,16 +22,17 @@
 
         .hero { padding: 8rem 2rem 4rem; text-align: center; background: var(--light-gray); }
         .hero-badge { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1.5rem; color: var(--text-dark); }
+        .hero-description { font-size: 1.125rem; color: var(--text-dark); opacity: 0.8; max-width: 800px; margin: 0 auto 2rem; line-height: 1.6; }
         .hero-stats { display: flex; gap: 3rem; justify-content: center; margin-top: 2rem; }
         .stat { text-align: center; }
         .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--red); line-height: 1; margin-bottom: 0.5rem; }
-        .stat-label { font-size: 0.875rem; color: var(--text-gray); }
+        .stat-label { font-size: 0.875rem; color: var(--text-dark); font-weight: 500; }
 
         .filters { padding: 2rem; background: var(--white); border-bottom: 1px solid rgba(0, 0, 0, 0.05); position: sticky; top: 65px; z-index: 100; }
         .filters-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         .filter-btn { padding: 0.5rem 1.5rem; font-size: 0.875rem; font-weight: 500; background: transparent; color: var(--text-dark); border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 980px; cursor: pointer; transition: all 0.2s; }
-        .filter-btn:hover, .filter-btn.active { background: var(--red); color: var(--white); border-color: var(--red); }
+        .filter-btn:hover, .filter-btn.active { background: var(--red); color: var(--white); border-color: var(--red); font-weight: 600; }
 
         .projects { padding: 4rem 2rem; background: var(--white); }
         .projects-container { max-width: 1200px; margin: 0 auto; }
@@ -40,10 +41,10 @@
         .project.hidden { display: none; }
         .project:hover { transform: translateY(-4px); }
         .project-header { padding: 2rem; background: var(--red); color: var(--white); }
-        .project-category { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .project-category { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
         .project-body { padding: 2rem; }
         .project-list { list-style: none; }
-        .project-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-size: 0.875rem; line-height: 1.5; }
+        .project-list li { padding: 0.875rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-size: 0.875rem; line-height: 1.6; color: var(--text-dark); font-weight: 500; }
         .project-list li:last-child { border-bottom: none; }
 
         @media (max-width: 968px) { .hero-stats { flex-wrap: wrap; gap: 2rem; } .projects-grid { grid-template-columns: 1fr; } }
@@ -69,6 +70,9 @@
     <section class="hero">
         <div class="hero-badge">Our Portfolio</div>
         <h1>Proven Results Across Industries</h1>
+        <p class="hero-description">
+            Our team has a diverse footprint of projects within several sectors, leading and managing multi-million dollar projects that have generated commensurate returns and significant business impact.
+        </p>
         <div class="hero-stats">
             <div class="stat">
                 <div class="stat-number">50+</div>
