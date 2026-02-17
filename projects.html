@@ -37,18 +37,73 @@
         .projects { padding: 4rem 2rem; background: var(--white); }
         .projects-container { max-width: 1200px; margin: 0 auto; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+
         .project { background: var(--light-gray); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
         .project.hidden { display: none; }
         .project:hover { transform: translateY(-4px); }
+
         .project-header { padding: 2rem; background: var(--red); color: var(--white); }
         .project-category { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+
+        /* ===== Animated image slider ===== */
+        .project-slider {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #0b0b0b;
+        }
+        .project-slider img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.04);
+            transition: opacity 800ms ease, transform 1200ms ease;
+            will-change: opacity, transform;
+        }
+        .project-slider img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .project-slider::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));
+            pointer-events: none;
+        }
+
+        .slider-dots {
+            position: absolute;
+            left: 14px;
+            bottom: 12px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.55);
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: transform 200ms ease, background 200ms ease;
+        }
+        .dot.active {
+            background: rgba(255,255,255,0.95);
+            transform: scale(1.2);
+        }
+
         .project-body { padding: 2rem; }
         .project-list { list-style: none; }
         .project-list li { padding: 0.875rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-size: 0.875rem; line-height: 1.6; color: var(--text-dark); font-weight: 500; }
         .project-list li:last-child { border-bottom: none; }
 
         @media (max-width: 968px) { .hero-stats { flex-wrap: wrap; gap: 2rem; } .projects-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .projects { padding-left: 1.5rem; padding-right: 1.5rem; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .projects { padding-left: 1.5rem; padding-right: 1.5rem; } .project-slider { height: 200px; } }
     </style>
 </head>
 <body>
@@ -71,7 +126,7 @@
         <div class="hero-badge">Our Portfolio</div>
         <h1>Proven Results Across Industries</h1>
         <p class="hero-description">
-            Collectively, our team has a wide footprint accross several sectors; leading and managing multi-million dollar projects that have generated huge returns and significant business impact.
+            Our team has a diverse footprint of projects within several sectors, leading and managing multi-million dollar projects that have generated commensurate returns and significant business impact.
         </p>
         <div class="hero-stats">
             <div class="stat">
@@ -103,50 +158,85 @@
     <section class="projects">
         <div class="projects-container">
             <div class="projects-grid">
+
+                <!-- Oil & Gas -->
                 <div class="project" data-category="oil-gas">
                     <div class="project-header">
                         <div class="project-category">Oil & Gas</div>
                     </div>
+
+                    <div class="project-slider" data-interval="3200">
+                        <!-- image 4,6,7 -->
+                        <img src="/mnt/data/19.webp" alt="Oil platform" class="active">
+                        <img src="/mnt/data/26.png" alt="Shipyard">
+                        <img src="/mnt/data/18.jpg" alt="Gas facility">
+
+                        <div class="slider-dots" aria-hidden="true">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Corrosion Control and Maintenance of Subsea equipment</li>
-                            <li>Blasting & Coating of Production Equipment</li>
-                            <li>Fabrication & Coating of Offshore Pipe Spools equipment</li>
+                            <li>Blasting &amp; Coating of Production Equipment</li>
+                            <li>Fabrication &amp; Coating of Offshore Pipe Spools equipment</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Engineering & Technology -->
                 <div class="project" data-category="engineering">
                     <div class="project-header">
                         <div class="project-category">Engineering and Technology</div>
                     </div>
+
+                    <div class="project-slider" data-interval="2800">
+                        <!-- image 1,2,3,8 -->
+                        <img src="/mnt/data/12.jpg" alt="Welding engineering" class="active">
+                        <img src="/mnt/data/13.jpg" alt="Control system operator">
+                        <img src="/mnt/data/14.jpg" alt="Industrial cutting operation">
+                        <img src="/mnt/data/22.jpg" alt="Electronics board">
+
+                        <div class="slider-dots" aria-hidden="true">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Solar Installation (3 projects)</li>
-                            <li>New Factory Production Line Installation, Integration & Commissioning (5 projects)</li>
+                            <li>New Factory Production Line Installation, Integration &amp; Commissioning (5 projects)</li>
                             <li>Inventory and Supply Chain Management Software</li>
                             <li>Warehouse Management System</li>
                             <li>Industrial Water Treatment</li>
                             <li>Automated End-of-Line Transfer System</li>
-                            <li>Operations/Process Flow Remodeling & Upgrade</li>
+                            <li>Operations/Process Flow Remodeling &amp; Upgrade</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Infrastructure & Construction -->
                 <div class="project" data-category="infrastructure">
                     <div class="project-header">
-                        <div class="project-category">Construction</div>
+                        <div class="project-category">Infrastructure & Construction</div>
                     </div>
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Warehouse Construction (2 projects)</li>
                             <li>Warehouse/Storage Refurbishment</li>
-                            <li>New Factory Construction & Expansion (4 projects)</li>
+                            <li>New Factory Construction &amp; Expansion (4 projects)</li>
                             <li>Construction of Office Complex (2 projects)</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Telecommunications -->
                 <div class="project" data-category="telecom">
                     <div class="project-header">
                         <div class="project-category">Telecommunications and Digital Systems</div>
@@ -154,12 +244,13 @@
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Fiber Layout Design and Installation</li>
-                            <li>Business Development & Sales</li>
-                            <li>Business Model Redesign & Implementation</li>
+                            <li>Business Development &amp; Sales</li>
+                            <li>Business Model Redesign &amp; Implementation</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Manufacturing -->
                 <div class="project" data-category="manufacturing">
                     <div class="project-header">
                         <div class="project-category">Manufacturing</div>
@@ -168,19 +259,21 @@
                         <ul class="project-list">
                             <li>Factory Expansion (3 projects)</li>
                             <li>End to End Food Processing Lines (5 projects)</li>
-                            <li>Factory Process Automation & Optimization (3 projects)</li>
-                            <li>Brand Architecture Renovation & Management</li>
+                            <li>Factory Process Automation &amp; Optimization (3 projects)</li>
+                            <li>Brand Architecture Renovation &amp; Management</li>
                             <li>Packaging Line Project (3 projects)</li>
                             <li>New Product Renovation/Development (13 projects)</li>
                             <li>Copacking/ Joint Venture Projects (2 projects)</li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <script>
+        // Filters (unchanged behavior)
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -195,6 +288,68 @@
                 });
             });
         });
+
+        // Animated image transitions (crossfade + subtle zoom)
+        function initSliders() {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            document.querySelectorAll('.project-slider').forEach(slider => {
+                const imgs = Array.from(slider.querySelectorAll('img'));
+                const dotsWrap = slider.querySelector('.slider-dots');
+                const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.dot')) : [];
+                const interval = Number(slider.dataset.interval || 3000);
+
+                if (!imgs.length) return;
+
+                let idx = 0;
+
+                const setActive = (nextIdx) => {
+                    imgs[idx].classList.remove('active');
+                    if (dots[idx]) dots[idx].classList.remove('active');
+
+                    idx = nextIdx;
+
+                    imgs[idx].classList.add('active');
+                    if (dots[idx]) dots[idx].classList.add('active');
+                };
+
+                // Pause on hover/focus for better UX
+                let timer = null;
+                const start = () => {
+                    if (prefersReduced) return;
+                    stop();
+                    timer = setInterval(() => {
+                        const next = (idx + 1) % imgs.length;
+                        setActive(next);
+                    }, interval);
+                };
+                const stop = () => {
+                    if (timer) clearInterval(timer);
+                    timer = null;
+                };
+
+                slider.addEventListener('mouseenter', stop);
+                slider.addEventListener('mouseleave', start);
+                slider.addEventListener('focusin', stop);
+                slider.addEventListener('focusout', start);
+
+                // Click dots to navigate (if dots exist)
+                dots.forEach((dot, i) => {
+                    dot.style.cursor = 'pointer';
+                    dot.addEventListener('click', () => setActive(i));
+                });
+
+                // Start autoplay
+                start();
+            });
+        }
+
+        // Wait for DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSliders);
+        } else {
+            initSliders();
+        }
     </script>
 </body>
 </html>
