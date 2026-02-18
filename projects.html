@@ -37,73 +37,19 @@
         .projects { padding: 4rem 2rem; background: var(--white); }
         .projects-container { max-width: 1200px; margin: 0 auto; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-
         .project { background: var(--light-gray); border-radius: 12px; overflow: hidden; transition: transform 0.2s; }
         .project.hidden { display: none; }
         .project:hover { transform: translateY(-4px); }
-
-        .project-header { padding: 2rem; background: var(--red); color: var(--white); }
+        .project-header { padding: 2rem; background: var(--red); color: var(--white); position: relative; }
         .project-category { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
-
-        /* ===== Animated image slider (for ALL project cards) ===== */
-        .project-slider {
-            position: relative;
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            background: #0b0b0b;
-        }
-        .project-slider img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transform: scale(1.04);
-            transition: opacity 800ms ease, transform 1200ms ease;
-            will-change: opacity, transform;
-        }
-        .project-slider img.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .project-slider::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));
-            pointer-events: none;
-        }
-
-        .slider-dots {
-            position: absolute;
-            left: 14px;
-            bottom: 12px;
-            display: flex;
-            gap: 8px;
-            z-index: 2;
-        }
-        .dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.55);
-            border: 1px solid rgba(255,255,255,0.25);
-            transition: transform 200ms ease, background 200ms ease;
-        }
-        .dot.active {
-            background: rgba(255,255,255,0.95);
-            transform: scale(1.2);
-        }
-
+        .project-image { width: 100%; height: 220px; object-fit: cover; display: block; background: linear-gradient(135deg, #e0e0e0 0%, #c8c8c8 100%); }
         .project-body { padding: 2rem; }
         .project-list { list-style: none; }
         .project-list li { padding: 0.875rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); font-size: 0.875rem; line-height: 1.6; color: var(--text-dark); font-weight: 500; }
         .project-list li:last-child { border-bottom: none; }
 
         @media (max-width: 968px) { .hero-stats { flex-wrap: wrap; gap: 2rem; } .projects-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .projects { padding-left: 1.5rem; padding-right: 1.5rem; } .project-slider { height: 200px; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .nav-container, .hero, .projects { padding-left: 1.5rem; padding-right: 1.5rem; } .project-image { height: 200px; } }
     </style>
 </head>
 <body>
@@ -158,159 +104,89 @@
     <section class="projects">
         <div class="projects-container">
             <div class="projects-grid">
-
-                <!-- Oil & Gas (image 4,6,7) -->
                 <div class="project" data-category="oil-gas">
                     <div class="project-header">
                         <div class="project-category">Oil & Gas</div>
                     </div>
-
-                    <div class="project-slider" data-interval="3200">
-                        <img src="18.webp" alt="Offshore production platform" class="active">
-                        <img src="26.jpg" alt="Shipyard / dry dock operations">
-                        <img src="25.jpg" alt="Gas storage and processing facility">
-
-                        <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-
+                    <img src="26.png" alt="Oil & Gas Operations" class="project-image">
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Corrosion Control and Maintenance of Subsea equipment</li>
-                            <li>Blasting &amp; Coating of Production Equipment</li>
-                            <li>Fabrication &amp; Coating of Offshore Pipe Spools equipment</li>
+                            <li>Blasting & Coating of Production Equipment</li>
+                            <li>Fabrication & Coating of Offshore Pipe Spools equipment</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Engineering & Technology (image 1,2,3,8) -->
                 <div class="project" data-category="engineering">
                     <div class="project-header">
                         <div class="project-category">Engineering and Technology</div>
                     </div>
-
-                    <div class="project-slider" data-interval="2800">
-                        <img src="22.jpg" alt="Welding and fabrication" class="active">
-                        <img src="12.jpg" alt="Control system operator and instrumentation">
-                        <img src="13.jpg" alt="Industrial cutting and metalwork">
-                        <img src="14.jpg" alt="Electronics and embedded systems">
-
-                        <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-
+                    <img src="12.jpg" alt="Engineering Technology" class="project-image">
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Solar Installation (3 projects)</li>
-                            <li>New Factory Production Line Installation, Integration &amp; Commissioning (5 projects)</li>
+                            <li>New Factory Production Line Installation, Integration & Commissioning (5 projects)</li>
                             <li>Inventory and Supply Chain Management Software</li>
                             <li>Warehouse Management System</li>
                             <li>Industrial Water Treatment</li>
                             <li>Automated End-of-Line Transfer System</li>
-                            <li>Operations/Process Flow Remodeling &amp; Upgrade</li>
+                            <li>Operations/Process Flow Remodeling & Upgrade</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Infrastructure & Construction (animated using available infra/industrial image) -->
                 <div class="project" data-category="infrastructure">
                     <div class="project-header">
                         <div class="project-category">Infrastructure & Construction</div>
                     </div>
-
-                    <div class="project-slider" data-interval="3200">
-                        <img src="/mnt/data/25.jpg" alt="Industrial plant infrastructure" class="active">
-                        <img src="/mnt/data/25.jpg" alt="Industrial plant infrastructure (alt view)">
-                        <img src="/mnt/data/25.jpg" alt="Industrial plant infrastructure (detail view)">
-
-                        <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-
+                    <img src="14.jpg" alt="Infrastructure Construction" class="project-image">
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Warehouse Construction (2 projects)</li>
                             <li>Warehouse/Storage Refurbishment</li>
-                            <li>New Factory Construction &amp; Expansion (4 projects)</li>
+                            <li>New Factory Construction & Expansion (4 projects)</li>
                             <li>Construction of Office Complex (2 projects)</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Telecommunications (animated using available tech/electronics image) -->
                 <div class="project" data-category="telecom">
                     <div class="project-header">
                         <div class="project-category">Telecommunications and Digital Systems</div>
                     </div>
-
-                    <div class="project-slider" data-interval="2800">
-                        <img src="/mnt/data/22.jpg" alt="Digital systems and electronics" class="active">
-                        <img src="/mnt/data/22.jpg" alt="Digital systems and electronics (alt view)">
-                        <img src="/mnt/data/22.jpg" alt="Digital systems and electronics (detail view)">
-
-                        <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-
+                    <img src="14.jpg" alt="Digital Systems" class="project-image">
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Fiber Layout Design and Installation</li>
-                            <li>Business Development &amp; Sales</li>
-                            <li>Business Model Redesign &amp; Implementation</li>
+                            <li>Business Development & Sales</li>
+                            <li>Business Model Redesign & Implementation</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Manufacturing (animated using available industrial plant image + engineering images) -->
                 <div class="project" data-category="manufacturing">
                     <div class="project-header">
                         <div class="project-category">Manufacturing</div>
                     </div>
-
-                    <div class="project-slider" data-interval="3000">
-                        <img src="/mnt/data/25.jpg" alt="Manufacturing plant systems" class="active">
-                        <img src="/mnt/data/12.jpg" alt="Factory welding and fabrication">
-                        <img src="/mnt/data/13.jpg" alt="Factory operations control systems">
-
-                        <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    </div>
-
+                    <img src="12.jpg" alt="Manufacturing Operations" class="project-image">
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Factory Expansion (3 projects)</li>
                             <li>End to End Food Processing Lines (5 projects)</li>
-                            <li>Factory Process Automation &amp; Optimization (3 projects)</li>
-                            <li>Brand Architecture Renovation &amp; Management</li>
+                            <li>Factory Process Automation & Optimization (3 projects)</li>
+                            <li>Brand Architecture Renovation & Management</li>
                             <li>Packaging Line Project (3 projects)</li>
                             <li>New Product Renovation/Development (13 projects)</li>
                             <li>Copacking/ Joint Venture Projects (2 projects)</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <script>
-        // Filters (unchanged)
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -325,67 +201,6 @@
                 });
             });
         });
-
-        // Animated sliders for ALL project cards
-        function initSliders() {
-            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            document.querySelectorAll('.project-slider').forEach(slider => {
-                const imgs = Array.from(slider.querySelectorAll('img'));
-                const dotsWrap = slider.querySelector('.slider-dots');
-                const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.dot')) : [];
-                const interval = Number(slider.dataset.interval || 3000);
-
-                if (!imgs.length) return;
-
-                let idx = imgs.findIndex(i => i.classList.contains('active'));
-                if (idx < 0) idx = 0;
-
-                const setActive = (nextIdx) => {
-                    imgs[idx].classList.remove('active');
-                    if (dots[idx]) dots[idx].classList.remove('active');
-
-                    idx = nextIdx;
-
-                    imgs[idx].classList.add('active');
-                    if (dots[idx]) dots[idx].classList.add('active');
-                };
-
-                let timer = null;
-
-                const start = () => {
-                    if (prefersReduced) return;
-                    stop();
-                    timer = setInterval(() => {
-                        const next = (idx + 1) % imgs.length;
-                        setActive(next);
-                    }, interval);
-                };
-
-                const stop = () => {
-                    if (timer) clearInterval(timer);
-                    timer = null;
-                };
-
-                slider.addEventListener('mouseenter', stop);
-                slider.addEventListener('mouseleave', start);
-                slider.addEventListener('focusin', stop);
-                slider.addEventListener('focusout', start);
-
-                dots.forEach((dot, i) => {
-                    dot.style.cursor = 'pointer';
-                    dot.addEventListener('click', () => setActive(i));
-                });
-
-                start();
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initSliders);
-        } else {
-            initSliders();
-        }
     </script>
 </body>
 </html>
