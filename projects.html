@@ -45,7 +45,7 @@
         .project-header { padding: 2rem; background: var(--red); color: var(--white); }
         .project-category { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
 
-        /* ===== Animated image slider (for ALL project cards) ===== */
+        /* ===== Animated image slider ===== */
         .project-slider {
             position: relative;
             width: 100%;
@@ -159,19 +159,21 @@
         <div class="projects-container">
             <div class="projects-grid">
 
-                <!-- Oil & Gas (image 4,6,7) -->
+                <!-- Oil & Gas - 4 images (19, 25, 26, 18) -->
                 <div class="project" data-category="oil-gas">
                     <div class="project-header">
                         <div class="project-category">Oil & Gas</div>
                     </div>
 
                     <div class="project-slider" data-interval="3200">
-                        <img src="26.png" alt="Offshore production platform" class="active">
-                        <img src="14.jpg" alt="Shipyard / dry dock operations">
-                        <img src="12.jpg" alt="Gas storage and processing facility">
+                        <img src="19.webp" alt="Offshore oil production platform" class="active">
+                        <img src="25.jpg" alt="Shipyard and dry dock operations">
+                        <img src="26.png" alt="Gas storage and processing facility">
+                        <img src="18.jpg" alt="Industrial processing equipment">
 
                         <div class="slider-dots" aria-hidden="true">
                             <span class="dot active"></span>
+                            <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot"></span>
                         </div>
@@ -186,20 +188,22 @@
                     </div>
                 </div>
 
-                <!-- Engineering & Technology (image 1,2,3,8) -->
+                <!-- Engineering & Technology - 5 images (12, 13, 14, 15, 16) -->
                 <div class="project" data-category="engineering">
                     <div class="project-header">
-                        <div class="project-category">Engineering and Technology</div>
+                        <div class="project-category">Engineering & Technology</div>
                     </div>
 
                     <div class="project-slider" data-interval="2800">
-                        <img src="12.jpg" alt="Welding and fabrication" class="active">
-                        <img src="14.jpg" alt="Control system operator and instrumentation">
-                        <img src="26.png" alt="Industrial cutting and metalwork">
-                        <img src="12.jpg" alt="Electronics and embedded systems">
+                        <img src="12.jpg" alt="Welding and metal fabrication" class="active">
+                        <img src="13.jpg" alt="Clean room manufacturing operations">
+                        <img src="14.jpg" alt="Industrial cutting and metalwork">
+                        <img src="15.jpg" alt="Automated production line systems">
+                        <img src="16.jpg" alt="Manufacturing engineering and control systems">
 
                         <div class="slider-dots" aria-hidden="true">
                             <span class="dot active"></span>
+                            <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot"></span>
@@ -219,16 +223,16 @@
                     </div>
                 </div>
 
-                <!-- Infrastructure & Construction (animated using available infra/industrial image) -->
+                <!-- Infrastructure & Construction -->
                 <div class="project" data-category="infrastructure">
                     <div class="project-header">
                         <div class="project-category">Infrastructure & Construction</div>
                     </div>
 
                     <div class="project-slider" data-interval="3200">
-                        <img src="14.jpg" alt="Industrial plant infrastructure" class="active">
-                        <img src="26.png" alt="Industrial plant infrastructure (alt view)">
-                        <img src="12.jpg" alt="Industrial plant infrastructure (detail view)">
+                        <img src="26.png" alt="Industrial plant infrastructure" class="active">
+                        <img src="18.jpg" alt="Industrial facility construction">
+                        <img src="25.jpg" alt="Infrastructure development">
 
                         <div class="slider-dots" aria-hidden="true">
                             <span class="dot active"></span>
@@ -247,16 +251,16 @@
                     </div>
                 </div>
 
-                <!-- Telecommunications (animated using available tech/electronics image) -->
+                <!-- Telecommunications -->
                 <div class="project" data-category="telecom">
                     <div class="project-header">
                         <div class="project-category">Telecommunications and Digital Systems</div>
                     </div>
 
                     <div class="project-slider" data-interval="2800">
-                        <img src="12.jpg" alt="Digital systems and electronics" class="active">
-                        <img src="14.jpg" alt="Digital systems and electronics (alt view)">
-                        <img src="26.png" alt="Digital systems and electronics (detail view)">
+                        <img src="16.jpg" alt="Digital systems and engineering" class="active">
+                        <img src="13.jpg" alt="Advanced electronics manufacturing">
+                        <img src="15.jpg" alt="Telecom infrastructure systems">
 
                         <div class="slider-dots" aria-hidden="true">
                             <span class="dot active"></span>
@@ -274,16 +278,16 @@
                     </div>
                 </div>
 
-                <!-- Manufacturing (animated using available industrial plant image + engineering images) -->
+                <!-- Manufacturing -->
                 <div class="project" data-category="manufacturing">
                     <div class="project-header">
                         <div class="project-category">Manufacturing</div>
                     </div>
 
                     <div class="project-slider" data-interval="3000">
-                        <img src="14.jpg" alt="Manufacturing plant systems" class="active">
+                        <img src="15.jpg" alt="Manufacturing automation systems" class="active">
                         <img src="12.jpg" alt="Factory welding and fabrication">
-                        <img src="26.png" alt="Factory operations control systems">
+                        <img src="14.jpg" alt="Production line operations">
 
                         <div class="slider-dots" aria-hidden="true">
                             <span class="dot active"></span>
@@ -310,7 +314,7 @@
     </section>
 
     <script>
-        // Filters (unchanged)
+        // Filters
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
