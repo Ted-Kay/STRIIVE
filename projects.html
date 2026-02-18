@@ -45,7 +45,7 @@
         .project-header { padding: 2rem; background: var(--red); color: var(--white); }
         .project-category { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
 
-        /* ===== Robust image slider (fix: all images display & cycle) ===== */
+        /* ===== Animated image slider (for ALL project cards) ===== */
         .project-slider {
             position: relative;
             width: 100%;
@@ -63,12 +63,10 @@
             transform: scale(1.04);
             transition: opacity 800ms ease, transform 1200ms ease;
             will-change: opacity, transform;
-            pointer-events: none;  /* clicks go to dots/container */
         }
         .project-slider img.active {
             opacity: 1;
             transform: scale(1);
-            z-index: 1;
         }
         .project-slider::after {
             content: "";
@@ -76,7 +74,6 @@
             inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));
             pointer-events: none;
-            z-index: 2;
         }
 
         .slider-dots {
@@ -85,7 +82,7 @@
             bottom: 12px;
             display: flex;
             gap: 8px;
-            z-index: 10;  /* above overlay and images */
+            z-index: 2;
         }
         .dot {
             width: 7px;
@@ -94,8 +91,6 @@
             background: rgba(255,255,255,0.55);
             border: 1px solid rgba(255,255,255,0.25);
             transition: transform 200ms ease, background 200ms ease;
-            cursor: pointer;
-            z-index: 11;
         }
         .dot.active {
             background: rgba(255,255,255,0.95);
@@ -115,8 +110,7 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <!-- using placeholder text in case image missing, but src kept as original -->
-                <img src="striive_logo_clean.png" alt="STRIIVETECH" onerror="this.style.display='none'; this.parentElement.innerHTML='STRIIVETECH';">
+                <img src="striive_logo_clean.png" alt="STRIIVETECH">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -135,9 +129,18 @@
             Our team has a diverse footprint of projects within several sectors, leading and managing multi-million dollar projects that have generated commensurate returns and significant business impact.
         </p>
         <div class="hero-stats">
-            <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Projects Delivered</div></div>
-            <div class="stat"><div class="stat-number">5</div><div class="stat-label">Industry Sectors</div></div>
-            <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Success Rate</div></div>
+            <div class="stat">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Industry Sectors</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
         </div>
     </section>
 
@@ -156,17 +159,24 @@
         <div class="projects-container">
             <div class="projects-grid">
 
-                <!-- OIL & GAS – images: 19.webp, 26.png, 18.jpg -->
+                <!-- Oil & Gas (image 4,6,7) -->
                 <div class="project" data-category="oil-gas">
-                    <div class="project-header"><div class="project-category">Oil & Gas</div></div>
+                    <div class="project-header">
+                        <div class="project-category">Oil & Gas</div>
+                    </div>
+
                     <div class="project-slider" data-interval="3200">
                         <img src="/mnt/data/19.webp" alt="Offshore production platform" class="active">
                         <img src="/mnt/data/26.png" alt="Shipyard / dry dock operations">
                         <img src="/mnt/data/18.jpg" alt="Gas storage and processing facility">
+
                         <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
                     </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Corrosion Control and Maintenance of Subsea equipment</li>
@@ -176,18 +186,26 @@
                     </div>
                 </div>
 
-                <!-- ENGINEERING & TECH – images: 12.jpg, 13.jpg, 14.jpg, 22.jpg -->
+                <!-- Engineering & Technology (image 1,2,3,8) -->
                 <div class="project" data-category="engineering">
-                    <div class="project-header"><div class="project-category">Engineering and Technology</div></div>
+                    <div class="project-header">
+                        <div class="project-category">Engineering and Technology</div>
+                    </div>
+
                     <div class="project-slider" data-interval="2800">
                         <img src="/mnt/data/12.jpg" alt="Welding and fabrication" class="active">
                         <img src="/mnt/data/13.jpg" alt="Control system operator and instrumentation">
                         <img src="/mnt/data/14.jpg" alt="Industrial cutting and metalwork">
                         <img src="/mnt/data/22.jpg" alt="Electronics and embedded systems">
+
                         <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
                     </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Solar Installation (3 projects)</li>
@@ -201,17 +219,24 @@
                     </div>
                 </div>
 
-                <!-- INFRASTRUCTURE – we now use three distinct infrastructure‑related images: 25.jpg, 12.jpg, 14.jpg for variety -->
+                <!-- Infrastructure & Construction (animated using available infra/industrial image) -->
                 <div class="project" data-category="infrastructure">
-                    <div class="project-header"><div class="project-category">Infrastructure & Construction</div></div>
+                    <div class="project-header">
+                        <div class="project-category">Infrastructure & Construction</div>
+                    </div>
+
                     <div class="project-slider" data-interval="3200">
                         <img src="/mnt/data/25.jpg" alt="Industrial plant infrastructure" class="active">
-                        <img src="/mnt/data/12.jpg" alt="Construction welding">
-                        <img src="/mnt/data/14.jpg" alt="Structural metalwork">
+                        <img src="/mnt/data/25.jpg" alt="Industrial plant infrastructure (alt view)">
+                        <img src="/mnt/data/25.jpg" alt="Industrial plant infrastructure (detail view)">
+
                         <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
                     </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Warehouse Construction (2 projects)</li>
@@ -222,17 +247,24 @@
                     </div>
                 </div>
 
-                <!-- TELECOMMUNICATIONS – distinct images: 22.jpg, 13.jpg, 12.jpg (digital/electronics/control) -->
+                <!-- Telecommunications (animated using available tech/electronics image) -->
                 <div class="project" data-category="telecom">
-                    <div class="project-header"><div class="project-category">Telecommunications and Digital Systems</div></div>
+                    <div class="project-header">
+                        <div class="project-category">Telecommunications and Digital Systems</div>
+                    </div>
+
                     <div class="project-slider" data-interval="2800">
                         <img src="/mnt/data/22.jpg" alt="Digital systems and electronics" class="active">
-                        <img src="/mnt/data/13.jpg" alt="Control room / monitoring">
-                        <img src="/mnt/data/12.jpg" alt="Fiber / network fabrication">
+                        <img src="/mnt/data/22.jpg" alt="Digital systems and electronics (alt view)">
+                        <img src="/mnt/data/22.jpg" alt="Digital systems and electronics (detail view)">
+
                         <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
                     </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Fiber Layout Design and Installation</li>
@@ -242,18 +274,24 @@
                     </div>
                 </div>
 
-                <!-- MANUFACTURING – images: 25.jpg (plant), 12.jpg (welding), 13.jpg (control) plus one more 14.jpg -->
+                <!-- Manufacturing (animated using available industrial plant image + engineering images) -->
                 <div class="project" data-category="manufacturing">
-                    <div class="project-header"><div class="project-category">Manufacturing</div></div>
+                    <div class="project-header">
+                        <div class="project-category">Manufacturing</div>
+                    </div>
+
                     <div class="project-slider" data-interval="3000">
                         <img src="/mnt/data/25.jpg" alt="Manufacturing plant systems" class="active">
                         <img src="/mnt/data/12.jpg" alt="Factory welding and fabrication">
                         <img src="/mnt/data/13.jpg" alt="Factory operations control systems">
-                        <img src="/mnt/data/14.jpg" alt="Precision metal cutting">
+
                         <div class="slider-dots" aria-hidden="true">
-                            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
                     </div>
+
                     <div class="project-body">
                         <ul class="project-list">
                             <li>Factory Expansion (3 projects)</li>
@@ -266,183 +304,88 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <script>
-        (function() {
-            // FILTER FUNCTIONALITY (unchanged, robust)
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projects = document.querySelectorAll('.project');
-
-            function filterProjects(filterValue) {
-                projects.forEach(proj => {
-                    const cat = proj.dataset.category;
-                    if (filterValue === 'all' || cat === filterValue) {
-                        proj.classList.remove('hidden');
+        // Filters (unchanged)
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.project').forEach(project => {
+                    if (filter === 'all' || project.dataset.category === filter) {
+                        project.classList.remove('hidden');
                     } else {
-                        proj.classList.add('hidden');
+                        project.classList.add('hidden');
                     }
-                });
-            }
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    filterProjects(btn.dataset.filter);
                 });
             });
+        });
 
-            // ---------- SLIDER INIT: every image shows correctly, no single-image loops ----------
-            function initSliders() {
-                const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                const sliders = document.querySelectorAll('.project-slider');
+        // Animated sliders for ALL project cards
+        function initSliders() {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-                sliders.forEach(slider => {
-                    const imgs = Array.from(slider.querySelectorAll('img'));
-                    const dotsContainer = slider.querySelector('.slider-dots');
-                    // in case dots container missing, skip dot logic but keep image rotation
-                    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.dot')) : [];
-                    const interval = Number(slider.dataset.interval) || 3000;
+            document.querySelectorAll('.project-slider').forEach(slider => {
+                const imgs = Array.from(slider.querySelectorAll('img'));
+                const dotsWrap = slider.querySelector('.slider-dots');
+                const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.dot')) : [];
+                const interval = Number(slider.dataset.interval || 3000);
 
-                    if (imgs.length === 0) return;
+                if (!imgs.length) return;
 
-                    // find current active index
-                    let currentIdx = imgs.findIndex(img => img.classList.contains('active'));
-                    if (currentIdx < 0) {
-                        // force first image active if none
-                        currentIdx = 0;
-                        imgs.forEach((img, i) => {
-                            img.classList.toggle('active', i === 0);
-                        });
-                    }
+                let idx = imgs.findIndex(i => i.classList.contains('active'));
+                if (idx < 0) idx = 0;
 
-                    // synchronise dots with active class
-                    function syncDots(index) {
-                        if (dots.length && dots.length === imgs.length) {
-                            dots.forEach((dot, i) => {
-                                dot.classList.toggle('active', i === index);
-                            });
-                        }
-                    }
-                    syncDots(currentIdx);
+                const setActive = (nextIdx) => {
+                    imgs[idx].classList.remove('active');
+                    if (dots[idx]) dots[idx].classList.remove('active');
 
-                    // function to set active image by index
-                    function setActiveImage(newIdx) {
-                        if (newIdx === currentIdx) return;
-                        imgs[currentIdx].classList.remove('active');
-                        imgs[newIdx].classList.add('active');
-                        if (dots.length && dots.length === imgs.length) {
-                            dots[currentIdx]?.classList.remove('active');
-                            dots[newIdx]?.classList.add('active');
-                        }
-                        currentIdx = newIdx;
-                    }
+                    idx = nextIdx;
 
-                    // auto rotation
-                    let timer = null;
+                    imgs[idx].classList.add('active');
+                    if (dots[idx]) dots[idx].classList.add('active');
+                };
 
-                    function startRotation() {
-                        if (prefersReduced) return;
-                        stopRotation();
-                        timer = setInterval(() => {
-                            const nextIdx = (currentIdx + 1) % imgs.length;
-                            setActiveImage(nextIdx);
-                        }, interval);
-                    }
+                let timer = null;
 
-                    function stopRotation() {
-                        if (timer) {
-                            clearInterval(timer);
-                            timer = null;
-                        }
-                    }
+                const start = () => {
+                    if (prefersReduced) return;
+                    stop();
+                    timer = setInterval(() => {
+                        const next = (idx + 1) % imgs.length;
+                        setActive(next);
+                    }, interval);
+                };
 
-                    // attach hover & focus events
-                    slider.addEventListener('mouseenter', stopRotation);
-                    slider.addEventListener('mouseleave', startRotation);
-                    slider.addEventListener('focusin', stopRotation);
-                    slider.addEventListener('focusout', startRotation);
+                const stop = () => {
+                    if (timer) clearInterval(timer);
+                    timer = null;
+                };
 
-                    // click on dots (if present)
-                    if (dots.length && dots.length === imgs.length) {
-                        dots.forEach((dot, i) => {
-                            // remove any previous listener to avoid duplicates (simple approach: replace with new)
-                            dot.replaceWith(dot.cloneNode(true));
-                        });
-                        // re-query dots after clone
-                        const freshDots = Array.from(slider.querySelectorAll('.dot'));
-                        freshDots.forEach((dot, i) => {
-                            dot.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                setActiveImage(i);
-                                // restart timer after manual click? common pattern: stop then start again
-                                stopRotation();
-                                startRotation();
-                            });
-                        });
-                        // update dots reference in slider for sync (but syncDots uses updated dots from closure)
-                        // we will use a mutation at the end, but easiest: keep using the freshDots inside slider for syncDots? 
-                        // we redefined syncDots to use dots from closure, but after clone we need to use new dots
-                        // simpler: after cloning, reassign and redo sync
-                        (function updateDotsAndSync() {
-                            const newDots = Array.from(slider.querySelectorAll('.dot'));
-                            // syncDots using newDots
-                            function synced(newIdx) {
-                                newDots.forEach((d, idx) => d.classList.toggle('active', idx === newIdx));
-                            }
-                            synced(currentIdx);
-                            // attach listeners to new dots
-                            newDots.forEach((dot, idx) => {
-                                dot.addEventListener('click', (e) => {
-                                    e.stopPropagation();
-                                    setActiveImage(idx);
-                                    synced(idx); // redundant but fine
-                                    stopRotation();
-                                    startRotation();
-                                });
-                            });
-                        })();
-                    }
+                slider.addEventListener('mouseenter', stop);
+                slider.addEventListener('mouseleave', start);
+                slider.addEventListener('focusin', stop);
+                slider.addEventListener('focusout', start);
 
-                    // start slider rotation
-                    startRotation();
-
-                    // optional: pause rotation when slider not visible (due to filter) – but not necessary
+                dots.forEach((dot, i) => {
+                    dot.style.cursor = 'pointer';
+                    dot.addEventListener('click', () => setActive(i));
                 });
-            }
 
-            // run after DOM ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initSliders);
-            } else {
-                initSliders();
-            }
-
-            // reinit sliders after filter? no need because images remain and sliders continue working,
-            // but if hidden by filter they will pause due to mouseleave? They keep rotating in background which is fine.
-            // However, if you want to ensure newly visible sliders start properly: we can restart timers when becoming visible.
-            // But simpler: all sliders already have timers running even if hidden, not an issue. We can improve by using IntersectionObserver? Not necessary for demo.
-        })();
-    </script>
-
-    <!-- ensure images have fallback in case 404 (just for demo robustness) -->
-    <script>
-        (function addImageFallback() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    this.onerror = null;   // prevent infinite loop
-                    this.alt = '[Image unavailable]';
-                    this.style.background = '#2a2a2a';
-                    this.style.objectFit = 'contain';
-                    this.style.padding = '20px';
-                    // optionally replace src with a data URI or leave broken, but we show fallback
-                });
+                start();
             });
-        })();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSliders);
+        } else {
+            initSliders();
+        }
     </script>
 </body>
 </html>
